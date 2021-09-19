@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6eb296ec1659943ab4f9dc3c26429d, type: 3}
+  m_Name: Song2
+  m_EditorClassIdentifier: 
+  m_TimeInfo:
+  - m_Start: 5
+    m_End: 7.5
+  - m_Start: 11
+    m_End: 17
+  - m_Start: 22.5
+    m_End: 27.5
+  - m_Start: 32.5
+    m_End: 37.5
+  - m_Start: 42.5
+    m_End: 45
+  - m_Start: 52
+    m_End: 55
+  - m_Start: 62.5
+    m_End: 66.5
+  - m_Start: 72.5
+    m_End: 78
+  - m_Start: 84
+    m_End: 88
+  - m_Start: 94
+    m_End: 99
+  - m_Start: 106.5
+    m_End: 109.5
+  - m_Start: 114.5
+    m_End: 119.5
+  - m_Start: 122
+    m_End: 127.5
+  - m_Start: 134
+    m_End: 138.5
+  - m_Start: 145
+    m_End: 150
+  - m_Start: 155
+    m_End: 160
+  - m_Start: 166
+    m_End: 170

@@ -1,0 +1,949 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
+  m_Name: 04. Spookeez
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 2d17cc63b76b03241a1597263f648f5e, type: 3}
+  bpm: 128
+  useCurrentBpmMidiImport: 1
+  notes:
+  - noteName: 0
+    noteOctave: 4
+    time: 9.9609375
+    noteLength: 0.46875
+    beatIndex: 21.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 10.1953125
+    noteLength: 0.46875
+    beatIndex: 21.75
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 11.1328125
+    noteLength: 0.46875
+    beatIndex: 23.75
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 11.3671875
+    noteLength: 0.46875
+    beatIndex: 24.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 11.6015625
+    noteLength: 0.46875
+    beatIndex: 24.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 11.71875
+    noteLength: 0.46875
+    beatIndex: 25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 11.953125
+    noteLength: 0.46875
+    beatIndex: 25.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 5
+    time: 12.3046875
+    noteLength: 0.5859375
+    beatIndex: 26.25
+    beatLengthIndex: 1.25
+  - noteName: 0
+    noteOctave: 4
+    time: 16.40625
+    noteLength: 0.46875
+    beatIndex: 35
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 16.640625
+    noteLength: 0.46875
+    beatIndex: 35.5
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 16.757812
+    noteLength: 0.46875
+    beatIndex: 35.75
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 16.992188
+    noteLength: 0.46875
+    beatIndex: 36.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 17.226562
+    noteLength: 0.46875
+    beatIndex: 36.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 17.34375
+    noteLength: 0.46875
+    beatIndex: 37
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 17.578125
+    noteLength: 0.46875
+    beatIndex: 37.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 18.046875
+    noteLength: 0.46875
+    beatIndex: 38.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 18.398438
+    noteLength: 0.46875
+    beatIndex: 39.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 26.25
+    noteLength: 0.46875
+    beatIndex: 56
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 27.304688
+    noteLength: 0.46875
+    beatIndex: 58.25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 27.65625
+    noteLength: 0.46875
+    beatIndex: 59
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 28.945312
+    noteLength: 0.46875
+    beatIndex: 61.75
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 29.179688
+    noteLength: 0.46875
+    beatIndex: 62.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 29.414062
+    noteLength: 0.46875
+    beatIndex: 62.75
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 30.703125
+    noteLength: 0.46875
+    beatIndex: 65.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 30.820312
+    noteLength: 0.46875
+    beatIndex: 65.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 31.054688
+    noteLength: 0.46875
+    beatIndex: 66.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 31.640625
+    noteLength: 0.46875
+    beatIndex: 67.5
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 31.992188
+    noteLength: 0.46875
+    beatIndex: 68.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 35.625
+    noteLength: 0.46875
+    beatIndex: 76
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 35.742188
+    noteLength: 0.46875
+    beatIndex: 76.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 35.976562
+    noteLength: 0.46875
+    beatIndex: 76.75
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 36.328125
+    noteLength: 0.46875
+    beatIndex: 77.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 36.796875
+    noteLength: 0.46875
+    beatIndex: 78.5
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 36.914062
+    noteLength: 0.46875
+    beatIndex: 78.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 37.148438
+    noteLength: 0.46875
+    beatIndex: 79.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 37.382812
+    noteLength: 0.46875
+    beatIndex: 79.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 37.617188
+    noteLength: 0.46875
+    beatIndex: 80.25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 37.96875
+    noteLength: 0.46875
+    beatIndex: 81
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 42.1875
+    noteLength: 0.46875
+    beatIndex: 90
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 51.210938
+    noteLength: 0.46875
+    beatIndex: 109.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 53.085938
+    noteLength: 0.46875
+    beatIndex: 113.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 53.203125
+    noteLength: 0.46875
+    beatIndex: 113.5
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 53.4375
+    noteLength: 0.46875
+    beatIndex: 114
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 54.375
+    noteLength: 0.46875
+    beatIndex: 116
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 54.609375
+    noteLength: 0.46875
+    beatIndex: 116.5
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 54.726562
+    noteLength: 0.46875
+    beatIndex: 116.75
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 54.960938
+    noteLength: 0.46875
+    beatIndex: 117.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 56.367188
+    noteLength: 0.46875
+    beatIndex: 120.25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 64.33594
+    noteLength: 0.46875
+    beatIndex: 137.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 64.80469
+    noteLength: 0.46875
+    beatIndex: 138.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 65.15625
+    noteLength: 0.46875
+    beatIndex: 139
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 65.625
+    noteLength: 0.46875
+    beatIndex: 140
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 65.97656
+    noteLength: 0.46875
+    beatIndex: 140.75
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 66.44531
+    noteLength: 0.46875
+    beatIndex: 141.75
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 66.5625
+    noteLength: 0.46875
+    beatIndex: 142
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 66.67969
+    noteLength: 0.46875
+    beatIndex: 142.25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 67.14844
+    noteLength: 0.46875
+    beatIndex: 143.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 67.61719
+    noteLength: 0.46875
+    beatIndex: 144.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 67.734375
+    noteLength: 0.46875
+    beatIndex: 144.5
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 67.96875
+    noteLength: 0.46875
+    beatIndex: 145
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 68.4375
+    noteLength: 0.46875
+    beatIndex: 146
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 68.78906
+    noteLength: 0.46875
+    beatIndex: 146.75
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 69.609375
+    noteLength: 0.46875
+    beatIndex: 148.5
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 77.22656
+    noteLength: 0.46875
+    beatIndex: 164.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 77.46094
+    noteLength: 0.46875
+    beatIndex: 165.25
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 77.578125
+    noteLength: 0.46875
+    beatIndex: 165.5
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 77.8125
+    noteLength: 0.46875
+    beatIndex: 166
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 78.16406
+    noteLength: 0.46875
+    beatIndex: 166.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 78.39844
+    noteLength: 0.46875
+    beatIndex: 167.25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 78.75
+    noteLength: 0.46875
+    beatIndex: 168
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 78.984375
+    noteLength: 0.46875
+    beatIndex: 168.5
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 79.21875
+    noteLength: 0.46875
+    beatIndex: 169
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 79.80469
+    noteLength: 0.46875
+    beatIndex: 170.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 79.921875
+    noteLength: 0.46875
+    beatIndex: 170.5
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 80.390625
+    noteLength: 0.46875
+    beatIndex: 171.5
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 80.625
+    noteLength: 0.46875
+    beatIndex: 172
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 80.74219
+    noteLength: 0.46875
+    beatIndex: 172.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 80.97656
+    noteLength: 0.46875
+    beatIndex: 172.75
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 81.44531
+    noteLength: 0.46875
+    beatIndex: 173.75
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 81.5625
+    noteLength: 0.46875
+    beatIndex: 174
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 81.91406
+    noteLength: 0.46875
+    beatIndex: 174.75
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 5
+    time: 82.38281
+    noteLength: 1.171875
+    beatIndex: 175.75
+    beatLengthIndex: 2.5
+  - noteName: 5
+    noteOctave: 4
+    time: 91.05469
+    noteLength: 0.46875
+    beatIndex: 194.25
+    beatLengthIndex: 1
+  - noteName: 2
+    noteOctave: 4
+    time: 91.52344
+    noteLength: 0.46875
+    beatIndex: 195.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 91.75781
+    noteLength: 0.46875
+    beatIndex: 195.75
+    beatLengthIndex: 1
+  - noteName: 0
+    noteOctave: 4
+    time: 91.99219
+    noteLength: 0.46875
+    beatIndex: 196.25
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 92.8125
+    noteLength: 0.46875
+    beatIndex: 198
+    beatLengthIndex: 1
+  - noteName: 5
+    noteOctave: 4
+    time: 94.453125
+    noteLength: 0.46875
+    beatIndex: 201.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 94.80469
+    noteLength: 0.46875
+    beatIndex: 202.25
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 95.15625
+    noteLength: 0.46875
+    beatIndex: 203
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 4
+    time: 95.390625
+    noteLength: 0.46875
+    beatIndex: 203.5
+    beatLengthIndex: 1
+  - noteName: 4
+    noteOctave: 5
+    time: 95.97656
+    noteLength: 1.171875
+    beatIndex: 204.75
+    beatLengthIndex: 2.5
+  - noteName: 2
+    noteOctave: 4
+    time: 10.546875
+    noteLength: 0.234375
+    beatIndex: 22.5
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 10.78125
+    noteLength: 0.234375
+    beatIndex: 23
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 4
+    time: 18.75
+    noteLength: 0.234375
+    beatIndex: 40
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 19.101562
+    noteLength: 0.234375
+    beatIndex: 40.75
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 19.453125
+    noteLength: 0.234375
+    beatIndex: 41.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 4
+    time: 25.546875
+    noteLength: 0.234375
+    beatIndex: 54.5
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 4
+    time: 25.898438
+    noteLength: 0.234375
+    beatIndex: 55.25
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 28.007812
+    noteLength: 0.234375
+    beatIndex: 59.75
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 4
+    time: 51.5625
+    noteLength: 0.234375
+    beatIndex: 110
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 51.796875
+    noteLength: 0.234375
+    beatIndex: 110.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 4
+    time: 52.03125
+    noteLength: 0.234375
+    beatIndex: 111
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 56.835938
+    noteLength: 0.234375
+    beatIndex: 121.25
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 4
+    time: 79.453125
+    noteLength: 0.234375
+    beatIndex: 169.5
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 4
+    time: 91.28906
+    noteLength: 0.234375
+    beatIndex: 194.75
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 4
+    time: 95.859375
+    noteLength: 0.234375
+    beatIndex: 204.5
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 4
+    time: 92.578125
+    noteLength: 0.234375
+    beatIndex: 197.5
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 4
+    time: 93.16406
+    noteLength: 0.234375
+    beatIndex: 198.75
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 4
+    time: 41.953125
+    noteLength: 0.234375
+    beatIndex: 89.5
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 4
+    time: 42.421875
+    noteLength: 0.234375
+    beatIndex: 90.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 4
+    time: 42.65625
+    noteLength: 0.234375
+    beatIndex: 91
+    beatLengthIndex: 0.5
+  - noteName: 0
+    noteOctave: 4
+    time: 42.890625
+    noteLength: 0.234375
+    beatIndex: 91.5
+    beatLengthIndex: 0.5
+  - noteName: 5
+    noteOctave: 5
+    time: 43.242188
+    noteLength: 0.703125
+    beatIndex: 92.25
+    beatLengthIndex: 1.5
+  - noteName: 0
+    noteOctave: 4
+    time: 43.59375
+    noteLength: 0.703125
+    beatIndex: 93
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 43.828125
+    noteLength: 0.703125
+    beatIndex: 93.5
+    beatLengthIndex: 1.5
+  - noteName: 5
+    noteOctave: 4
+    time: 44.179688
+    noteLength: 0.703125
+    beatIndex: 94.25
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 44.414062
+    noteLength: 0.703125
+    beatIndex: 94.75
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 44.765625
+    noteLength: 0.703125
+    beatIndex: 95.5
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 45
+    noteLength: 0.703125
+    beatIndex: 96
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 56.601562
+    noteLength: 0.703125
+    beatIndex: 120.75
+    beatLengthIndex: 1.5
+  - noteName: 0
+    noteOctave: 4
+    time: 69.140625
+    noteLength: 0.703125
+    beatIndex: 147.5
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 70.078125
+    noteLength: 0.703125
+    beatIndex: 149.5
+    beatLengthIndex: 1.5
+  - noteName: 5
+    noteOctave: 4
+    time: 70.42969
+    noteLength: 0.703125
+    beatIndex: 150.25
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 82.734375
+    noteLength: 0.703125
+    beatIndex: 176.5
+    beatLengthIndex: 1.5
+  - noteName: 5
+    noteOctave: 4
+    time: 83.08594
+    noteLength: 0.703125
+    beatIndex: 177.25
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 83.4375
+    noteLength: 0.703125
+    beatIndex: 178
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 90
+    noteLength: 0.703125
+    beatIndex: 192
+    beatLengthIndex: 1.5
+  - noteName: 0
+    noteOctave: 4
+    time: 90.234375
+    noteLength: 0.703125
+    beatIndex: 192.5
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 90.58594
+    noteLength: 0.703125
+    beatIndex: 193.25
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 92.22656
+    noteLength: 0.703125
+    beatIndex: 196.75
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 93.39844
+    noteLength: 0.703125
+    beatIndex: 199.25
+    beatLengthIndex: 1.5
+  - noteName: 0
+    noteOctave: 4
+    time: 93.63281
+    noteLength: 0.703125
+    beatIndex: 199.75
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 4
+    time: 93.86719
+    noteLength: 0.703125
+    beatIndex: 200.25
+    beatLengthIndex: 1.5
+  - noteName: 2
+    noteOctave: 4
+    time: 94.21875
+    noteLength: 0.703125
+    beatIndex: 201
+    beatLengthIndex: 1.5
+  - noteName: 4
+    noteOctave: 7
+    time: 0.703125
+    noteLength: 0.234375
+    beatIndex: 1.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 8.5546875
+    noteLength: 0.234375
+    beatIndex: 18.25
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 13.2421875
+    noteLength: 0.234375
+    beatIndex: 28.25
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 15.3515625
+    noteLength: 0.234375
+    beatIndex: 32.75
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 20.390625
+    noteLength: 0.234375
+    beatIndex: 43.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 24.375
+    noteLength: 0.234375
+    beatIndex: 52
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 32.929688
+    noteLength: 0.234375
+    beatIndex: 70.25
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 34.570312
+    noteLength: 0.234375
+    beatIndex: 73.75
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 38.90625
+    noteLength: 0.234375
+    beatIndex: 83
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 40.898438
+    noteLength: 0.234375
+    beatIndex: 87.25
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 45.9375
+    noteLength: 0.234375
+    beatIndex: 98
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 50.15625
+    noteLength: 0.234375
+    beatIndex: 107
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 57.773438
+    noteLength: 0.234375
+    beatIndex: 123.25
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 63.164062
+    noteLength: 0.234375
+    beatIndex: 134.75
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 71.25
+    noteLength: 0.234375
+    beatIndex: 152
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 76.05469
+    noteLength: 0.234375
+    beatIndex: 162.25
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 84.375
+    noteLength: 0.234375
+    beatIndex: 180
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 88.828125
+    noteLength: 0.234375
+    beatIndex: 189.5
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 96.91406
+    noteLength: 0.234375
+    beatIndex: 206.75
+    beatLengthIndex: 0.5
+  useGenetator: 0
+  runtimeGenerate: 0
+  generator: {fileID: 0}
+  onsetSensitivity: 1
+  onsetData: []
+  onsetMin: 0
+  onsetMax: 0

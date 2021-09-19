@@ -1,0 +1,192 @@
+[
+    {
+        "ID": "1",
+        "Name": "01. tuz",
+        "BPM": "128",
+        "First Reward": "10",
+        "Replay Reward": "2",
+        "Price": "0",
+        "Enemy": "dad",
+        "Enemy No": "1"
+    },
+    {
+        "ID": "2",
+        "Name": "02. bopeebo",
+        "BPM": "128",
+        "First Reward": "50",
+        "Replay Reward": "5",
+        "Price": "30",
+        "Enemy": "dad",
+        "Enemy No": "1"
+    },
+    {
+        "ID": "3",
+        "Name": "03. fresh",
+        "BPM": "128",
+        "First Reward": "50",
+        "Replay Reward": "5",
+        "Price": "30",
+        "Enemy": "dad",
+        "Enemy No": "1"
+    },
+    {
+        "ID": "4",
+        "Name": "04. dad Battle",
+        "BPM": "128",
+        "First Reward": "50",
+        "Replay Reward": "5",
+        "Price": "30",
+        "Enemy": "dad",
+        "Enemy No": "1"
+    },
+    {
+        "ID": "5",
+        "Name": "05. spookeez",
+        "BPM": "135",
+        "First Reward": "100",
+        "Replay Reward": "10",
+        "Price": "50",
+        "Enemy": "racing_boy",
+        "Enemy No": "2"
+    },
+    {
+        "ID": "6",
+        "Name": "06. south",
+        "BPM": "140",
+        "First Reward": "100",
+        "Replay Reward": "10",
+        "Price": "50",
+        "Enemy": "racing_boy",
+        "Enemy No": "2"
+    },
+    {
+        "ID": "7",
+        "Name": "07. monster",
+        "BPM": "140",
+        "First Reward": "100",
+        "Replay Reward": "10",
+        "Price": "50",
+        "Enemy": "racing_boy",
+        "Enemy No": "2"
+    },
+    {
+        "ID": "8",
+        "Name": "08. pico",
+        "BPM": "155",
+        "First Reward": "100",
+        "Replay Reward": "15",
+        "Price": "80",
+        "Enemy": "pico",
+        "Enemy No": "3"
+    },
+    {
+        "ID": "9",
+        "Name": "09. phyliip Nice",
+        "BPM": "165",
+        "First Reward": "100",
+        "Replay Reward": "15",
+        "Price": "80",
+        "Enemy": "pico",
+        "Enemy No": "3"
+    },
+    {
+        "ID": "10",
+        "Name": "10. blammed",
+        "BPM": "175",
+        "First Reward": "120",
+        "Replay Reward": "15",
+        "Price": "90",
+        "Enemy": "pico",
+        "Enemy No": "3"
+    },
+    {
+        "ID": "11",
+        "Name": "11. satin Panties",
+        "BPM": "190",
+        "First Reward": "120",
+        "Replay Reward": "15",
+        "Price": "90",
+        "Enemy": "mom",
+        "Enemy No": "4"
+    },
+    {
+        "ID": "12",
+        "Name": "12. high",
+        "BPM": "200",
+        "First Reward": "160",
+        "Replay Reward": "20",
+        "Price": "130",
+        "Enemy": "mom",
+        "Enemy No": "4"
+    },
+    {
+        "ID": "13",
+        "Name": "13. m.i.l.f",
+        "BPM": "205",
+        "First Reward": "160",
+        "Replay Reward": "20",
+        "Price": "130",
+        "Enemy": "mom",
+        "Enemy No": "4"
+    },
+    {
+        "ID": "14",
+        "Name": "14. cocoa",
+        "BPM": "205",
+        "First Reward": "180",
+        "Replay Reward": "20",
+        "Price": "130",
+        "Enemy": "parent",
+        "Enemy No": "5"
+    },
+    {
+        "ID": "15",
+        "Name": "15. eggnog",
+        "BPM": "215",
+        "First Reward": "180",
+        "Replay Reward": "25",
+        "Price": "150",
+        "Enemy": "parent",
+        "Enemy No": "5"
+    },
+    {
+        "ID": "16",
+        "Name": "16. winter",
+        "BPM": "225",
+        "First Reward": "180",
+        "Replay Reward": "25",
+        "Price": "150",
+        "Enemy": "monster",
+        "Enemy No": "6"
+    },
+    {
+        "ID": "17",
+        "Name": "17. senpai",
+        "BPM": "235",
+        "First Reward": "180",
+        "Replay Reward": "25",
+        "Price": "150",
+        "Enemy": "senpai",
+        "Enemy No": "7"
+    },
+    {
+        "ID": "18",
+        "Name": "18. roses",
+        "BPM": "245",
+        "First Reward": "700",
+        "Replay Reward": "35",
+        "Price": "500",
+        "Enemy": "senpai",
+        "Enemy No": "7"
+    },
+    {
+        "ID": "19",
+        "Name": "19 .thorns",
+        "BPM": "255",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "spirit",
+        "Enemy No": "8"
+    }
+]

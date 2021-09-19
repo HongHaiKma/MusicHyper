@@ -1,0 +1,300 @@
+
+Girlfriend.png
+size: 920,652
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Leg1S
+  rotate: true
+  xy: 464, 185
+  size: 58, 116
+  orig: 61, 118
+  offset: 1, 1
+  index: -1
+Loa_2
+  rotate: true
+  xy: 712, 469
+  size: 180, 187
+  orig: 180, 187
+  offset: 0, 0
+  index: -1
+Loa_2_miss
+  rotate: true
+  xy: 280, 320
+  size: 180, 187
+  orig: 180, 187
+  offset: 0, 0
+  index: -1
+Loa_Big
+  rotate: true
+  xy: 2, 332
+  size: 317, 276
+  orig: 317, 276
+  offset: 0, 0
+  index: -1
+Loa_Big_miss
+  rotate: true
+  xy: 2, 13
+  size: 317, 276
+  orig: 317, 276
+  offset: 0, 0
+  index: -1
+Miss_Note
+  rotate: true
+  xy: 280, 27
+  size: 131, 99
+  orig: 132, 103
+  offset: 0, 0
+  index: -1
+arm1_idle
+  rotate: true
+  xy: 711, 146
+  size: 64, 92
+  orig: 64, 92
+  offset: 0, 0
+  index: -1
+arm1_idle_miss
+  rotate: true
+  xy: 818, 10
+  size: 64, 92
+  orig: 64, 92
+  offset: 0, 0
+  index: -1
+arm2_idle
+  rotate: true
+  xy: 550, 6
+  size: 57, 93
+  orig: 57, 93
+  offset: 0, 0
+  index: -1
+arm2_idle_miss
+  rotate: false
+  xy: 805, 117
+  size: 57, 93
+  orig: 57, 93
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 621, 243
+  size: 89, 92
+  orig: 92, 94
+  offset: 1, 1
+  index: -1
+body_miss
+  rotate: true
+  xy: 724, 2
+  size: 89, 92
+  orig: 92, 94
+  offset: 1, 1
+  index: -1
+face_crying
+  rotate: true
+  xy: 642, 420
+  size: 80, 68
+  orig: 83, 70
+  offset: 1, 1
+  index: -1
+face_down
+  rotate: false
+  xy: 468, 3
+  size: 80, 59
+  orig: 82, 61
+  offset: 1, 1
+  index: -1
+face_idle
+  rotate: true
+  xy: 280, 160
+  size: 81, 63
+  orig: 83, 65
+  offset: 1, 1
+  index: -1
+face_left
+  rotate: true
+  xy: 642, 337
+  size: 81, 66
+  orig: 83, 68
+  offset: 1, 1
+  index: -1
+face_miss
+  rotate: false
+  xy: 280, 245
+  size: 82, 73
+  orig: 85, 75
+  offset: 2, 1
+  index: -1
+face_right
+  rotate: true
+  xy: 392, 187
+  size: 80, 70
+  orig: 83, 73
+  offset: 2, 1
+  index: -1
+face_scare
+  rotate: false
+  xy: 381, 2
+  size: 85, 59
+  orig: 88, 61
+  offset: 2, 1
+  index: -1
+face_up
+  rotate: false
+  xy: 381, 63
+  size: 80, 65
+  orig: 82, 67
+  offset: 1, 1
+  index: -1
+hair_back
+  rotate: true
+  xy: 280, 502
+  size: 147, 214
+  orig: 147, 214
+  offset: 0, 0
+  index: -1
+hair_back_miss
+  rotate: true
+  xy: 496, 502
+  size: 147, 214
+  orig: 147, 214
+  offset: 0, 0
+  index: -1
+hand1_idle
+  rotate: true
+  xy: 885, 404
+  size: 63, 31
+  orig: 65, 33
+  offset: 1, 1
+  index: -1
+hand1_idle_miss
+  rotate: true
+  xy: 885, 339
+  size: 63, 31
+  orig: 65, 33
+  offset: 1, 1
+  index: -1
+hand1_scare
+  rotate: false
+  xy: 345, 160
+  size: 45, 81
+  orig: 47, 83
+  offset: 1, 1
+  index: -1
+hand2A
+  rotate: false
+  xy: 392, 130
+  size: 70, 55
+  orig: 72, 57
+  offset: 1, 1
+  index: -1
+hand2B
+  rotate: false
+  xy: 463, 64
+  size: 70, 52
+  orig: 72, 54
+  offset: 1, 1
+  index: -1
+hand2_idle
+  rotate: true
+  xy: 885, 274
+  size: 63, 31
+  orig: 65, 33
+  offset: 1, 1
+  index: -1
+hand2_idle_miss
+  rotate: true
+  xy: 582, 180
+  size: 63, 31
+  orig: 65, 33
+  offset: 1, 1
+  index: -1
+hand2_scare
+  rotate: false
+  xy: 864, 76
+  size: 50, 82
+  orig: 54, 84
+  offset: 2, 1
+  index: -1
+hand3A
+  rotate: false
+  xy: 864, 217
+  size: 53, 55
+  orig: 55, 57
+  offset: 1, 1
+  index: -1
+hand3B
+  rotate: false
+  xy: 864, 160
+  size: 53, 55
+  orig: 55, 57
+  offset: 1, 1
+  index: -1
+hand4A
+  rotate: true
+  xy: 535, 65
+  size: 51, 77
+  orig: 54, 79
+  offset: 2, 1
+  index: -1
+hand4B
+  rotate: true
+  xy: 724, 93
+  size: 51, 77
+  orig: 54, 79
+  offset: 1, 1
+  index: -1
+head
+  rotate: false
+  xy: 469, 346
+  size: 171, 154
+  orig: 173, 156
+  offset: 1, 1
+  index: -1
+head_miss
+  rotate: false
+  xy: 712, 313
+  size: 171, 154
+  orig: 173, 156
+  offset: 1, 1
+  index: -1
+leg1
+  rotate: true
+  xy: 464, 118
+  size: 65, 108
+  orig: 67, 111
+  offset: 1, 2
+  index: -1
+leg1_miss
+  rotate: true
+  xy: 614, 73
+  size: 65, 108
+  orig: 67, 111
+  offset: 1, 2
+  index: -1
+leg2
+  rotate: false
+  xy: 469, 245
+  size: 150, 99
+  orig: 150, 99
+  offset: 0, 0
+  index: -1
+leg2S
+  rotate: false
+  xy: 615, 140
+  size: 94, 101
+  orig: 96, 104
+  offset: 1, 1
+  index: -1
+leg2_miss
+  rotate: false
+  xy: 712, 212
+  size: 150, 99
+  orig: 150, 99
+  offset: 0, 0
+  index: -1
+miss_fx
+  rotate: true
+  xy: 364, 269
+  size: 49, 102
+  orig: 49, 102
+  offset: 0, 0
+  index: -1
