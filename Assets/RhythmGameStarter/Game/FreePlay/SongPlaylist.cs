@@ -54,11 +54,13 @@ public class SongPlaylist : EnhancedScrollerCellView
     public void AddListener()
     {
         EventManager.AddListener(GameEvent.DISPLAY_SONG_INFO, DisplaySongInfo);
+        EventManager1<int>.AddListener(GameEvent.TRY_SONG, PlayTrySong);
     }
 
     public void RemoveListener()
     {
         EventManager.RemoveListener(GameEvent.DISPLAY_SONG_INFO, DisplaySongInfo);
+        EventManager1<int>.RemoveListener(GameEvent.TRY_SONG, PlayTrySong);
     }
 
     public void SetData(SongData data)
@@ -200,6 +202,49 @@ public class SongPlaylist : EnhancedScrollerCellView
         StartCoroutine(IEPlaySong());
     }
 
+    public void PlayTrySong(int _songId)
+    {
+        if (songId == _songId)
+        {
+            GUIManager.Instance.SetBlockPopup(true);
+            TrackManager.Instance.beatSize = 1.5f;
+
+            GameManager.Instance.txt_Time.gameObject.SetActive(false);
+
+            GUIManager.Instance.SetBlockPopup(true);
+            SoundManager.Instance.PauseBGM();
+            GameManager.Instance.PlaySong();
+            GameManager.Instance.m_DefaultSong = songId;
+
+            SongConfig song = GameData.Instance.GetSongConfig(songId);
+
+            if (ProfileManager.GetSongProfiles(songId) != null)
+            {
+                GameManager.Instance.m_TrySong = false;
+            }
+            else
+            {
+                GameManager.Instance.m_TrySong = true;
+            }
+
+            if (GameManager.Instance.m_Enemy != null)
+            {
+                Destroy(GameManager.Instance.m_Enemy.gameObject);
+            }
+
+            Helper.DebugLog("Enemy name: " + song.m_EnemyName);
+
+            GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+            enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+            enemy.transform.localPosition = Vector3.zero;
+            enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+            enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+            GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+
+            StartCoroutine(IEPlaySong());
+        }
+    }
+
     public void BuySong()
     {
         SongConfig config = GameData.Instance.GetSongConfig(songId);
@@ -215,7 +260,7 @@ public class SongPlaylist : EnhancedScrollerCellView
 
     public void TrySong()
     {
-        PlaySong();
+        AdsManager.Instance.WatchRewardVideo(RewardType.TRY_SONG, songId);
     }
 
     IEnumerator IEPlaySong()

@@ -120,4 +120,5 @@ public enum GameEvent
 {
     DISPLAY_SONG_INFO,
     VIBRATE_HEAVY,
+    TRY_SONG,
 }
