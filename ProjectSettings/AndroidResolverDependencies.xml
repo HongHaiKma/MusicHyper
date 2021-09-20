@@ -1,7 +1,9 @@
 <dependencies>
   <packages>
+    <package>com.android.support:appcompat-v7:28.+</package>
     <package>com.android.support:customtabs:28.+</package>
     <package>com.android.support:recyclerview-v7:28.+</package>
+    <package>com.applovin.mediation:facebook-adapter:[6.5.1.0]</package>
     <package>com.applovin.mediation:google-adapter:[20.3.0.0]</package>
     <package>com.applovin.mediation:google-ad-manager-adapter:[20.3.0.0]</package>
     <package>com.applovin.mediation:inmobi-adapter:9.9.9.6</package>
