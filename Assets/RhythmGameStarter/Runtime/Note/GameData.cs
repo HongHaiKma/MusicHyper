@@ -126,7 +126,7 @@ public class GameData : Singleton<GameData>
             BigNumber price = 0;
             if (iNode[colName].ToString().Length > 0)
             {
-                price = new BigNumber(iNode[colName]);
+                price = new BigNumber(iNode[colName] + 0);
             }
 
             string enemyName = "";

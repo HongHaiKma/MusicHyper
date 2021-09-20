@@ -27,6 +27,8 @@ namespace RhythmGameStarter
             FadeOut();
             StatsSystem.Instance.missed = 0;
             StatsSystem.Instance.combo = 0;
+            StatsSystem.Instance.score = 0;
+            StatsSystem.Instance.UpdateScoreDisplay();
             GUIManager.Instance.SetBlockPopup(true);
             GameManager.Instance.ResetSong();
         }

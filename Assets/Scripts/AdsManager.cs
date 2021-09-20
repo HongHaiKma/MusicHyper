@@ -504,10 +504,16 @@ public class AdsManager : Singleton<AdsManager>
 
 
     [Header("MAX SDK")]
-    string adUnitId = "lBnu4FPbTxGUi8cqgwNENfRfqINTVk8B9NxC2Japp2DqKPThsIhPCF7zcC6wr9_IN8OLTcG9SR4dT4OJwQPTBf";
-    private string m_InterId = "04ed1093a54d8b5d";
-    private string m_RewardId = "18edca5329c5f208";
-    private string m_BannerId = "a29cb6e6fe5d0f40";
+    // string adUnitId = "lBnu4FPbTxGUi8cqgwNENfRfqINTVk8B9NxC2Japp2DqKPThsIhPCF7zcC6wr9_IN8OLTcG9SR4dT4OJwQPTBf";
+    // private string m_InterId = "04ed1093a54d8b5d";
+    // private string m_RewardId = "18edca5329c5f208";
+    // private string m_BannerId = "a29cb6e6fe5d0f40";
+
+    string adUnitId = "0ko0mEaKOc3CSBbwy27NHk3dUVVz6sJL3AxewyDaTOlmr5qZqKLAkHgoPkTWp4VC8iiueO2l7zSxTHTnU2XeJz";
+    private string m_InterId = "71d80a40d260fd23";
+    private string m_RewardId = "d6314ac95f0daa9c";
+    private string m_BannerId = "f3cfb48864daa76d";
+
     int retryAttempt;
 
     private void Awake()
@@ -550,12 +556,13 @@ public class AdsManager : Singleton<AdsManager>
         //     this.RequestInter();
         //     this.RequestRewardVideo();
         // });
+        // MaxSdk.SetTestDeviceAdvertisingIdentifiers(new string[] { "6d97e445-c154-4dc5-878b-9b27b6bddacd" });
 
         MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
             {
                 // AppLovin SDK is initialized, configure and start loading ads.
                 Debug.Log("MAX SDK Initialized");
-                // MaxSdk.ShowMediationDebugger();
+                MaxSdk.ShowMediationDebugger();
 
                 InitializeInterstitialAds();
                 InitializeRewardedAds();
@@ -577,13 +584,13 @@ public class AdsManager : Singleton<AdsManager>
             // Banners are automatically sized to 320x50 on phones and 728x90 on tablets.
             // You may use the utility method `MaxSdkUtils.isTablet()` to help with view sizing adjustments.
 
-            MaxSdk.CreateBanner(adUnitId, MaxSdkBase.BannerPosition.BottomCenter);
-            MaxSdk.SetBannerExtraParameter(adUnitId, "adaptive_banner", "true");
+            MaxSdk.CreateBanner(m_BannerId, MaxSdkBase.BannerPosition.BottomCenter);
+            MaxSdk.SetBannerExtraParameter(m_BannerId, "adaptive_banner", "true");
             // MaxSdk.CreateBanner(adUnitId, 0f, 25f);
             // MaxSdk.CreateBanner(adUnitId, 0f, 0f);
 
             // Set background or background color for banners to be fully functional.
-            MaxSdk.SetBannerBackgroundColor(adUnitId, Color.white);
+            MaxSdk.SetBannerBackgroundColor(m_BannerId, Color.white);
         }
     }
 
@@ -605,7 +612,7 @@ public class AdsManager : Singleton<AdsManager>
 
     private void LoadRewardedAd()
     {
-        MaxSdk.LoadRewardedAd(adUnitId);
+        MaxSdk.LoadRewardedAd(m_RewardId);
     }
 
     private void OnRewardedAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -682,7 +689,7 @@ public class AdsManager : Singleton<AdsManager>
 
     private void LoadInterstitial()
     {
-        MaxSdk.LoadInterstitial(adUnitId);
+        MaxSdk.LoadInterstitial(m_InterId);
     }
 
     private void OnInterstitialLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -867,7 +874,7 @@ public class AdsManager : Singleton<AdsManager>
 
         if (ProfileManager.CheckAds())
         {
-            MaxSdk.ShowBanner(adUnitId);
+            MaxSdk.ShowBanner(m_BannerId);
         }
     }
 
@@ -875,7 +882,7 @@ public class AdsManager : Singleton<AdsManager>
     {
         // this.m_BannerView.Hide();
         // this.m_BannerView.Destroy();
-        MaxSdk.HideBanner(adUnitId);
+        MaxSdk.HideBanner(m_BannerId);
     }
 
     // public void LoadInter()
@@ -915,10 +922,10 @@ public class AdsManager : Singleton<AdsManager>
             //     // RequestInter();
             //     LoadInter();
             // }
-            if (MaxSdk.IsInterstitialReady(adUnitId))
+            if (MaxSdk.IsInterstitialReady(m_InterId))
             {
                 // AnalysticsManager.LogInterAdsShow();
-                MaxSdk.ShowInterstitial(adUnitId);
+                MaxSdk.ShowInterstitial(m_InterId);
             }
             else
             {
@@ -1055,6 +1062,11 @@ public class AdsManager : Singleton<AdsManager>
             case RewardType.TRY_SONG:
                 EventManager1<int>.CallEvent(GameEvent.TRY_SONG, m_TrySongId);
                 break;
+            // case RewardType.X3_CLAIM:
+            //     EventManager.CallEvent(GameEvent.X3_CLAIM);
+            //     break;
+            default:
+                break;
         }
     }
 
@@ -1110,6 +1122,11 @@ public class AdsManager : Singleton<AdsManager>
             //     }
             //     AnalysticsManager.LogRewardCharProgress();
             //     break;
+            case RewardType.X3_CLAIM:
+                EventManager.CallEvent(GameEvent.X3_CLAIM);
+                break;
+            default:
+                break;
         }
     }
 
@@ -1152,9 +1169,9 @@ public class AdsManager : Singleton<AdsManager>
         //     // GUIManager.Instance.GetPanelLoadingAds().g_NetworkError.SetActive(false);
         // }
 
-        if (MaxSdk.IsRewardedAdReady(adUnitId))
+        if (MaxSdk.IsRewardedAdReady(m_RewardId))
         {
-            MaxSdk.ShowRewardedAd(adUnitId);
+            MaxSdk.ShowRewardedAd(m_RewardId);
             Helper.DebugLog("IsRewardedAdReady");
         }
         else
@@ -1180,4 +1197,5 @@ public enum RewardType
     START_LONGER,
     OUTFIT_PROGRESS,
     TRY_SONG,
+    X3_CLAIM,
 }

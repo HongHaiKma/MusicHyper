@@ -51,8 +51,10 @@ namespace RhythmGameStarter
             FadeOut();
             StatsSystem.Instance.missed = 0;
             StatsSystem.Instance.combo = 0;
+            StatsSystem.Instance.score = 0;
             GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
             ComboSystem.Instance.UpdateComboDisplay();
+            StatsSystem.Instance.UpdateScoreDisplay();
             GUIManager.Instance.SetBlockPopup(true);
             GameManager.Instance.ResetSong();
         }

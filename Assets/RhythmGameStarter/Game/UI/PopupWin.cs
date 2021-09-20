@@ -139,6 +139,28 @@ namespace RhythmGameStarter
             txt_X3GoldClaim.text = (CalGoldWin() * 3).ToString();
 
             txt_TotalGold.text = ProfileManager.GetGold();
+
+            AddListener();
+        }
+
+        private void OnDisable()
+        {
+            RemoveListener();
+        }
+
+        private void OnDestroy()
+        {
+            RemoveListener();
+        }
+
+        public void AddListener()
+        {
+            EventManager.AddListener(GameEvent.X3_CLAIM, X3ClaimLogic);
+        }
+
+        public void RemoveListener()
+        {
+            EventManager.RemoveListener(GameEvent.X3_CLAIM, X3ClaimLogic);
         }
 
         public BigNumber CalGoldWin()
@@ -200,6 +222,56 @@ namespace RhythmGameStarter
         }
 
         public void X3Claim()
+        {
+            // if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            // {
+            //     ProfileManager.AddGold(CalGoldStory() * 3);
+            //     SetWeekProfile();
+            //     // GameManager.Instance.NextWeekSong();
+            //     // txt_Mode.text = "Story";
+            //     if (GameManager.Instance.IsStoryWeekEnd())
+            //     {
+            //         if (ProfileManager.GetWeek() < 6)
+            //         {
+            //             ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+            //         }
+            //         Mode();
+            //     }
+            //     else
+            //     {
+            //         GameManager.Instance.NextWeekSong();
+            //         StatsSystem.Instance.score = 0;
+            //         StatsSystem.Instance.combo = 0;
+            //     }
+
+            //     FadeOut();
+            //     return;
+            // }
+            // else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            // {
+            //     ProfileManager.AddGold(CalGoldWin() * 3);
+            //     SetSongProfile();
+            // }
+
+            // btn_X3Claim.interactable = false;
+            // btn_Claim.interactable = false;
+            // txt_TotalGold.text = ProfileManager.GetGold();
+
+            // btn_X3Claim.gameObject.SetActive(false);
+            // btn_Claim.gameObject.SetActive(false);
+            // btn_Mode.gameObject.SetActive(true);
+            // btn_Home.gameObject.SetActive(true);
+
+            // StatsSystem.Instance.score = 0;
+            // StatsSystem.Instance.combo = 0;
+
+            // // FadeOut();
+            // // GameManager.Instance.Home();
+
+            AdsManager.Instance.WatchRewardVideo(RewardType.X3_CLAIM);
+        }
+
+        public void X3ClaimLogic()
         {
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {

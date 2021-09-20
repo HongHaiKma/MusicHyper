@@ -12,6 +12,18 @@
             "deviceId": "08211FDD400529",
             "name": "com.DefaultCompany.MusicHyper",
             "processId": 25618,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 27471,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 12493,
             "exited": false
         }
     ],
