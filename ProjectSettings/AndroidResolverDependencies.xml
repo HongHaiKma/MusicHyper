@@ -2,7 +2,12 @@
   <packages>
     <package>com.android.support:customtabs:28.+</package>
     <package>com.android.support:recyclerview-v7:28.+</package>
+    <package>com.applovin.mediation:google-adapter:[20.3.0.0]</package>
+    <package>com.applovin.mediation:google-ad-manager-adapter:[20.3.0.0]</package>
     <package>com.applovin.mediation:inmobi-adapter:9.9.9.6</package>
+    <package>com.applovin.mediation:ironsource-adapter:7.1.5.1.3</package>
+    <package>com.applovin.mediation:mintegral-adapter:15.7.11.0</package>
+    <package>com.applovin.mediation:unityads-adapter:3.7.5.1</package>
     <package>com.applovin:applovin-sdk:10.3.3</package>
     <package>com.google.android.exoplayer:exoplayer:2.13.3</package>
     <package>com.google.android.gms:play-services-ads-identifier:16.0.0</package>
