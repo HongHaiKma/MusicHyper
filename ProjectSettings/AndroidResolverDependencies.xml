@@ -1,8 +1,12 @@
 <dependencies>
   <packages>
+    <package>com.android.support:appcompat-v7:25.3.1</package>
     <package>com.android.support:appcompat-v7:28.+</package>
+    <package>com.android.support:cardview-v7:25.3.1</package>
+    <package>com.android.support:customtabs:25.3.1</package>
     <package>com.android.support:customtabs:28.+</package>
     <package>com.android.support:recyclerview-v7:28.+</package>
+    <package>com.android.support:support-v4:25.3.1</package>
     <package>com.applovin.mediation:facebook-adapter:[6.5.1.0]</package>
     <package>com.applovin.mediation:google-adapter:[20.3.0.0]</package>
     <package>com.applovin.mediation:google-ad-manager-adapter:[20.3.0.0]</package>
@@ -11,11 +15,31 @@
     <package>com.applovin.mediation:mintegral-adapter:15.7.11.0</package>
     <package>com.applovin.mediation:unityads-adapter:3.7.5.1</package>
     <package>com.applovin:applovin-sdk:10.3.3</package>
+    <package>com.facebook.android:facebook-applinks:[11.0, 12)</package>
+    <package>com.facebook.android:facebook-core:[11.0, 12)</package>
+    <package>com.facebook.android:facebook-gamingservices:[11.0, 12)</package>
+    <package>com.facebook.android:facebook-login:[11.0, 12)</package>
+    <package>com.facebook.android:facebook-share:[11.0, 12)</package>
     <package>com.google.android.exoplayer:exoplayer:2.13.3</package>
     <package>com.google.android.gms:play-services-ads-identifier:16.0.0</package>
+    <package>com.google.android.gms:play-services-base:17.6.0</package>
+    <package>com.google.firebase:firebase-analytics:19.0.0</package>
+    <package>com.google.firebase:firebase-analytics-unity:8.2.0</package>
+    <package>com.google.firebase:firebase-app-unity:8.2.0</package>
+    <package>com.google.firebase:firebase-common:20.0.0</package>
+    <package>com.google.firebase:firebase-installations:17.0.0</package>
+    <package>com.google.firebase:firebase-installations-unity:8.2.0</package>
+    <package>com.parse.bolts:bolts-android:1.4.0</package>
     <package>com.squareup.picasso:picasso:2.71828</package>
   </packages>
-  <files />
+  <files>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/8.2.0/firebase-analytics-unity-8.2.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/8.2.0/firebase-analytics-unity-8.2.0.pom</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/8.2.0/firebase-app-unity-8.2.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/8.2.0/firebase-app-unity-8.2.0.pom</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-installations-unity/8.2.0/firebase-installations-unity-8.2.0.aar</file>
+    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-installations-unity/8.2.0/firebase-installations-unity-8.2.0.pom</file>
+  </files>
   <settings>
     <setting name="androidAbis" value="armeabi-v7a" />
     <setting name="bundleId" value="com.musicchallenge.fmfmod.modcharacter" />

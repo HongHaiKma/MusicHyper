@@ -562,7 +562,7 @@ public class AdsManager : Singleton<AdsManager>
             {
                 // AppLovin SDK is initialized, configure and start loading ads.
                 Debug.Log("MAX SDK Initialized");
-                MaxSdk.ShowMediationDebugger();
+                // MaxSdk.ShowMediationDebugger();
 
                 InitializeInterstitialAds();
                 InitializeRewardedAds();
@@ -1062,9 +1062,12 @@ public class AdsManager : Singleton<AdsManager>
             case RewardType.TRY_SONG:
                 EventManager1<int>.CallEvent(GameEvent.TRY_SONG, m_TrySongId);
                 break;
-            // case RewardType.X3_CLAIM:
-            //     EventManager.CallEvent(GameEvent.X3_CLAIM);
-            //     break;
+            case RewardType.X3_CLAIM:
+                EventManager.CallEvent(GameEvent.X3_CLAIM);
+                break;
+            case RewardType.CONTINUE:
+                EventManager.CallEvent(GameEvent.CONTINUE);
+                break;
             default:
                 break;
         }
@@ -1122,16 +1125,17 @@ public class AdsManager : Singleton<AdsManager>
             //     }
             //     AnalysticsManager.LogRewardCharProgress();
             //     break;
-            case RewardType.X3_CLAIM:
-                EventManager.CallEvent(GameEvent.X3_CLAIM);
-                break;
-            default:
-                break;
+            // case RewardType.X3_CLAIM:
+            //     EventManager.CallEvent(GameEvent.X3_CLAIM);
+            //     break;
+            // default:
+            //     break;
         }
     }
 
     public void WatchRewardVideo(RewardType _rewardType)
     {
+        Helper.DebugLog("Watch Reward Video");
         StartCoroutine(IEWatchRewardVideo(_rewardType));
     }
 
@@ -1198,4 +1202,5 @@ public enum RewardType
     OUTFIT_PROGRESS,
     TRY_SONG,
     X3_CLAIM,
+    CONTINUE,
 }

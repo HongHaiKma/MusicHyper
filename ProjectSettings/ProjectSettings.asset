@@ -243,7 +243,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/Projects/MusicBattle/Keystore/user.com.music.challenge.3D.keystore
+  AndroidKeystoreName: '{inproject}: Keystore/user.com.music.challenge.3D.keystore'
   AndroidKeyaliasName: honghaiphoenix1
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

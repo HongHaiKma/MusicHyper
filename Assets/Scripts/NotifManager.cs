@@ -5,7 +5,10 @@ using UnityEngine;
 using System;
 using RhythmGameStarter;
 using Unity.Notifications.Android;
+using MoreMountains.NiceVibrations;
 
+// namespace RhythmGameStarter
+// {
 public class NotifManager : MonoBehaviour
 {
     private static NotifManager m_Instance;
@@ -16,6 +19,7 @@ public class NotifManager : MonoBehaviour
             return m_Instance;
         }
     }
+
     public void Awake()
     {
         if (m_Instance != null)
@@ -47,6 +51,21 @@ public class NotifManager : MonoBehaviour
 
             SendNotiD3(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 6, 20, 00, 00));
         }
+    }
+
+    private void OnEnable()
+    {
+        EventManager.AddListener(GameEvent.VIBRATE_HEAVY, HapticHeavy);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.RemoveListener(GameEvent.VIBRATE_HEAVY, HapticHeavy);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener(GameEvent.VIBRATE_HEAVY, HapticHeavy);
     }
 
     public void CreateChannel()
@@ -132,5 +151,13 @@ public class NotifManager : MonoBehaviour
         notification.FireTime = _date;
 
         AndroidNotificationCenter.SendNotification(notification, "Default Channel");
+    }
+
+    public void HapticHeavy()
+    {
+        if (PlayerPrefs.GetInt("Vibration") == 1)
+        {
+            MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
+        }
     }
 }

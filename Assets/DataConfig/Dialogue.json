@@ -1,1 +1,350 @@
-[{"ID":"1","Dialogue":"Hey, you're pretty cute.","Enemy":"1","SongID":"1"},{"ID":"2","Dialogue":"Use the arrow keys to keep up with me singing.","Enemy":"1","SongID":"1"},{"ID":"3","Dialogue":"HEY!","Enemy":"2","SongID":"2"},{"ID":"4","Dialogue":"You think you can just sing with my daughter like that?","Enemy":"2","SongID":"2"},{"ID":"5","Dialogue":"If you want to date her…","Enemy":"2","SongID":"2"},{"ID":"6","Dialogue":"You're going to have to go through ME first!","Enemy":"2","SongID":"2"},{"ID":"7","Dialogue":"Not too shabby boy.","Enemy":"2","SongID":"3"},{"ID":"8","Dialogue":"Gah you think you're hot stuff?","Enemy":"2","SongID":"4"},{"ID":"9","Dialogue":"If you can beat me here…","Enemy":"2","SongID":"4"},{"ID":"10","Dialogue":"Only then I will even CONSIDER letting you date my daughter!","Enemy":"2","SongID":"4"},{"ID":"11","Dialogue":"Heyo, I’m Racing Boy! skrttt","Enemy":"3","SongID":"5"},{"ID":"12","Dialogue":"Boop bep skrttt","Enemy":"0","SongID":"5"},{"ID":"13","Dialogue":"Prepare for RACEEEE!","Enemy":"3","SongID":"5"},{"ID":"14","Dialogue":"You’re pretty good!","Enemy":"3","SongID":"6"},{"ID":"15","Dialogue":"Can you keep up with THIS TEMPO THOUGH!?","Enemy":"3","SongID":"6"},{"ID":"16","Dialogue":"It looks like you’ve stumbled onto my turf..","Enemy":"4","SongID":"7"},{"ID":"17","Dialogue":"If I beat you then you’re never getting out of here!","Enemy":"4","SongID":"7"},{"ID":"18","Dialogue":"Whoever wins I’ll give them a kiss.","Enemy":"1","SongID":"7"},{"ID":"19","Dialogue":"beep boop","Enemy":"0","SongID":"7"},{"ID":"20","Dialogue":"That’s my kiss buddy!","Enemy":"4","SongID":"7"},{"ID":"21","Dialogue":"You don’t seem like you’d be much of a problem…","Enemy":"4","SongID":"8"},{"ID":"22","Dialogue":"skrt bee doop","Enemy":"0","SongID":"8"},{"ID":"23","Dialogue":"You won’t beat me here though!","Enemy":"4","SongID":"8"},{"ID":"24","Dialogue":"Go eat duck.","Enemy":"4","SongID":"9"},{"ID":"25","Dialogue":"Beep boop beeee","Enemy":"4","SongID":"9"},{"ID":"26","Dialogue":"I’ll just kill you right here ON THE SPOT!!","Enemy":"4","SongID":"9"},{"ID":"27","Dialogue":"Heard about you through my husband.","Enemy":"5","SongID":"10"},{"ID":"28","Dialogue":"Skrt boop boop","Enemy":"0","SongID":"10"},{"ID":"29","Dialogue":"That so? Well let’s see how well you can keep up with a quicker tempo!","Enemy":"5","SongID":"10"},{"ID":"30","Dialogue":"Skippidy boop bah dee","Enemy":"0","SongID":"10"},{"ID":"31","Dialogue":"Not bad..","Enemy":"5","SongID":"11"},{"ID":"32","Dialogue":"Congrats on making it this far..","Enemy":"5","SongID":"12"},{"ID":"33","Dialogue":"Your attempt to get at our daughter ends here unfortunatly.","Enemy":"5","SongID":"12"},{"ID":"34","Dialogue":"bop","Enemy":"0","SongID":"12"},{"ID":"35","Dialogue":"Nice of you to drop by, kid. You’re quite determined aren’t you?","Enemy":"6","SongID":"13"},{"ID":"36","Dialogue":"Skee do bep","Enemy":"0","SongID":"13"},{"ID":"37","Dialogue":"We’ve got something special for you.","Enemy":"6","SongID":"13"},{"ID":"38","Dialogue":"beep beep","Enemy":"0","SongID":"13"},{"ID":"39","Dialogue":"We’re gonna do this battle together! And together, we will end of your little relationship.","Enemy":"6","SongID":"13"},{"ID":"40","Dialogue":"bop meee beee","Enemy":"0","SongID":"13"},{"ID":"41","Dialogue":"Grrr! That was a test, this is the real deal!","Enemy":"7","SongID":"14"},{"ID":"42","Dialogue":"The whole crowd is watching!","Enemy":"7","SongID":"14"},{"ID":"43","Dialogue":"beep bop booop","Enemy":"0","SongID":"14"},{"ID":"44","Dialogue":"eeby deeby","Enemy":"8","SongID":"15"},{"ID":"45","Dialogue":"*gasp*","Enemy":"0","SongID":"15"},{"ID":"46","Dialogue":"I’m gonna eat your girlfriend","Enemy":"8","SongID":"15"},{"ID":"47","Dialogue":"YOU GONNA EAT MY GIRLFRIEND","Enemy":"0","SongID":"15"},{"ID":"48","Dialogue":"Ah, a new fair maiden has come in search of true love!","Enemy":"9","SongID":"16"},{"ID":"49","Dialogue":"A serenade between gentlemen shall decide where her beautiful heart shall reside","Enemy":"9","SongID":"16"},{"ID":"50","Dialogue":"Beep bo bop","Enemy":"0","SongID":"16"},{"ID":"51","Dialogue":"Not bad for an ugly worm.","Enemy":"9","SongID":"17"},{"ID":"52","Dialogue":"But this time I’ll rip your nuts off right after your girlfriend finishes gargling mine.","Enemy":"9","SongID":"17"},{"ID":"53","Dialogue":"Bop beep be be skdoo bep","Enemy":"9","SongID":"17"},{"ID":"54","Dialogue":"Direct contact with real humans, after being trapped in here for so long…","Enemy":"9","SongID":"18"},{"ID":"55","Dialogue":"and HER of all people.","Enemy":"9","SongID":"18"},{"ID":"56","Dialogue":"I’ll make her father pay for what he’s done to me and all the others….","Enemy":"9","SongID":"18"},{"ID":"57","Dialogue":"I’ll beat you and make you take my place","Enemy":"9","SongID":"18"},{"ID":"58","Dialogue":"You dont’ mind your bodies being borrowed right? It’s only fair…","Enemy":"9","SongID":"18"}]
+[
+    {
+        "ID": "1",
+        "Dialogue": "Hey, you're pretty cute.",
+        "Enemy": "1",
+        "SongID": "1"
+    },
+    {
+        "ID": "2",
+        "Dialogue": "Use the arrow keys to keep up with me singing.",
+        "Enemy": "1",
+        "SongID": "1"
+    },
+    {
+        "ID": "3",
+        "Dialogue": "HEY!",
+        "Enemy": "2",
+        "SongID": "2"
+    },
+    {
+        "ID": "4",
+        "Dialogue": "You think you can just sing with my daughter like that?",
+        "Enemy": "2",
+        "SongID": "2"
+    },
+    {
+        "ID": "5",
+        "Dialogue": "If you want to date her…",
+        "Enemy": "2",
+        "SongID": "2"
+    },
+    {
+        "ID": "6",
+        "Dialogue": "You're going to have to go through ME first!",
+        "Enemy": "2",
+        "SongID": "2"
+    },
+    {
+        "ID": "7",
+        "Dialogue": "Not too shabby boy.",
+        "Enemy": "2",
+        "SongID": "3"
+    },
+    {
+        "ID": "8",
+        "Dialogue": "Gah you think you're hot stuff?",
+        "Enemy": "2",
+        "SongID": "4"
+    },
+    {
+        "ID": "9",
+        "Dialogue": "If you can beat me here…",
+        "Enemy": "2",
+        "SongID": "4"
+    },
+    {
+        "ID": "10",
+        "Dialogue": "Only then I will even CONSIDER letting you date my daughter!",
+        "Enemy": "2",
+        "SongID": "4"
+    },
+    {
+        "ID": "11",
+        "Dialogue": "Heyo, I’m Racing Boy! skrttt",
+        "Enemy": "3",
+        "SongID": "5"
+    },
+    {
+        "ID": "12",
+        "Dialogue": "Boop bep skrttt",
+        "Enemy": "0",
+        "SongID": "5"
+    },
+    {
+        "ID": "13",
+        "Dialogue": "Prepare for RACEEEE!",
+        "Enemy": "3",
+        "SongID": "5"
+    },
+    {
+        "ID": "14",
+        "Dialogue": "You’re pretty good!",
+        "Enemy": "3",
+        "SongID": "6"
+    },
+    {
+        "ID": "15",
+        "Dialogue": "Can you keep up with THIS TEMPO THOUGH!?",
+        "Enemy": "3",
+        "SongID": "6"
+    },
+    {
+        "ID": "16",
+        "Dialogue": "It looks like you’ve stumbled onto my turf..",
+        "Enemy": "4",
+        "SongID": "7"
+    },
+    {
+        "ID": "17",
+        "Dialogue": "If I beat you then you’re never getting out of here!",
+        "Enemy": "4",
+        "SongID": "7"
+    },
+    {
+        "ID": "18",
+        "Dialogue": "Whoever wins I’ll give them a kiss.",
+        "Enemy": "1",
+        "SongID": "7"
+    },
+    {
+        "ID": "19",
+        "Dialogue": "beep boop",
+        "Enemy": "0",
+        "SongID": "7"
+    },
+    {
+        "ID": "20",
+        "Dialogue": "That’s my kiss buddy!",
+        "Enemy": "4",
+        "SongID": "7"
+    },
+    {
+        "ID": "21",
+        "Dialogue": "You don’t seem like you’d be much of a problem…",
+        "Enemy": "4",
+        "SongID": "8"
+    },
+    {
+        "ID": "22",
+        "Dialogue": "skrt bee doop",
+        "Enemy": "0",
+        "SongID": "8"
+    },
+    {
+        "ID": "23",
+        "Dialogue": "You won’t beat me here though!",
+        "Enemy": "4",
+        "SongID": "8"
+    },
+    {
+        "ID": "24",
+        "Dialogue": "Go eat duck.",
+        "Enemy": "4",
+        "SongID": "9"
+    },
+    {
+        "ID": "25",
+        "Dialogue": "Beep boop beeee",
+        "Enemy": "4",
+        "SongID": "9"
+    },
+    {
+        "ID": "26",
+        "Dialogue": "I’ll just kill you right here ON THE SPOT!!",
+        "Enemy": "4",
+        "SongID": "9"
+    },
+    {
+        "ID": "27",
+        "Dialogue": "Heard about you through my husband.",
+        "Enemy": "5",
+        "SongID": "10"
+    },
+    {
+        "ID": "28",
+        "Dialogue": "Skrt boop boop",
+        "Enemy": "0",
+        "SongID": "10"
+    },
+    {
+        "ID": "29",
+        "Dialogue": "That so? Well let’s see how well you can keep up with a quicker tempo!",
+        "Enemy": "5",
+        "SongID": "10"
+    },
+    {
+        "ID": "30",
+        "Dialogue": "Skippidy boop bah dee",
+        "Enemy": "0",
+        "SongID": "10"
+    },
+    {
+        "ID": "31",
+        "Dialogue": "Not bad..",
+        "Enemy": "5",
+        "SongID": "11"
+    },
+    {
+        "ID": "32",
+        "Dialogue": "Congrats on making it this far..",
+        "Enemy": "5",
+        "SongID": "12"
+    },
+    {
+        "ID": "33",
+        "Dialogue": "Your attempt to get at our daughter ends here unfortunatly.",
+        "Enemy": "5",
+        "SongID": "12"
+    },
+    {
+        "ID": "34",
+        "Dialogue": "bop",
+        "Enemy": "0",
+        "SongID": "12"
+    },
+    {
+        "ID": "35",
+        "Dialogue": "Nice of you to drop by, kid. You’re quite determined aren’t you?",
+        "Enemy": "6",
+        "SongID": "13"
+    },
+    {
+        "ID": "36",
+        "Dialogue": "Skee do bep",
+        "Enemy": "0",
+        "SongID": "13"
+    },
+    {
+        "ID": "37",
+        "Dialogue": "We’ve got something special for you.",
+        "Enemy": "6",
+        "SongID": "13"
+    },
+    {
+        "ID": "38",
+        "Dialogue": "beep beep",
+        "Enemy": "0",
+        "SongID": "13"
+    },
+    {
+        "ID": "39",
+        "Dialogue": "We’re gonna do this battle together! And together, we will end of your little relationship.",
+        "Enemy": "6",
+        "SongID": "13"
+    },
+    {
+        "ID": "40",
+        "Dialogue": "bop meee beee",
+        "Enemy": "0",
+        "SongID": "13"
+    },
+    {
+        "ID": "41",
+        "Dialogue": "Grrr! That was a test, this is the real deal!",
+        "Enemy": "7",
+        "SongID": "14"
+    },
+    {
+        "ID": "42",
+        "Dialogue": "The whole crowd is watching!",
+        "Enemy": "7",
+        "SongID": "14"
+    },
+    {
+        "ID": "43",
+        "Dialogue": "beep bop booop",
+        "Enemy": "0",
+        "SongID": "14"
+    },
+    {
+        "ID": "44",
+        "Dialogue": "eeby deeby",
+        "Enemy": "8",
+        "SongID": "15"
+    },
+    {
+        "ID": "45",
+        "Dialogue": "*gasp*",
+        "Enemy": "0",
+        "SongID": "15"
+    },
+    {
+        "ID": "46",
+        "Dialogue": "I’m gonna eat your girlfriend",
+        "Enemy": "8",
+        "SongID": "15"
+    },
+    {
+        "ID": "47",
+        "Dialogue": "YOU GONNA EAT MY GIRLFRIEND",
+        "Enemy": "0",
+        "SongID": "15"
+    },
+    {
+        "ID": "48",
+        "Dialogue": "Ah, a new fair maiden has come in search of true love!",
+        "Enemy": "9",
+        "SongID": "16"
+    },
+    {
+        "ID": "49",
+        "Dialogue": "A serenade between gentlemen shall decide where her beautiful heart shall reside",
+        "Enemy": "9",
+        "SongID": "16"
+    },
+    {
+        "ID": "50",
+        "Dialogue": "Beep bo bop",
+        "Enemy": "0",
+        "SongID": "16"
+    },
+    {
+        "ID": "51",
+        "Dialogue": "Not bad for an ugly worm.",
+        "Enemy": "9",
+        "SongID": "17"
+    },
+    {
+        "ID": "52",
+        "Dialogue": "But this time I’ll rip your nuts off right after your girlfriend finishes gargling mine.",
+        "Enemy": "9",
+        "SongID": "17"
+    },
+    {
+        "ID": "53",
+        "Dialogue": "Bop beep be be skdoo bep",
+        "Enemy": "9",
+        "SongID": "17"
+    },
+    {
+        "ID": "54",
+        "Dialogue": "Direct contact with real humans, after being trapped in here for so long…",
+        "Enemy": "9",
+        "SongID": "18"
+    },
+    {
+        "ID": "55",
+        "Dialogue": "and HER of all people.",
+        "Enemy": "9",
+        "SongID": "18"
+    },
+    {
+        "ID": "56",
+        "Dialogue": "I’ll make her father pay for what he’s done to me and all the others….",
+        "Enemy": "9",
+        "SongID": "18"
+    },
+    {
+        "ID": "57",
+        "Dialogue": "I’ll beat you and make you take my place",
+        "Enemy": "9",
+        "SongID": "18"
+    },
+    {
+        "ID": "58",
+        "Dialogue": "You dont’ mind your bodies being borrowed right? It’s only fair…",
+        "Enemy": "9",
+        "SongID": "18"
+    }
+]

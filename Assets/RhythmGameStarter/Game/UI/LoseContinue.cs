@@ -15,19 +15,38 @@ namespace RhythmGameStarter
 
         private void Awake()
         {
-            GUIManager.Instance.AddClickEvent(btn_Continue, ResumeSong);
+            GUIManager.Instance.AddClickEvent(btn_Continue, Continue);
         }
 
         private void OnEnable()
         {
             FadeIn();
-            m_Time = 4f;
+            m_Time = 3f;
             txt_Time.text = ((int)m_Time).ToString();
+            btn_Continue.interactable = true;
+
+            AddListener();
         }
 
         private void OnDisable()
         {
             FadeOut();
+            RemoveListener();
+        }
+
+        private void OnDestroy()
+        {
+            RemoveListener();
+        }
+
+        public void AddListener()
+        {
+            EventManager.AddListener(GameEvent.CONTINUE, ContinueAds);
+        }
+
+        public void RemoveListener()
+        {
+            EventManager.RemoveListener(GameEvent.CONTINUE, ContinueAds);
         }
 
         private void Update()
@@ -35,6 +54,14 @@ namespace RhythmGameStarter
             m_Time -= Time.deltaTime;
             img_ClockWise.fillAmount = m_Time / 3f;
             txt_Time.text = ((int)m_Time).ToString();
+
+            if (btn_Continue.interactable)
+            {
+                if (m_Time <= 0.5f)
+                {
+                    btn_Continue.interactable = false;
+                }
+            }
 
             if (m_Time <= 0f)
             {
@@ -45,17 +72,23 @@ namespace RhythmGameStarter
             }
         }
 
-        public void ResumeSong()
+        public void Continue()
+        {
+            AdsManager.Instance.WatchRewardVideo(RewardType.CONTINUE);
+        }
+
+        public void ContinueAds()
         {
             FadeOut();
             GameManager.Instance.m_Continue = false;
             GameManager.Instance.m_knot = 0;
             GameManager.Instance.m_Knot = 0;
-            StatsSystem.Instance.missed = 0;
-            StatsSystem.Instance.combo = 0;
+            // StatsSystem.Instance.missed = 0;
+            // StatsSystem.Instance.combo = 0;
             GameManager.Instance.ResetVsBar();
             GameManager.Instance.ResumeSong();
         }
+
 
         public virtual void FadeOut()
         {

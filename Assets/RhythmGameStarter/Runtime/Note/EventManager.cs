@@ -122,4 +122,5 @@ public enum GameEvent
     VIBRATE_HEAVY,
     TRY_SONG,
     X3_CLAIM,
+    CONTINUE,
 }

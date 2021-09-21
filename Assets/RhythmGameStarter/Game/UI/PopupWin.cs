@@ -40,6 +40,8 @@ namespace RhythmGameStarter
         {
             FadeIn();
 
+            AddListener();
+
             btn_Mode.gameObject.SetActive(false);
             btn_Home.gameObject.SetActive(false);
 
@@ -139,8 +141,6 @@ namespace RhythmGameStarter
             txt_X3GoldClaim.text = (CalGoldWin() * 3).ToString();
 
             txt_TotalGold.text = ProfileManager.GetGold();
-
-            AddListener();
         }
 
         private void OnDisable()
@@ -155,11 +155,13 @@ namespace RhythmGameStarter
 
         public void AddListener()
         {
+            Helper.DebugLog("Win Popup AddListener");
             EventManager.AddListener(GameEvent.X3_CLAIM, X3ClaimLogic);
         }
 
         public void RemoveListener()
         {
+            Helper.DebugLog("Win Popup RemoveListener");
             EventManager.RemoveListener(GameEvent.X3_CLAIM, X3ClaimLogic);
         }
 
@@ -265,18 +267,20 @@ namespace RhythmGameStarter
             // StatsSystem.Instance.score = 0;
             // StatsSystem.Instance.combo = 0;
 
-            // // FadeOut();
-            // // GameManager.Instance.Home();
+            // FadeOut();
+            // GameManager.Instance.Home();
 
             AdsManager.Instance.WatchRewardVideo(RewardType.X3_CLAIM);
         }
 
         public void X3ClaimLogic()
         {
+            Helper.DebugLog("X3ClaimLogic");
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
                 ProfileManager.AddGold(CalGoldStory() * 3);
                 SetWeekProfile();
+                Helper.DebugLog("X3 claim logic Story");
                 // GameManager.Instance.NextWeekSong();
                 // txt_Mode.text = "Story";
                 if (GameManager.Instance.IsStoryWeekEnd())
@@ -389,6 +393,7 @@ namespace RhythmGameStarter
 
         public void Mode()
         {
+            Helper.DebugLog("Call mode");
             FadeOut();
             Note.m_ReturnHome = true;
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
