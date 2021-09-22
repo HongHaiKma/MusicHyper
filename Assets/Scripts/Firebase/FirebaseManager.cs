@@ -1,11 +1,12 @@
 using Firebase.Analytics;
-// using Firebase.RemoteConfig;
+using Firebase.RemoteConfig;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
+using RhythmGameStarter;
 
 public class FirebaseManager : Singleton<FirebaseManager>
 {
-
     private const float DEFAULT_LOADING_TIME = 2;
     // private static FirebaseManager m_Instance = null;
     private bool IsLoaded = false;
@@ -20,6 +21,10 @@ public class FirebaseManager : Singleton<FirebaseManager>
     private FirebaseAnalyticsManager m_FirebaseAnalyticsManager;
     // private FirebaseRemoteConfigManager m_FirebaseRemoteConfigManager;
     Firebase.DependencyStatus dependencyStatus = Firebase.DependencyStatus.UnavailableOther;
+
+    [Header("Remote Config")]
+    FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.DefaultInstance;
+
     private void Awake()
     {
         // m_Instance = this;
@@ -54,6 +59,21 @@ public class FirebaseManager : Singleton<FirebaseManager>
     private void InitializeFirebase()
     {
         IsLoaded = true;
+        System.Collections.Generic.Dictionary<string, object> defaults =
+            new System.Collections.Generic.Dictionary<string, object>();
+        defaults.Add("inter_cd_time", 30);
+        remoteConfig.SetDefaultsAsync(defaults).ContinueWith(task =>
+        {
+            // it's now safe to Fetch
+            // ConfigValue config = remoteConfig.GetValue("inter_cd_time");
+            // Helper.DebugLog("Config value: " + config.ToString());
+            // maxInterTime = (int)config.DoubleValue;
+            // interCd.SetMaxTime(maxInterTime);
+            remoteConfig.FetchAndActivateAsync().ContinueWith(task =>
+            {
+                // handle completion
+            });
+        });
         // m_FirebaseRemoteConfigManager.SetupDefaultConfigs();
         // FetchData(() =>
         // {
