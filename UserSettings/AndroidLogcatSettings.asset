@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "08211FDD400529",
+    "m_SelectedDeviceId": "R58M338N5SW",
     "m_SelectedPackage": {
         "deviceId": "",
         "name": "",
@@ -24,6 +24,12 @@
             "deviceId": "08211FDD400529",
             "name": "com.musicchallenge.fmfmod.modcharacter",
             "processId": 12493,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M338N5SW",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 8878,
             "exited": false
         }
     ],

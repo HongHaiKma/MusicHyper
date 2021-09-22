@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "260062057835",
+    "project_id": "music-challenge-3d",
+    "storage_bucket": "music-challenge-3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260062057835:android:307b93b1fe2daff80a682e",
+        "android_client_info": {
+          "package_name": "com.musicchallenge.fmfmod.modcharacter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260062057835-5bv7rssa2rh9spltdich3lr1g3m3kah3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpff3ZoDl5k3b0X3WVWiS58wpWOSlnlD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260062057835-5bv7rssa2rh9spltdich3lr1g3m3kah3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

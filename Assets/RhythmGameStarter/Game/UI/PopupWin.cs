@@ -38,6 +38,8 @@ namespace RhythmGameStarter
 
         private void OnEnable()
         {
+            Helper.DebugLog("PopuWin Enableeeeeeeeeeeeeeeeee");
+
             FadeIn();
 
             AddListener();
@@ -45,7 +47,7 @@ namespace RhythmGameStarter
             btn_Mode.gameObject.SetActive(false);
             btn_Home.gameObject.SetActive(false);
 
-            txt_Combo.text = "COMBO: " + StatsSystem.Instance.combo.ToString();
+            txt_Combo.text = "COMBO: " + StatsSystem.Instance.maxCombo.ToString();
             // txt_Combo.text += System.Environment.NewLine;
             // txt_Combo.text += StatsSystem.Instance.combo.ToString();
 
@@ -270,6 +272,8 @@ namespace RhythmGameStarter
             // FadeOut();
             // GameManager.Instance.Home();
 
+            // X3ClaimLogic();
+
             AdsManager.Instance.WatchRewardVideo(RewardType.X3_CLAIM);
         }
 
@@ -285,7 +289,7 @@ namespace RhythmGameStarter
                 // txt_Mode.text = "Story";
                 if (GameManager.Instance.IsStoryWeekEnd())
                 {
-                    if (ProfileManager.GetWeek() < 6)
+                    if (ProfileManager.GetWeek() < 8)
                     {
                         ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
                     }
@@ -376,7 +380,7 @@ namespace RhythmGameStarter
                 txt_Mode.text = "Story";
                 if (GameManager.Instance.IsStoryWeekEnd())
                 {
-                    if (ProfileManager.GetWeek() < 6)
+                    if (ProfileManager.GetWeek() < 8)
                     {
                         ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
                     }

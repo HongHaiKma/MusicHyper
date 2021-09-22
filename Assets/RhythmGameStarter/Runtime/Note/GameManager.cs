@@ -430,18 +430,18 @@ namespace RhythmGameStarter
             g_Ready.SetActive(false);
             g_Set.SetActive(false);
             g_Go.SetActive(false);
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
             SoundManager.Instance.PlaySoundOne();
             g_Ready.SetActive(true);
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
             SoundManager.Instance.PlaySoundTwo();
             g_Ready.SetActive(false);
             g_Set.SetActive(true);
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
             SoundManager.Instance.PlaySoundThree();
             g_Set.SetActive(false);
             g_Go.SetActive(true);
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
             // Time.timeScale = 1f;
             SoundManager.Instance.PlaySoundGo();
             g_Go.SetActive(false);
@@ -498,19 +498,19 @@ namespace RhythmGameStarter
 
             SoundManager.Instance.PlaySoundOne();
 
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
 
             SoundManager.Instance.PlaySoundTwo();
             g_Ready.SetActive(false);
             g_Set.SetActive(true);
 
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
 
             g_Set.SetActive(false);
             g_Go.SetActive(true);
             SoundManager.Instance.PlaySoundThree();
 
-            yield return Yielders.Get(1.5f);
+            yield return Yielders.Get(1f);
 
             g_Set.SetActive(false);
             g_Go.SetActive(true);
@@ -678,6 +678,8 @@ namespace RhythmGameStarter
         public GameObject Miss()
         {
             EventManager.CallEvent(GameEvent.VIBRATE_HEAVY);
+            ComboSystem.Instance.BreakCombo();
+            ComboSystem.Instance.UpdateComboDisplay();
             return PrefabManager.Instance.SpawnNoteLevelPool("Miss", Vector3.zero);
         }
 

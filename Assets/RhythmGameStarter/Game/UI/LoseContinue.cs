@@ -51,7 +51,11 @@ namespace RhythmGameStarter
 
         private void Update()
         {
-            m_Time -= Time.deltaTime;
+            if (!AdsManager.Instance.openRwdAds2)
+            {
+                m_Time -= Time.deltaTime;
+            }
+
             img_ClockWise.fillAmount = m_Time / 3f;
             txt_Time.text = ((int)m_Time).ToString();
 

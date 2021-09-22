@@ -93,28 +93,28 @@ namespace RhythmGameStarter
                         GameObject go = GameManager.Instance.Sick();
                         NoteLevel noteLevel = go.GetComponent<NoteLevel>();
                         noteLevel.SetPosition(_note);
-                        Helper.DebugLog("Sick");
+                        // Helper.DebugLog("Sick");
                     }
                     else if (x.threshold <= 0.7f)
                     {
                         GameObject go = GameManager.Instance.Good();
                         NoteLevel noteLevel = go.GetComponent<NoteLevel>();
                         noteLevel.SetPosition(_note);
-                        Helper.DebugLog("Good");
+                        // Helper.DebugLog("Good");
                     }
                     else if (x.threshold <= 0.85f)
                     {
                         GameObject go = GameManager.Instance.Bad();
                         NoteLevel noteLevel = go.GetComponent<NoteLevel>();
                         noteLevel.SetPosition(_note);
-                        Helper.DebugLog("Bad");
+                        // Helper.DebugLog("Bad");
                     }
                     else
                     {
                         GameObject go = GameManager.Instance.Shit();
                         NoteLevel noteLevel = go.GetComponent<NoteLevel>();
                         noteLevel.SetPosition(_note);
-                        Helper.DebugLog("Shit");
+                        // Helper.DebugLog("Shit");
                     }
 
                     UpdateScoreDisplay();

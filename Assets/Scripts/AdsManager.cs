@@ -498,6 +498,7 @@ public class AdsManager : Singleton<AdsManager>
 
 
     public bool openRwdAds;
+    public bool openRwdAds2;
     private RewardType m_RewardType;
 
     public int m_TrySongId;
@@ -522,6 +523,7 @@ public class AdsManager : Singleton<AdsManager>
         // FB.Init();
         m_BannerLoaded = false;
         m_WatchInter = true;
+        openRwdAds2 = false;
 
         // MobileAds.Initialize(initStatus => { });
         // MobileAds.Initialize(m_APP_ID);
@@ -581,6 +583,7 @@ public class AdsManager : Singleton<AdsManager>
     {
         if (ProfileManager.CheckAds())
         {
+            Helper.DebugLog("Ads Manager Check ads");
             // Banners are automatically sized to 320x50 on phones and 728x90 on tablets.
             // You may use the utility method `MaxSdkUtils.isTablet()` to help with view sizing adjustments.
 
@@ -874,6 +877,7 @@ public class AdsManager : Singleton<AdsManager>
 
         if (ProfileManager.CheckAds())
         {
+            Helper.DebugLog("Ads Manager Check ads");
             MaxSdk.ShowBanner(m_BannerId);
         }
     }
@@ -912,6 +916,7 @@ public class AdsManager : Singleton<AdsManager>
     {
         if (m_WatchInter && ProfileManager.CheckAds())
         {
+            Helper.DebugLog("Ads Manager Check ads");
             // if (interstitial.IsLoaded())
             // {
             //     interstitial.Show();
@@ -1036,6 +1041,8 @@ public class AdsManager : Singleton<AdsManager>
         // yield return Yielders.EndOfFrame;
         yield return null;
 
+        openRwdAds2 = false;
+
         switch (m_RewardType)
         {
             // case RewardType.GOLD_1:
@@ -1151,6 +1158,7 @@ public class AdsManager : Singleton<AdsManager>
 
         m_RewardType = _rewardType;
         openRwdAds = true;
+        openRwdAds2 = true;
 
         // PlaySceneManager.Instance.g_LoadingAds.SetActive(true);
         GUIManager.Instance.SetLoadingPopup(true);
@@ -1176,10 +1184,12 @@ public class AdsManager : Singleton<AdsManager>
         if (MaxSdk.IsRewardedAdReady(m_RewardId))
         {
             MaxSdk.ShowRewardedAd(m_RewardId);
+            openRwdAds2 = true;
             Helper.DebugLog("IsRewardedAdReady");
         }
         else
         {
+            openRwdAds2 = false;
             LoadRewardedAd();
         }
     }
