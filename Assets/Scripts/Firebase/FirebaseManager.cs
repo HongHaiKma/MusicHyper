@@ -25,10 +25,11 @@ public class FirebaseManager : Singleton<FirebaseManager>
     [Header("Remote Config")]
     FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.DefaultInstance;
 
-    private void Awake()
+    private void Start()
     {
         // m_Instance = this;
         // DontDestroyOnLoad(gameObject);
+        // remoteConfig = FirebaseRemoteConfig.DefaultInstance;
         Init();
     }
     public void Init()
@@ -42,7 +43,7 @@ public class FirebaseManager : Singleton<FirebaseManager>
         //     m_FirebaseRemoteConfigManager = new FirebaseRemoteConfigManager();
         // }
         Debug.Log("Start Config");
-        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(continuationAction: task =>
         {
             dependencyStatus = task.Result;
             if (dependencyStatus == Firebase.DependencyStatus.Available)
@@ -72,6 +73,8 @@ public class FirebaseManager : Singleton<FirebaseManager>
             remoteConfig.FetchAndActivateAsync().ContinueWith(task =>
             {
                 // handle completion
+                ConfigValue config = remoteConfig.GetValue("inter_cd_time");
+                Helper.DebugLog("Config value: " + (config.DoubleValue).ToString());
             });
         });
         // m_FirebaseRemoteConfigManager.SetupDefaultConfigs();
@@ -112,12 +115,4 @@ public class FirebaseManager : Singleton<FirebaseManager>
             m_FirebaseAnalyticsManager.SetUserProperty(propertyName, property);
         }
     }
-    // public void FetchData(UnityAction successCallback)
-    // {
-    //     m_FirebaseRemoteConfigManager.FetchData(successCallback);
-    // }
-    // public ConfigValue GetConfigValue(string key)
-    // {
-    //     return m_FirebaseRemoteConfigManager.GetValues(key);
-    // }
 }
