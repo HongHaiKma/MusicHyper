@@ -581,20 +581,20 @@ public class AdsManager : Singleton<AdsManager>
 
     public void InitializeBannerAds()
     {
-        if (ProfileManager.CheckAds())
-        {
-            Helper.DebugLog("Ads Manager Check ads");
-            // Banners are automatically sized to 320x50 on phones and 728x90 on tablets.
-            // You may use the utility method `MaxSdkUtils.isTablet()` to help with view sizing adjustments.
+        // if (ProfileManager.CheckAds())
+        // {
+        //     Helper.DebugLog("Ads Manager Check ads");
+        //     // Banners are automatically sized to 320x50 on phones and 728x90 on tablets.
+        //     // You may use the utility method `MaxSdkUtils.isTablet()` to help with view sizing adjustments.
 
-            MaxSdk.CreateBanner(m_BannerId, MaxSdkBase.BannerPosition.BottomCenter);
-            MaxSdk.SetBannerExtraParameter(m_BannerId, "adaptive_banner", "true");
-            // MaxSdk.CreateBanner(adUnitId, 0f, 25f);
-            // MaxSdk.CreateBanner(adUnitId, 0f, 0f);
+        //     MaxSdk.CreateBanner(m_BannerId, MaxSdkBase.BannerPosition.BottomCenter);
+        //     MaxSdk.SetBannerExtraParameter(m_BannerId, "adaptive_banner", "true");
+        //     // MaxSdk.CreateBanner(adUnitId, 0f, 25f);
+        //     // MaxSdk.CreateBanner(adUnitId, 0f, 0f);
 
-            // Set background or background color for banners to be fully functional.
-            MaxSdk.SetBannerBackgroundColor(m_BannerId, Color.white);
-        }
+        //     // Set background or background color for banners to be fully functional.
+        //     MaxSdk.SetBannerBackgroundColor(m_BannerId, Color.white);
+        // }
     }
 
     public void InitializeRewardedAds()
@@ -875,11 +875,11 @@ public class AdsManager : Singleton<AdsManager>
         //     this.m_BannerView.LoadAd(request);
         // }
 
-        if (ProfileManager.CheckAds())
-        {
-            Helper.DebugLog("Ads Manager Check ads");
-            MaxSdk.ShowBanner(m_BannerId);
-        }
+        // if (ProfileManager.CheckAds())
+        // {
+        //     Helper.DebugLog("Ads Manager Check ads");
+        //     MaxSdk.ShowBanner(m_BannerId);
+        // }
     }
 
     public void DestroyBanner()

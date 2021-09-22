@@ -30,11 +30,10 @@ public class NotifManager : MonoBehaviour
         m_Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        CreateChannel();
-
         if (!PlayerPrefs.HasKey("PushNoti"))
         {
             PlayerPrefs.SetInt("PushNoti", 1);
+            CreateChannel();
             SendNotiD1(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 3, DateTime.Now.Minute, DateTime.Now.Second));
 
             SendNotiD2_12h(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1, 12, 00, 00));

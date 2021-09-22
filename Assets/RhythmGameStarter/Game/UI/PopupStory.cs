@@ -181,6 +181,7 @@ namespace RhythmGameStarter
                     if (GameManager.Instance.m_StoryLevel == StoryLevel.EASY)
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_EasyScore);
+                        Helper.DebugLog("ids[i]).m_EasyScore: " + songScore);
                         score += songScore;
                         // Helper.DebugLog("Easy score: " + songScore);
                     }
