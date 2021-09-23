@@ -118,6 +118,8 @@ public class EventManager2<T, U>
 
 public enum GameEvent
 {
+    NOTHING,
+    UPDATE_LIFE,
     DISPLAY_SONG_INFO,
     VIBRATE_HEAVY,
     TRY_SONG,
