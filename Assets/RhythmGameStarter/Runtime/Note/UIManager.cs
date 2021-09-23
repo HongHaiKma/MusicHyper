@@ -66,12 +66,10 @@ namespace RhythmGameStarter
             if (m_SettingOpen)
             {
                 rect_Setting.DOLocalMoveX(386f, 0.5f);
-                Helper.DebugLog("Setting open");
             }
             else if (!m_SettingOpen)
             {
                 rect_Setting.DOLocalMoveX(543f, 0.5f);
-                Helper.DebugLog("Setting closed");
             }
         }
 

@@ -112,6 +112,8 @@ namespace RhythmGameStarter
         public BigNumber m_Golg;
         public BigNumber m_Test;
 
+        public int m_InterTime = 0;
+
         private void Awake()
         {
             Application.targetFrameRate = 60;
@@ -133,11 +135,11 @@ namespace RhythmGameStarter
             //     txt_Time.text = ((int)SongManager.Instance.songPosition).ToString();
             // }
 
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                m_Golg = ProfileManager.GetGold2();
-                m_Test = GameData.Instance.GetSongConfig(19).m_Price + 0;
-            }
+            // if (Input.GetKeyDown(KeyCode.C))
+            // {
+            //     m_Golg = ProfileManager.GetGold2();
+            //     m_Test = GameData.Instance.GetSongConfig(19).m_Price + 0;
+            // }
 
             // if (Input.GetKeyDown(KeyCode.A))
             // {
@@ -208,6 +210,8 @@ namespace RhythmGameStarter
         public override void OnEnable()
         {
             base.OnEnable();
+
+            // m_InterTime = (int)FirebaseManager.Instance.remoteConfig.GetValue("inter_cd_time").DoubleValue;
 
             m_ReturnHome = false;
 

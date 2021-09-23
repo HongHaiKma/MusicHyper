@@ -8,6 +8,8 @@ namespace RhythmGameStarter
 {
     public class PlayerProfile
     {
+        private float m_SaveCooldownTime = 0;
+
         private BigNumber m_Gold = new BigNumber(0);
         public string ic_Gold = "0";
 
@@ -25,10 +27,22 @@ namespace RhythmGameStarter
         public List<WeekProfile> m_WeekData = new List<WeekProfile>();
         public List<SongWeekProfile> m_SongWeekData = new List<SongWeekProfile>();
 
+        [Header("Time")]
+        public TimeRefillUnit m_InterTime = new TimeRefillUnit((int)FirebaseManager.Instance.remoteConfig.GetValue("inter_cd_time").DoubleValue, 1, 0, "inter_cd_time", "inter_cd_time");
+
         public int m_Week;
+
+        public void Update()
+        {
+            m_SaveCooldownTime -= Time.deltaTime;
+
+            m_InterTime.Update();
+        }
 
         public void LoadLocalProfile()
         {
+            m_InterTime.Load();
+
             m_Gold = new BigNumber(ic_Gold);
             m_Keys = new BigNumber(ic_Keys);
             LoadSongData();
@@ -41,8 +55,13 @@ namespace RhythmGameStarter
             // a = data1["m_Gold"].To;
         }
 
-        public void SaveDataToLocal()
+        public void SaveDataToLocal(bool checkCooldown = false)
         {
+            if (checkCooldown)
+            {
+                if (m_SaveCooldownTime > 0) return;
+            }
+            m_SaveCooldownTime = 5f;
             string piJson = this.ObjectToJsonString();
             ProfileManager.Instance.SaveDataText(piJson);
         }
@@ -59,6 +78,8 @@ namespace RhythmGameStarter
 
         public void CreateNewPlayer()
         {
+            m_InterTime = new TimeRefillUnit((int)FirebaseManager.Instance.remoteConfig.GetValue("inter_cd_time").DoubleValue, 1, 0, "inter_cd_time", "inter_cd_time");
+
             // PlayerPrefs.SetInt(ConfigKeys.noAds, 0);
             // PlayerPrefs.SetInt(ConfigKeys.rateUs, 1);
 
@@ -322,7 +343,6 @@ namespace RhythmGameStarter
                 WeekProfile newWeek = new WeekProfile();
                 newWeek.Init(_id);
                 m_WeekData.Add(newWeek);
-                Helper.DebugLog("UnlockWeek");
 
                 List<WeekConfig> weekSongConfig = GameData.Instance.GetWeekSong(_id);
 

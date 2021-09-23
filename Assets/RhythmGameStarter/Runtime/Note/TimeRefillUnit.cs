@@ -40,17 +40,17 @@ public class TimeRefillUnit
     /// <summary>
     /// Event Trigger Name
     /// </summary>
-    public GameEvent etn = GameEvent.NOTHING;
+    public string etn = "";
     /// <summary>
     /// Fullfill Event Trigger Name
     /// </summary>
-    public GameEvent fetn = GameEvent.UPDATE_LIFE;
+    public string fetn = "UpdateLife";
     private RefillCallback m_RefillCallback = null;
     public TimeRefillUnit()
     {
 
     }
-    public TimeRefillUnit(int refillTime, int maxValue, int defaultValue, string key, GameEvent eventTriggerName, GameEvent fullfillEventTriggerName = GameEvent.NOTHING)
+    public TimeRefillUnit(int refillTime, int maxValue, int defaultValue, string key, string eventTriggerName, string fullfillEventTriggerName = "")
     {
         ta = refillTime;
         mv = maxValue;
@@ -82,7 +82,7 @@ public class TimeRefillUnit
             totalSecs -= ta;
             ltc += TimeSpan.FromSeconds(ta);
             Save();
-            EventManager.CallEvent(etn);
+            EventString.CallEvent(etn);
             if (m_RefillCallback != null) m_RefillCallback();
         }
         if (cv < mv)
@@ -120,9 +120,9 @@ public class TimeRefillUnit
             {
                 cv = mv;
             }
-            EventManager.CallEvent(fetn);
+            EventString.CallEvent(fetn);
         }
-        EventManager.CallEvent(etn);
+        EventString.CallEvent(etn);
         return true;
     }
     public void AddToMax()
@@ -143,7 +143,7 @@ public class TimeRefillUnit
         {
             cv = 0;
         }
-        EventManager.CallEvent(etn);
+        EventString.CallEvent(etn);
         Save();
     }
     public void SetupRefillTime(int refillTime)
@@ -175,6 +175,16 @@ public class TimeRefillUnit
     {
         switch (type)
         {
+            case 1:
+                {
+                    string ret = _defValue;
+                    if (cv < mv)
+                    {
+                        int sec = tta % 60;
+                        ret = ((sec >= 10 ? sec.ToString() : "0" + sec.ToString() + "S"));
+                    }
+                    return ret;
+                }
             case 2:
                 {
                     string ret = _defValue;
@@ -263,7 +273,7 @@ public class TimeRefillUnit
                 cv++;
                 totalSecs -= ta;
                 ltc += TimeSpan.FromSeconds(ta);
-                EventManager.CallEvent(etn);
+                EventString.CallEvent(etn);
                 Save();
                 if (m_RefillCallback != null) m_RefillCallback();
             }

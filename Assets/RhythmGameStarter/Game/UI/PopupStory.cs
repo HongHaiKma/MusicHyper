@@ -151,12 +151,10 @@ namespace RhythmGameStarter
             txt_Week.text = "week " + m_Week.ToString();
             List<WeekConfig> songConfigs = GameData.Instance.GetWeekSong(m_Week);
             txt_SongName.text = songConfigs[0].m_Name;
-            Helper.DebugLog("Song name: " + songConfigs[0].m_Name);
             // txt_SongName.text += System.Environment.NewLine;
             for (int i = 1; i < songConfigs.Count; i++)
             {
                 txt_SongName.text += System.Environment.NewLine + songConfigs[i].m_Name;
-                Helper.DebugLog("Song name: " + songConfigs[i].m_Name);
             }
 
             txt_Price.text = songConfigs[0].m_Price.ToString3();
@@ -181,7 +179,6 @@ namespace RhythmGameStarter
                     if (GameManager.Instance.m_StoryLevel == StoryLevel.EASY)
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_EasyScore);
-                        Helper.DebugLog("ids[i]).m_EasyScore: " + songScore);
                         score += songScore;
                         // Helper.DebugLog("Easy score: " + songScore);
                     }

@@ -14568,6 +14568,7 @@ MonoBehaviour:
   m_Test:
     v: 0
     m: 0
+  m_InterTime: 0
 --- !u!1 &1171322200
 GameObject:
   m_ObjectHideFlags: 0

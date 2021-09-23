@@ -47,19 +47,15 @@ namespace RhythmGameStarter
 
         private void Update()
         {
-            // if (Input.GetKeyDown(KeyCode.S))
-            // {
-            //     // List<SongWeekProfile> weekConfigs = MyProfile.m_SongWeekData;
+            if (m_LocalProfile != null)
+            {
+                m_LocalProfile.Update();
+            }
 
-            //     // for (int i = 0; i < weekConfigs.Count; i++)
-            //     // {
-            //     //     Helper.DebugLog("Name: " + weekConfigs[i].m_Name);
-            //     // }
-
-            //     SongWeekProfile song = MyProfile.GetSongWeekProfile(1);
-            //     Helper.DebugLog("Name: " + song.m_Name);
-            //     Helper.DebugLog("Name: " + song.m_RewardLevel);
-            // }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Helper.DebugLog("Next Add" + MyProfile.m_InterTime.GetTimeToNextAdd(1, ""));
+            }
         }
 
         private void OnEnable()

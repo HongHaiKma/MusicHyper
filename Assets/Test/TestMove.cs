@@ -2,23 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using RhythmGameStarter;
 
 public class TestMove : MonoBehaviour
 {
-    BigNumber b = 2333333333333333333;
-    private void Start()
+    private void OnEnable()
     {
-        double a = 2333;
-        // BigNumber b = new BigNumber(a);
-        // BigNumber b = 2333333333333333333;
-        Debug.Log(a);
+        EventString.AddListener("inter_cd_time", TestEvent);
     }
 
-    // private void Update()
-    // {
-    //     b *= 1000000;
-    //     Debug.Log(b);
-    // }
+    private void OnDisable()
+    {
+        EventString.RemoveListener("inter_cd_time", TestEvent);
+    }
+
+    private void OnDestroy()
+    {
+        EventString.RemoveListener("inter_cd_time", TestEvent);
+    }
+
+    public void TestEvent()
+    {
+        Helper.DebugLog("ALo alo alo");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            EventString.CallEvent("inter_cd_time");
+        }
+        // Helper.DebugLog("Next Add: " + ProfileManager.MyProfile.m_InterTime.GetTimeToNextAdd(1, ""));
+    }
 }
 
 public class TestTest
