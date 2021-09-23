@@ -23,13 +23,13 @@ public class FirebaseManager : Singleton<FirebaseManager>
     Firebase.DependencyStatus dependencyStatus = Firebase.DependencyStatus.UnavailableOther;
 
     [Header("Remote Config")]
-    FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.DefaultInstance;
+    FirebaseRemoteConfig remoteConfig;
 
     private void Start()
     {
         // m_Instance = this;
         // DontDestroyOnLoad(gameObject);
-        // remoteConfig = FirebaseRemoteConfig.DefaultInstance;
+        remoteConfig = FirebaseRemoteConfig.DefaultInstance;
         Init();
     }
     public void Init()
@@ -43,7 +43,7 @@ public class FirebaseManager : Singleton<FirebaseManager>
         //     m_FirebaseRemoteConfigManager = new FirebaseRemoteConfigManager();
         // }
         Debug.Log("Start Config");
-        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(continuationAction: task =>
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
             if (dependencyStatus == Firebase.DependencyStatus.Available)

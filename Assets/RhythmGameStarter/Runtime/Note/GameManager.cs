@@ -374,6 +374,16 @@ namespace RhythmGameStarter
             // SongManager.Instance.PlaySong();
         }
 
+        public void ResetScoreComboMiss()
+        {
+            StatsSystem.Instance.missed = 0;
+            StatsSystem.Instance.combo = 0;
+            StatsSystem.Instance.score = 0;
+            GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+            ComboSystem.Instance.UpdateComboDisplay();
+            StatsSystem.Instance.UpdateScoreDisplay();
+        }
+
         // public void PlaySong()
         // {
         //     SoundManager.Instance.PauseBGM();
@@ -427,6 +437,8 @@ namespace RhythmGameStarter
         {
             // SongManager.Instance.DisplayTime();
             // Time.timeScale = 1.5f;
+            // GameManager.Instance.ResetScoreComboMiss();
+
             g_Ready.SetActive(false);
             g_Set.SetActive(false);
             g_Go.SetActive(false);
@@ -488,9 +500,11 @@ namespace RhythmGameStarter
             SongManager.Instance.StopSong(true);
         }
 
-        IEnumerator IEResetSong()
+        public IEnumerator IEResetSong()
         {
             // SongManager.Instance.DisplayTime();
+
+            // GameManager.Instance.ResetScoreComboMiss();
 
             g_Ready.SetActive(true);
             g_Set.SetActive(false);
