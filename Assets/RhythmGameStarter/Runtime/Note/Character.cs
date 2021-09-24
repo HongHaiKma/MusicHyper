@@ -10,6 +10,15 @@ namespace RhythmGameStarter
         public SkinnedMeshRenderer m_Skin;
         public Material mat_Idle;
 
+        public Material face;
+
+        public Texture[] faces;
+
+        public void SetFace(int _face)
+        {
+            face.mainTexture = faces[_face];
+        }
+
         public void SingAnim(Note _note)
         {
             // if (!GameManager.Instance.m_EnemyTurn)
@@ -19,19 +28,19 @@ namespace RhythmGameStarter
             {
                 case TrackTypes.LEFT:
                     anim_Owner.SetTrigger("1");
-                    m_Skin.materials[1] = GameManager.Instance.mat_Sing1;
+                    // m_Skin.materials[1] = GameManager.Instance.mat_Sing1;
                     break;
                 case TrackTypes.RIGHT:
                     anim_Owner.SetTrigger("2");
-                    m_Skin.materials[1] = GameManager.Instance.mat_Sing2;
+                    // m_Skin.materials[1] = GameManager.Instance.mat_Sing2;
                     break;
                 case TrackTypes.UP:
                     anim_Owner.SetTrigger("3");
-                    m_Skin.materials[1] = GameManager.Instance.mat_Sing3;
+                    // m_Skin.materials[1] = GameManager.Instance.mat_Sing3;
                     break;
                 case TrackTypes.DOWN:
                     anim_Owner.SetTrigger("4");
-                    m_Skin.materials[1] = GameManager.Instance.mat_Sing4;
+                    // m_Skin.materials[1] = GameManager.Instance.mat_Sing4;
                     break;
                     // }
             }

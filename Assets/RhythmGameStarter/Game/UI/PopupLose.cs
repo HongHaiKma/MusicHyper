@@ -30,40 +30,17 @@ namespace RhythmGameStarter
             StatsSystem.Instance.combo = 0;
             StatsSystem.Instance.score = 0;
             StatsSystem.Instance.UpdateScoreDisplay();
-            GUIManager.Instance.SetBlockPopup(false);
+            GUIManager.Instance.SetBlockPopup(GameManager.Instance.m_ModePlay == ModePlay.STORY ? false : true);
 
-            List<WeekConfig> weekConfigs = GameData.Instance.GetWeekSong(ProfileManager.GetWeek());
-            GameManager.Instance.m_StorysongNo = 0;
-            GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
-            SongManager.Instance.defaultSong = GameManager.Instance.m_WeekSongs[GameManager.Instance.m_StorysongNo];
+            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            {
+                List<WeekConfig> weekConfigs = GameData.Instance.GetWeekSong(ProfileManager.GetWeek());
+                GameManager.Instance.m_StorysongNo = 0;
+                GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
+                SongManager.Instance.defaultSong = GameManager.Instance.m_WeekSongs[GameManager.Instance.m_StorysongNo];
+            }
+
             GameManager.Instance.ResetSong();
-
-            // SongManager.Instance.delay = 4f;
-            // SongManager.Instance.StopSong(true);
-
-            // GameManager.Instance.txt_Time.gameObject.SetActive(false);
-
-            // UIManager.Instance.g_StoryMenu.SetActive(false);
-            // GameManager.Instance.m_WeekConfigs.Clear();
-            // GameManager.Instance.m_WeekSongs.Clear();
-            // List<WeekConfig> weekConfigs = GameData.Instance.GetWeekSong(ProfileManager.GetWeek());
-            // GameManager.Instance.m_StorysongNo = 0;
-            // GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
-            // GameManager.Instance.m_WeekConfigs = weekConfigs;
-
-            // int count = weekConfigs.Count;
-            // for (int i = 0; i < count; i++)
-            // {
-            //     GameManager.Instance.m_WeekSongs.Add(GameManager.Instance.m_Songs[weekConfigs[i].m_Id - 1]);
-            // }
-
-            // UIManager.Instance.OpenDialoguePopup(true);
-
-            // GameManager.Instance.m_Continue = true;
-            // GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
-            // ComboSystem.Instance.UpdateComboDisplay();
-            // GameManager.Instance.m_Enemy.SetAnimTrigger("Idle");
-            // GameManager.Instance.ResetVsBar();
         }
 
         public void Home()

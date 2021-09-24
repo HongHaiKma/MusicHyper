@@ -296,6 +296,8 @@ namespace RhythmGameStarter
                 note.m_NoteSetup.g_NotePlayer.SetActive(false);
                 note.parentTrack.AnimateNote();
 
+                GameManager.Instance.m_Player.SingAnim(note);
+
                 GameManager.Instance.UpdatePlayerNotes(note);
 
                 GameManager.Instance.CheckEnemyTurn();

@@ -114,6 +114,8 @@ namespace RhythmGameStarter
 
         public int m_InterTime = 0;
 
+        public TextMeshProUGUI txt_Inter;
+
         private void Awake()
         {
             Application.targetFrameRate = 60;
@@ -581,10 +583,15 @@ namespace RhythmGameStarter
             g_Go2.SetActive(false);
         }
 
+        public void TestInter()
+        {
+            txt_Inter.text = ((int)(FirebaseManager.Instance.remoteConfig.GetValue("inter_cd_time").DoubleValue)).ToString();
+        }
+
         public void UpdatePlayerNotes(Note _note)
         {
             _note.m_NoteSetup.m_Miss = false;
-            m_Player.SingAnim(_note);
+            // m_Player.SingAnim(_note);
             m_PlayerNotes++;
             // GameManager.Instance.m_Enemy.SetState(E_State.IDLE);
             txt_PlayerNotes.text = m_PlayerNotes.ToString();
@@ -641,7 +648,7 @@ namespace RhythmGameStarter
             if (_IsPlayer)
             {
                 m_Player.anim_Owner.SetTrigger("Hit");
-                m_Player.m_Skin.materials[1] = mat_Hit;
+                // m_Player.m_Skin.materials[1] = mat_Hit;
                 if (m_PlayerNotes > 0)
                 {
                     m_PlayerNotes--;
@@ -722,8 +729,8 @@ namespace RhythmGameStarter
                 {
                     GameManager.Instance.m_Enemy.SetState(E_State.SING);
                 }
-                GameManager.Instance.l_LightEnemy.intensity = 4.5f;
-                GameManager.Instance.l_LightPlayer.intensity = 2.5f;
+                // GameManager.Instance.l_LightEnemy.intensity = 4.5f;
+                // GameManager.Instance.l_LightPlayer.intensity = 2.5f;
             }
             else
             {
@@ -731,8 +738,8 @@ namespace RhythmGameStarter
                 {
                     GameManager.Instance.m_Enemy.SetState(E_State.IDLE);
                 }
-                GameManager.Instance.l_LightEnemy.intensity = 2f;
-                GameManager.Instance.l_LightPlayer.intensity = 6.05f;
+                // GameManager.Instance.l_LightEnemy.intensity = 2f;
+                // GameManager.Instance.l_LightPlayer.intensity = 6.05f;
             }
         }
     }

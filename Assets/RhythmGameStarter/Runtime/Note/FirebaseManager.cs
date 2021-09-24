@@ -31,7 +31,6 @@ namespace RhythmGameStarter
         {
             // m_Instance = this;
             // DontDestroyOnLoad(gameObject);
-            remoteConfig = FirebaseRemoteConfig.DefaultInstance;
             Init();
         }
         public void Init()
@@ -50,6 +49,7 @@ namespace RhythmGameStarter
                 dependencyStatus = task.Result;
                 if (dependencyStatus == Firebase.DependencyStatus.Available)
                 {
+                    remoteConfig = FirebaseRemoteConfig.DefaultInstance;
                     InitializeFirebase();
                 }
                 else
