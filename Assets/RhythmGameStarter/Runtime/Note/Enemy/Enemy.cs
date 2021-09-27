@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour
         SetFace(0);
     }
 
-    public void SetFace(int _face)
+    public virtual void SetFace(int _face)
     {
         face.mainTexture = faces[_face];
     }
 
-    public void SetState(E_State _state)
+    public virtual void SetState(E_State _state)
     {
         // if (_state != m_State)
         // {
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         // }
     }
 
-    public void SetAnimTrigger(string _anim)
+    public virtual void SetAnimTrigger(string _anim)
     {
         anim_Owner.SetTrigger(_anim);
     }

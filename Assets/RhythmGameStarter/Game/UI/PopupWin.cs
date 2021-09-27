@@ -297,9 +297,14 @@ namespace RhythmGameStarter
                 }
                 else
                 {
-                    GameManager.Instance.NextWeekSong();
                     StatsSystem.Instance.score = 0;
                     StatsSystem.Instance.combo = 0;
+                    StatsSystem.Instance.missed = 0;
+                    StatsSystem.Instance.UpdateScoreDisplay();
+                    ComboSystem.Instance.UpdateComboDisplay();
+                    GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+
+                    GameManager.Instance.NextWeekSong();
                 }
 
                 FadeOut();
@@ -342,6 +347,13 @@ namespace RhythmGameStarter
 
                 // StatsSystem.Instance.UpdateScoreDisplay();
                 // ComboSystem.Instance.UpdateComboDisplay();
+
+                StatsSystem.Instance.score = 0;
+                StatsSystem.Instance.combo = 0;
+                StatsSystem.Instance.missed = 0;
+                StatsSystem.Instance.UpdateScoreDisplay();
+                ComboSystem.Instance.UpdateComboDisplay();
+                GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
 
                 return;
             }

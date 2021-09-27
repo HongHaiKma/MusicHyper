@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "R58M338N5SW",
+    "m_SelectedDeviceId": "08211FDD400529",
     "m_SelectedPackage": {
         "deviceId": "",
         "name": "",
@@ -30,6 +30,12 @@
             "deviceId": "R58M338N5SW",
             "name": "com.musicchallenge.fmfmod.modcharacter",
             "processId": 8878,
+            "exited": false
+        },
+        {
+            "deviceId": "988678514c3231504f",
+            "name": "com.sec.android.app.launcher",
+            "processId": 10262,
             "exited": false
         }
     ],
