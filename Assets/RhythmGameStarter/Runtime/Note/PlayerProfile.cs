@@ -19,6 +19,9 @@ namespace RhythmGameStarter
         public int m_Level;
         public int m_Ads;
 
+        public int m_OpenRateUs;
+        public int m_RateUs;
+
         public int m_StoryWeek;
 
         public int m_SelectedCharacter = 0;
@@ -92,6 +95,9 @@ namespace RhythmGameStarter
 
             m_Level = 1;
             m_Ads = 1;
+
+            m_OpenRateUs = 0;
+            m_RateUs = 0;
 
             m_Week = 1;
 

@@ -13,6 +13,8 @@ namespace RhythmGameStarter
         public GameObject g_LosePop;
         public GameObject g_WinPop;
 
+        public GameObject g_RatePop;
+
         public GameObject g_MainMenu;
         public GameObject g_FreeplayMenu;
         public GameObject g_StoryMenu;
@@ -41,6 +43,10 @@ namespace RhythmGameStarter
         public RectTransform rect_Setting;
         public Button btn_Setting;
         public bool m_SettingOpen;
+        public Transform tf_TriIcon;
+
+        public Button btn_Policy;
+        public Button btn_Mail;
 
         private void Awake()
         {
@@ -49,6 +55,8 @@ namespace RhythmGameStarter
             GUIManager.Instance.AddClickEvent2(btn_StoryMenu, OpenStoryMenu);
             GUIManager.Instance.AddClickEvent2(btn_Vibration, SetVibration);
             GUIManager.Instance.AddClickEvent2(btn_Setting, OpenSettingPanel);
+            GUIManager.Instance.AddClickEvent2(btn_Policy, () => Application.OpenURL("https://bit.ly/2xy7eCk"));
+            GUIManager.Instance.AddClickEvent2(btn_Mail, OpenMail);
             // GUIManager.Instance.AddClickEvent2(btn_StoryPlay, PlayStory);
 
             m_SettingOpen = true;
@@ -60,15 +68,45 @@ namespace RhythmGameStarter
             tf_Knot.localPosition = (PlayerPrefs.GetInt("Vibration") == 1) ? tf_On.localPosition : tf_Off.localPosition;
         }
 
+        public void OpenMail()
+        {
+            //         string email = "skysoftone2018@gmail.com";
+            // #if UNITY_EDITOR || UNITY_ANDROID
+            //         string subject = MyEscapeURL("Feedback Stickman Warriors-Version " + Application.version);
+            // #else
+            //         string subject = MyEscapeURL("IOS_Feedback Stickman Warriors-Version " + Application.version);
+            // #endif
+            //         string body = MyEscapeURL("Please tell us what we can improve in the game.");
+
+
+            //         Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
+
+            string email = "danghoa28051995@gmail.com";
+
+            string subject = MyEscapeURL("Feedback Hide and Seek 3D: Monster Escape v" + Application.version);
+
+            string body = MyEscapeURL("Please tell us what we can improve in the game.");
+
+
+            Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
+        }
+
+        string MyEscapeURL(string url)
+        {
+            return WWW.EscapeURL(url).Replace("+", "%20");
+        }
+
         public void OpenSettingPanel()
         {
             m_SettingOpen = !m_SettingOpen;
             if (m_SettingOpen)
             {
+                tf_TriIcon.DOLocalRotate(new Vector3(0f, -180f, 0f), 0.5f);
                 rect_Setting.DOLocalMoveX(386f, 0.5f);
             }
             else if (!m_SettingOpen)
             {
+                tf_TriIcon.DOLocalRotate(new Vector3(0f, 0f, 0f), 0.5f);
                 rect_Setting.DOLocalMoveX(543f, 0.5f);
             }
         }
@@ -110,6 +148,16 @@ namespace RhythmGameStarter
             g_MainMenu.SetActive(true);
             g_FreeplayMenu.SetActive(false);
             g_StoryMenu.SetActive(false);
+        }
+
+        public void OpenRatePopup()
+        {
+            g_RatePop.SetActive(true);
+        }
+
+        public void CloseRatePopup()
+        {
+            g_RatePop.SetActive(false);
         }
 
         // public void PlayStory()
@@ -157,6 +205,12 @@ namespace RhythmGameStarter
 
         public void OpenWinPopup(bool _value)
         {
+            if (ProfileManager.MyProfile.m_OpenRateUs < 2 && ProfileManager.MyProfile.m_RateUs == 0)
+            {
+                ProfileManager.MyProfile.m_OpenRateUs++;
+                UIManager.Instance.OpenRatePopup();
+            }
+
             g_WinPop.SetActive(_value);
         }
     }

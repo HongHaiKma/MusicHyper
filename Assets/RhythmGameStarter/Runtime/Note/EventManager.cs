@@ -166,4 +166,5 @@ public enum GameEvent
     TRY_SONG,
     X3_CLAIM,
     CONTINUE,
+    RATE,
 }

@@ -12,4 +12,5 @@ public class SpriteManager : Singleton<SpriteManager>
     public Sprite[] m_LongNote;
     public Sprite[] m_SongPlaylistBG;
     public int[] m_SongPlaylistBGIndex;
+    public Sprite[] m_RateStar;
 }

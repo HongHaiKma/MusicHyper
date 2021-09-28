@@ -14,6 +14,8 @@ namespace RhythmGameStarter
         public ModePlay m_ModePlay;
         public StoryLevel m_StoryLevel;
 
+        public int m_RateStar = 0;
+
         public Character m_Player;
         public Enemy m_Enemy;
 
