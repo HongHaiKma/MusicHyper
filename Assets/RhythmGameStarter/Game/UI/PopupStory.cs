@@ -330,6 +330,9 @@ namespace RhythmGameStarter
             // {
 
             // }
+
+            AnalysticsManager.LogPlayZoneX(GameManager.Instance.m_WeekNo);
+
             GameManager.Instance.txt_Time.gameObject.SetActive(false);
 
             UIManager.Instance.g_StoryMenu.SetActive(false);

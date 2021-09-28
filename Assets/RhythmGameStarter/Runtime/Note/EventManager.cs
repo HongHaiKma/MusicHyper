@@ -167,4 +167,5 @@ public enum GameEvent
     X3_CLAIM,
     CONTINUE,
     RATE,
+    REMOVE_ADS,
 }

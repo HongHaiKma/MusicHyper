@@ -20,6 +20,16 @@ namespace RhythmGameStarter
 
         private void OnEnable()
         {
+            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            {
+                AnalysticsManager.LogFailZoneX(GameManager.Instance.m_WeekNo);
+            }
+            else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            {
+                int songID = GameManager.Instance.m_DefaultSong;
+                SongConfig songs = GameData.Instance.GetSongConfig(songID);
+                AnalysticsManager.LogWinFreeplaySong(songs.m_Name);
+            }
             FadeIn();
         }
 
@@ -38,6 +48,14 @@ namespace RhythmGameStarter
                 GameManager.Instance.m_StorysongNo = 0;
                 GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
                 SongManager.Instance.defaultSong = GameManager.Instance.m_WeekSongs[GameManager.Instance.m_StorysongNo];
+
+                AnalysticsManager.LogReplayZone(GameManager.Instance.m_WeekNo);
+            }
+            else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            {
+                int songID = GameManager.Instance.m_DefaultSong;
+                SongConfig songs = GameData.Instance.GetSongConfig(songID);
+                AnalysticsManager.LogReplayFreeplaySong(songs.m_Name);
             }
 
             GameManager.Instance.ResetSong();

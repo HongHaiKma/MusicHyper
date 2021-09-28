@@ -74,6 +74,10 @@ namespace RhythmGameStarter
             }
             else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
             {
+                int songID = GameManager.Instance.m_DefaultSong;
+                SongConfig songs = GameData.Instance.GetSongConfig(songID);
+                AnalysticsManager.LogWinFreeplaySong(songs.m_Name);
+
                 txt_Mode.text = "FREEPLAY";
                 StartCoroutine(DelayClaim());
             }
@@ -280,6 +284,7 @@ namespace RhythmGameStarter
         public void X3ClaimLogic()
         {
             Helper.DebugLog("X3ClaimLogic");
+            AnalysticsManager.LogX3Claim();
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
                 ProfileManager.AddGold(CalGoldStory() * 3);
@@ -293,6 +298,7 @@ namespace RhythmGameStarter
                     {
                         ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
                     }
+                    AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
                     Mode();
                 }
                 else
@@ -361,6 +367,8 @@ namespace RhythmGameStarter
             {
                 ProfileManager.AddGold(CalGoldWin());
                 SetSongProfile();
+
+                AdsManager.Instance.WatchInterstitial();
             }
 
             btn_X3Claim.interactable = false;
@@ -389,7 +397,7 @@ namespace RhythmGameStarter
                 btn_Claim.interactable = false;
                 txt_TotalGold.text = ProfileManager.GetGold();
 
-                txt_Mode.text = "Story";
+                txt_Mode.text = "STORY";
                 if (GameManager.Instance.IsStoryWeekEnd())
                 {
                     if (ProfileManager.GetWeek() < 8)
@@ -414,7 +422,11 @@ namespace RhythmGameStarter
             Note.m_ReturnHome = true;
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
-                GUIManager.Instance.LoadPlayScene(() => UIManager.Instance.OpenStoryMenu());
+                GUIManager.Instance.LoadPlayScene(() =>
+                {
+                    AdsManager.Instance.WatchInterstitial();
+                    UIManager.Instance.OpenStoryMenu();
+                });
                 // UIManager.Instance.OpenStoryMenu();
                 // GameManager.Instance.StopSong();
             }

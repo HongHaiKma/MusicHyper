@@ -365,7 +365,18 @@ namespace RhythmGameStarter
             GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
             enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
             enemy.transform.localPosition = Vector3.zero;
+
             enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+
+            if (GameManager.Instance.m_WeekNo == 1)
+            {
+                enemy.transform.localPosition = new Vector3(-8.9f, 6.3f, 4.8f);
+            }
+            else
+            {
+                enemy.transform.localPosition = new Vector3(0f, 0f, 0f);
+            }
+
             enemy.transform.localScale = new Vector3(1f, 1f, 1f);
             GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
 

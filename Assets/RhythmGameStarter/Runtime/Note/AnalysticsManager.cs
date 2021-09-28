@@ -7,35 +7,27 @@ namespace RhythmGameStarter
 {
     public class AnalysticsManager : Singleton<AnalysticsManager>
     {
-        public static void LogPlayBOOPEEBO()
+        public static void LogPlayFreeSong(string _song)
         {
-            string eventName = "PLAY_FREE_BOOPEEBO";
-            // if (level < 10)
-            // {
-            //     eventName = eventName + "00" + level;
-            // }
-            // else if ((level >= 10) && (level < 100))
-            // {
-            //     eventName = eventName + "0" + level;
-            // }
+            string eventName = "PLAY_FREE_" + _song;
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
-        public static void LogWinBOOPEEBO()
+        public static void LogWinFreeplaySong(string _song)
         {
-            string eventName = "WIN_FREE_BOOPEEBO";
+            string eventName = "WIN_FREE_" + _song;
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
-        public static void LogFailBOOPEEBO()
+        public static void LogfailFreeplaySong(string _song)
         {
-            string eventName = "FAIL_FREE_BOOPEEBO";
+            string eventName = "FAIL_FREE_" + _song;
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
-        public static void LogReplayBOOPEEBO()
+        public static void LogReplayFreeplaySong(string _song)
         {
-            string eventName = "REPLAY_NORMAL_BOOPEEBO";
+            string eventName = "REPLAY_NORMAL_" + _song;
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
@@ -81,9 +73,9 @@ namespace RhythmGameStarter
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
-        public static void LogLoseLevel(int level)
+        public static void LogReplayZone(int level)
         {
-            string eventName = "FAIL_NORMAL_LEVEL_";
+            string eventName = "REPLAY_ZONE_";
             if (level < 10)
             {
                 eventName = eventName + "00" + level;
@@ -95,17 +87,24 @@ namespace RhythmGameStarter
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
-        public static void LogRetryLevel(int level)
+        public static void LogTrySong(string song)
         {
-            string eventName = "REPLAY_NORMAL_LEVEL_";
-            if (level < 10)
-            {
-                eventName = eventName + "00" + level;
-            }
-            else if ((level >= 10) && (level < 100))
-            {
-                eventName = eventName + "0" + level;
-            }
+            string eventName = "TRY_TIME_" + song;
+
+            FirebaseManager.Instance.LogAnalyticsEvent(eventName);
+        }
+
+        public static void LogX3Claim()
+        {
+            string eventName = "REWARD_ADS_GOLD_WIN";
+
+            FirebaseManager.Instance.LogAnalyticsEvent(eventName);
+        }
+
+        public static void LogRevive()
+        {
+            string eventName = "REVIVE_ADS";
+
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
@@ -115,15 +114,9 @@ namespace RhythmGameStarter
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
 
-        public static void LogGetShopGold1()
+        public static void LogRemoveAds()
         {
-            string eventName = "SHOP_FREE_COIN";
-            FirebaseManager.Instance.LogAnalyticsEvent(eventName);
-        }
-
-        public static void LogUnlockCharacter(int _index, string _name)
-        {
-            string eventName = "CHARACTER_UNLOCK_" + _name + "_" + _index;
+            string eventName = "PURCHASE_REMOVE_ADS";
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
     }

@@ -83,6 +83,7 @@ namespace RhythmGameStarter
 
         public void ContinueAds()
         {
+            AnalysticsManager.LogRevive();
             FadeOut();
             GameManager.Instance.m_Continue = false;
             GameManager.Instance.m_knot = 0;

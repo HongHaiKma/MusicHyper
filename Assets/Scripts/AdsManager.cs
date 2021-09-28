@@ -452,7 +452,7 @@ public class AdsManager : Singleton<AdsManager>
 
     public void WatchInterstitial()
     {
-        if (m_WatchInter && PlayerPrefs.GetInt(m_Ads) == 1)
+        if (m_WatchInter && PlayerPrefs.GetInt(m_Ads) == 1 && ProfileManager.MyProfile.m_InterTime.GetCurrentValue() <= 0)
         {
             Helper.DebugLog("Ads Manager Check ads");
             // if (interstitial.IsLoaded())
@@ -467,7 +467,8 @@ public class AdsManager : Singleton<AdsManager>
             // }
             if (MaxSdk.IsInterstitialReady(m_InterId))
             {
-                // AnalysticsManager.LogInterAdsShow();
+                AnalysticsManager.LogInterAdsShow();
+                ProfileManager.MyProfile.m_InterTime.Reset();
                 MaxSdk.ShowInterstitial(m_InterId);
             }
             else
@@ -608,6 +609,7 @@ public class AdsManager : Singleton<AdsManager>
                 EventManager1<int>.CallEvent(GameEvent.TRY_SONG, m_TrySongId);
                 break;
             case RewardType.X3_CLAIM:
+                AdsManager.Instance.m_WatchInter = false;
                 EventManager.CallEvent(GameEvent.X3_CLAIM);
                 break;
             case RewardType.CONTINUE:

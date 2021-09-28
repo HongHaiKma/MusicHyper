@@ -48,6 +48,13 @@ namespace RhythmGameStarter
 
         public void Replay()
         {
+            if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            {
+                int songID = GameManager.Instance.m_DefaultSong;
+                SongConfig songs = GameData.Instance.GetSongConfig(songID);
+                AnalysticsManager.LogReplayFreeplaySong(songs.m_Name);
+            }
+
             FadeOut();
             StatsSystem.Instance.missed = 0;
             StatsSystem.Instance.combo = 0;

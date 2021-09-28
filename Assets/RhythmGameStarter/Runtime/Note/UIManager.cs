@@ -47,16 +47,37 @@ namespace RhythmGameStarter
 
         public Button btn_Policy;
         public Button btn_Mail;
+        public Button btn_RemoveAds;
 
         private void Awake()
         {
             GUIManager.Instance.AddClickEvent2(btn_FreeplayMenu, OpenFreeplayMenu);
-            GUIManager.Instance.AddClickEvent2(btn_FreeBackMainMenu, BackToMainMenu);
+            GUIManager.Instance.AddClickEvent(btn_FreeBackMainMenu, BackToMainMenu);
             GUIManager.Instance.AddClickEvent2(btn_StoryMenu, OpenStoryMenu);
-            GUIManager.Instance.AddClickEvent2(btn_Vibration, SetVibration);
-            GUIManager.Instance.AddClickEvent2(btn_Setting, OpenSettingPanel);
-            GUIManager.Instance.AddClickEvent2(btn_Policy, () => Application.OpenURL("https://bit.ly/2xy7eCk"));
-            GUIManager.Instance.AddClickEvent2(btn_Mail, OpenMail);
+            GUIManager.Instance.AddClickEvent(btn_Vibration, SetVibration);
+            GUIManager.Instance.AddClickEvent(btn_Setting, OpenSettingPanel);
+
+            GUIManager.Instance.AddClickEvent(btn_Policy, () =>
+            {
+                Application.OpenURL("https://bit.ly/2xy7eCk");
+                SoundManager.Instance.PlayButtonClickArrow();
+            });
+
+            GUIManager.Instance.AddClickEvent(btn_Mail, OpenMail);
+
+            if (ProfileManager.CheckAds())
+            {
+                GUIManager.Instance.AddClickEvent(btn_RemoveAds, () =>
+                {
+                    Helper.DebugLog("BBBBBBBBBBBBBB");
+                    EventManager.CallEvent(GameEvent.REMOVE_ADS);
+                    SoundManager.Instance.PlayButtonClickArrow();
+                });
+            }
+            else
+            {
+                btn_RemoveAds.gameObject.SetActive(false);
+            }
             // GUIManager.Instance.AddClickEvent2(btn_StoryPlay, PlayStory);
 
             m_SettingOpen = true;
@@ -80,7 +101,7 @@ namespace RhythmGameStarter
 
 
             //         Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
-
+            SoundManager.Instance.PlayButtonClickArrow();
             string email = "danghoa28051995@gmail.com";
 
             string subject = MyEscapeURL("Feedback Hide and Seek 3D: Monster Escape v" + Application.version);
@@ -98,6 +119,8 @@ namespace RhythmGameStarter
 
         public void OpenSettingPanel()
         {
+            SoundManager.Instance.PlayButtonClickArrow();
+
             m_SettingOpen = !m_SettingOpen;
             if (m_SettingOpen)
             {
@@ -113,6 +136,8 @@ namespace RhythmGameStarter
 
         public void SetVibration()
         {
+            SoundManager.Instance.PlayButtonClickArrow();
+
             int value = (PlayerPrefs.GetInt("Vibration") == 1) ? 0 : 1;
             PlayerPrefs.SetInt("Vibration", value);
 

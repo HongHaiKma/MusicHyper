@@ -1438,6 +1438,7 @@ MonoBehaviour:
   tf_TriIcon: {fileID: 727334623}
   btn_Policy: {fileID: 1685959104}
   btn_Mail: {fileID: 1768165684}
+  btn_RemoveAds: {fileID: 1871356237}
 --- !u!1 &104479845
 GameObject:
   m_ObjectHideFlags: 0
@@ -27729,7 +27730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113866213607987507}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -13.9, y: 0, z: -3.1}
+  m_LocalPosition: {x: -13.9, y: 0, z: 8.37}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
