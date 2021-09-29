@@ -40,6 +40,8 @@ namespace RhythmGameStarter
         {
             Helper.DebugLog("PopuWin Enableeeeeeeeeeeeeeeeee");
 
+            SoundManager.Instance.PlayBGM(0);
+
             FadeIn();
 
             AddListener();

@@ -16,7 +16,7 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip m_SoundCrack;
 
     public AudioClip m_WaterSpray;
-    public AudioClip m_BGMTheme;
+    public AudioClip[] m_BGMTheme;
 
     public AudioClip m_SoundBigPrize;
 
@@ -42,7 +42,7 @@ public class SoundManager : Singleton<SoundManager>
         base.OnEnable();
         OnSoundChange();
         OnMusicChange();
-        PlayBGM();
+        PlayBGM(0);
 
 
         StartListenToEvent();
@@ -74,9 +74,9 @@ public class SoundManager : Singleton<SoundManager>
         m_BGM.volume = 0.6f;
     }
 
-    public void PlayBGM()
+    public void PlayBGM(int index)
     {
-        m_BGM.clip = m_BGMTheme;
+        m_BGM.clip = m_BGMTheme[index];
         m_BGM.Play();
     }
 

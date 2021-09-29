@@ -20,6 +20,8 @@ namespace RhythmGameStarter
 
         private void OnEnable()
         {
+            SoundManager.Instance.PlayBGM(1);
+
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
                 AnalysticsManager.LogFailZoneX(GameManager.Instance.m_WeekNo);
@@ -35,6 +37,8 @@ namespace RhythmGameStarter
 
         public void Replay()
         {
+            SoundManager.Instance.PauseBGM();
+
             FadeOut();
             StatsSystem.Instance.missed = 0;
             StatsSystem.Instance.combo = 0;
@@ -63,6 +67,8 @@ namespace RhythmGameStarter
 
         public void Home()
         {
+            AdsManager.Instance.WatchInterstitial();
+
             FadeOut();
             Note.m_ReturnHome = true;
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)

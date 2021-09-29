@@ -176,6 +176,8 @@ public class SongPlaylist : EnhancedScrollerCellView
 
         SongConfig song = GameData.Instance.GetSongConfig(songId);
 
+        GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_EnemyNo - 1];
+
         if (ProfileManager.GetSongProfiles(songId) != null)
         {
             GameManager.Instance.m_TrySong = false;
@@ -199,7 +201,7 @@ public class SongPlaylist : EnhancedScrollerCellView
 
         if (songId == 1)
         {
-            enemy.transform.localPosition = new Vector3(-8.9f, 6.3f, 4.8f);
+            enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
         }
         else
         {
@@ -210,6 +212,8 @@ public class SongPlaylist : EnhancedScrollerCellView
         GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
 
         AnalysticsManager.LogPlayFreeSong(song.m_Name);
+
+
 
         StartCoroutine(IEPlaySong());
     }
@@ -229,6 +233,8 @@ public class SongPlaylist : EnhancedScrollerCellView
             GameManager.Instance.m_DefaultSong = songId;
 
             SongConfig song = GameData.Instance.GetSongConfig(songId);
+
+            GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_EnemyNo - 1];
 
             AnalysticsManager.LogTrySong(song.m_Name);
 
@@ -254,7 +260,7 @@ public class SongPlaylist : EnhancedScrollerCellView
             enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
             if (songId == 1)
             {
-                enemy.transform.localPosition = new Vector3(-8.9f, 6.3f, 4.8f);
+                enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
             }
             else
             {

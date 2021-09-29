@@ -44,7 +44,7 @@ namespace RhythmGameStarter
             txt_EnemyName.text = GameData.Instance.GetSongConfig(GameManager.Instance.m_StorySongID).m_EnemyName;
 
             img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
-            img_Enemy.SetNativeSize();
+            // img_Enemy.SetNativeSize();
             Helper.DebugLog("Enemy Turn: " + m_Dialogues[m_DialogueID].m_EnemyTurn);
             if (m_Dialogues[m_DialogueID].m_EnemyTurn != 0)
             {
@@ -95,7 +95,7 @@ namespace RhythmGameStarter
                     img_Enemy.gameObject.SetActive(false);
                     g_Char.SetActive(true);
                 }
-                img_Enemy.SetNativeSize();
+                // img_Enemy.SetNativeSize();
             }
             else
             {

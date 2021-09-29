@@ -4,7 +4,7 @@ public class MaxSdkLogger
 {
     private const string SdkTag = "AppLovin MAX";
     public const string KeyVerboseLoggingEnabled = "com.applovin.verbose_logging_enabled";
-
+    
     /// <summary>
     /// Log debug messages.
     /// </summary>
@@ -12,7 +12,7 @@ public class MaxSdkLogger
     {
         Debug.Log("Debug [" + SdkTag + "] " + message);
     }
-
+    
     /// <summary>
     /// Log debug messages when verbose logging is enabled.
     ///
@@ -25,7 +25,7 @@ public class MaxSdkLogger
             Debug.Log("Debug [" + SdkTag + "] " + message);
         }
     }
-
+    
     /// <summary>
     /// Log warning messages.
     /// </summary>
@@ -33,7 +33,7 @@ public class MaxSdkLogger
     {
         Debug.LogWarning("Warning [" + SdkTag + "] " + message);
     }
-
+    
     /// <summary>
     /// Log warning messages when verbose logging is enabled.
     ///
@@ -46,7 +46,7 @@ public class MaxSdkLogger
             Debug.LogWarning("Warning [" + SdkTag + "] " + message);
         }
     }
-
+    
     /// <summary>
     /// Log error messages.
     /// </summary>
@@ -54,7 +54,7 @@ public class MaxSdkLogger
     {
         Debug.LogError("Error [" + SdkTag + "] " + message);
     }
-
+    
     /// <summary>
     /// Log error messages when verbose logging is enabled.
     ///

@@ -118,6 +118,8 @@ namespace RhythmGameStarter
 
         public TextMeshProUGUI txt_Inter;
 
+        public Image img_Enemy;
+
         private void Awake()
         {
             Application.targetFrameRate = 60;
@@ -170,14 +172,15 @@ namespace RhythmGameStarter
             //     NextWeekSong();
             // }
 
-            // if (Input.GetKeyDown(KeyCode.S))
-            // {
-            //     List<WeekConfig> weekConfigs = GameManager.Instance.m_WeekConfigs;
-            //     for (int i = 0; i < GameManager.Instance.m_WeekConfigs.Count; i++)
-            //     {
-            //         Helper.DebugLog("Name: " + GameManager.Instance.m_WeekConfigs[i].m_Name);
-            //     }
-            // }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                // List<WeekConfig> weekConfigs = GameManager.Instance.m_WeekConfigs;
+                // for (int i = 0; i < GameManager.Instance.m_WeekConfigs.Count; i++)
+                // {
+                //     Helper.DebugLog("Name: " + GameManager.Instance.m_WeekConfigs[i].m_Name);
+                // }
+                Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
+            }
 
             // if (Input.GetKeyDown(KeyCode.D))
             // {
@@ -325,6 +328,8 @@ namespace RhythmGameStarter
 
             WeekConfig song = m_WeekConfigs[m_StorysongNo];
 
+            GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+
             if (m_Enemy.gameObject != null)
             {
                 PrefabManager.Instance.DespawnPool(m_Enemy.gameObject);
@@ -357,6 +362,8 @@ namespace RhythmGameStarter
 
             WeekConfig song = m_WeekConfigs[m_StorysongNo];
 
+            GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+
             if (GameManager.Instance.m_Enemy != null)
             {
                 Destroy(GameManager.Instance.m_Enemy.gameObject);
@@ -370,7 +377,7 @@ namespace RhythmGameStarter
 
             if (GameManager.Instance.m_WeekNo == 1)
             {
-                enemy.transform.localPosition = new Vector3(-8.9f, 6.3f, 4.8f);
+                enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
             }
             else
             {
@@ -511,7 +518,7 @@ namespace RhythmGameStarter
 
         public void StopSong()
         {
-            SoundManager.Instance.PlayBGM();
+            SoundManager.Instance.PlayBGM(0);
             GameManager.Instance.m_Continue = true;
             m_Enemy.SetAnimTrigger("Idle");
             ResetVsBar();
