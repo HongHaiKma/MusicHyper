@@ -87,7 +87,7 @@ namespace RhythmGameStarter
             // PlayerPrefs.SetInt(ConfigKeys.rateUs, 1);
 
             // ic_Gold = "8999999";
-            ic_Gold = "1000000";
+            ic_Gold = "1000";
             m_Gold = new BigNumber(ic_Gold);
 
             ic_Keys = "0";

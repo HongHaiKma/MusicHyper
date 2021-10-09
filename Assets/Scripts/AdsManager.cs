@@ -40,10 +40,10 @@ public class AdsManager : Singleton<AdsManager>
     // private string m_RewardId = "18edca5329c5f208";
     // private string m_BannerId = "a29cb6e6fe5d0f40";
 
-    string adUnitId = "0ko0mEaKOc3CSBbwy27NHk3dUVVz6sJL3AxewyDaTOlmr5qZqKLAkHgoPkTWp4VC8iiueO2l7zSxTHTnU2XeJz";
-    private string m_InterId = "71d80a40d260fd23";
-    private string m_RewardId = "d6314ac95f0daa9c";
-    private string m_BannerId = "f3cfb48864daa76d";
+    string adUnitId = "lBnu4FPbTxGUi8cqgwNENfRfqINTVk8B9NxC2Japp2DqKPThsIhPCF7zcC6wr9_IN8OLTcG9SR4dT4OJwQPTBf";
+    private string m_InterId = "d7ca787637c32b03";
+    private string m_RewardId = "1e7e983078a113d1";
+    private string m_BannerId = "be213b3cc42f51ca";
 
     int retryAttempt;
 

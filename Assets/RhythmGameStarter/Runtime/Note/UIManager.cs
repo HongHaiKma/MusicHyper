@@ -230,10 +230,14 @@ namespace RhythmGameStarter
 
         public void OpenWinPopup(bool _value)
         {
-            if (ProfileManager.MyProfile.m_OpenRateUs < 2 && ProfileManager.MyProfile.m_RateUs == 0)
+            ProfileManager.MyProfile.m_OpenRateUs++;
+            ProfileManager.Instance.SaveData();
+
+            if (ProfileManager.MyProfile.m_OpenRateUs > 4 && ProfileManager.MyProfile.m_RateUs == 0)
             {
-                ProfileManager.MyProfile.m_OpenRateUs++;
                 UIManager.Instance.OpenRatePopup();
+                ProfileManager.MyProfile.m_OpenRateUs = 0;
+                ProfileManager.Instance.SaveData();
             }
 
             g_WinPop.SetActive(_value);
