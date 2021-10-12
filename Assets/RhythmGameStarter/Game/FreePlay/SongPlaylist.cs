@@ -194,22 +194,29 @@ public class SongPlaylist : EnhancedScrollerCellView
 
         Helper.DebugLog("Enemy name: " + song.m_EnemyName);
 
-        GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
-        enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
-        enemy.transform.localPosition = Vector3.zero;
-        enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+        if (songId != 1)
+        {
+            GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+            enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+            enemy.transform.localPosition = Vector3.zero;
+            enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
 
-        if (songId == 1)
-        {
-            enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
-        }
-        else
-        {
-            enemy.transform.localPosition = new Vector3(0f, 0f, 0f);
+            enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+            GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
         }
 
-        enemy.transform.localScale = new Vector3(1f, 1f, 1f);
-        GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+        // if (songId == 1)
+        // {
+        //     enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
+        //     // GameManager.Instance.m_GirlDecor.SetActive(false);
+        // }
+        // else
+        // {
+        //     enemy.transform.localPosition = new Vector3(0f, 0f, 0f);
+        //     // GameManager.Instance.m_GirlDecor.SetActive(true);
+        // }
+
+
 
         AnalysticsManager.LogPlayFreeSong(song.m_Name);
 
@@ -254,20 +261,29 @@ public class SongPlaylist : EnhancedScrollerCellView
 
             Helper.DebugLog("Enemy name: " + song.m_EnemyName);
 
-            GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
-            enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
-            enemy.transform.localPosition = Vector3.zero;
-            enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
-            if (songId == 1)
+            if (songId != 1)
             {
-                enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
+
+                GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+                enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+                enemy.transform.localPosition = Vector3.zero;
+                enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+                enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+                GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
             }
-            else
-            {
-                enemy.transform.localPosition = new Vector3(0f, 0f, 0f);
-            }
-            enemy.transform.localScale = new Vector3(1f, 1f, 1f);
-            GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+
+
+            // if (songId == 1)
+            // {
+            //     enemy.transform.localPosition = new Vector3(-8.9f, 9.17f, 4.8f);
+            //     // GameManager.Instance.m_GirlDecor.SetActive(false);
+            // }
+            // else
+            // {
+            //     enemy.transform.localPosition = new Vector3(0f, 0f, 0f);
+            //     // GameManager.Instance.m_GirlDecor.SetActive(true);
+            // }
+
 
             StartCoroutine(IEPlaySong());
         }

@@ -656,7 +656,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4965442221451720409}
-  - component: {fileID: 4965442221451720410}
   - component: {fileID: 4965442221451720411}
   m_Layer: 9
   m_Name: girl friend
@@ -680,27 +679,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -208.624, z: 0}
---- !u!114 &4965442221451720410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4965442221451720412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a06d80441e2f545b91c3b7c178288b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim_Owner: {fileID: 4965442221451720411}
-  m_State: 0
-  face: {fileID: 2100000, guid: 765ce6c2b32f48b408974dd5cfab94b5, type: 2}
-  faces:
-  - {fileID: 2800000, guid: 2f2729233d036cf498e1e4608cdbf221, type: 3}
-  - {fileID: 2800000, guid: 2f2729233d036cf498e1e4608cdbf221, type: 3}
-  - {fileID: 2800000, guid: 2f2729233d036cf498e1e4608cdbf221, type: 3}
-  - {fileID: 2800000, guid: 2f2729233d036cf498e1e4608cdbf221, type: 3}
-  - {fileID: 2800000, guid: 2f2729233d036cf498e1e4608cdbf221, type: 3}
 --- !u!95 &4965442221451720411
 Animator:
   serializedVersion: 3
