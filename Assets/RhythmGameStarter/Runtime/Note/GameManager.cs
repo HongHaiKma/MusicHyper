@@ -122,6 +122,8 @@ namespace RhythmGameStarter
 
         public GameObject m_GirlDecor;
 
+        public SpriteRenderer sr_BG;
+
         private void Awake()
         {
             Application.targetFrameRate = 60;

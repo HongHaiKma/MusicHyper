@@ -79,6 +79,8 @@ public class SongPlaylist : EnhancedScrollerCellView
         SongConfig configs = GameData.Instance.GetSongConfig(songId);
 
         img_EnemyAva.sprite = SpriteManager.Instance.m_EnemyAvas[configs.m_EnemyNo - 1];
+        GameManager.Instance.sr_BG.sprite = SpriteManager.Instance.m_BGInGame[configs.m_EnemyNo - 1];
+
         img_EnemyAva.SetNativeSize();
 
         if (song != null)

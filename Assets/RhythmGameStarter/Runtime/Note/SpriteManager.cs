@@ -14,4 +14,5 @@ public class SpriteManager : Singleton<SpriteManager>
     public int[] m_SongPlaylistBGIndex;
     public Sprite[] m_RateStar;
     public Sprite[] m_EnemyIcons;
+    public Sprite[] m_BGInGame;
 }

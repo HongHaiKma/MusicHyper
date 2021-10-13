@@ -146,7 +146,10 @@ namespace RhythmGameStarter
             img_BGColor.DOColor(m_BGColor[m_Week - 1], 0.35f);
 
             GameManager.Instance.m_WeekNo = m_Week;
+
             img_EnemyAva.sprite = SpriteManager.Instance.m_EnemyAvas[m_Week - 1];
+            GameManager.Instance.sr_BG.sprite = SpriteManager.Instance.m_BGInGame[m_Week - 1];
+
             img_EnemyAva.SetNativeSize();
             txt_Week.text = "week " + m_Week.ToString();
             List<WeekConfig> songConfigs = GameData.Instance.GetWeekSong(m_Week);
