@@ -17,11 +17,13 @@ namespace RhythmGameStarter
         {
             // GameManager.Instance.l_LightEnemy.intensity = 4.5f;
             // GameManager.Instance.l_LightPlayer.intensity = 2.5f;
-            if (m_Enemy == null)
-            {
-                m_Enemy = GameManager.Instance.m_Enemy;
-            }
-            m_Enemy.m_State = E_State.SING;
+            // if (m_Enemy == null)
+            // {
+            //     m_Enemy = GameManager.Instance.m_Enemy;
+            // }
+            // m_Enemy.m_State = E_State.SING;
+
+            EventManager1<E_State>.CallEvent(GameEvent.ENEMY_STATE_VARIABLE, E_State.SING);
         }
 
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

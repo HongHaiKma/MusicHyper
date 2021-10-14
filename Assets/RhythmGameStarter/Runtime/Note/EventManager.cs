@@ -168,4 +168,6 @@ public enum GameEvent
     CONTINUE,
     RATE,
     REMOVE_ADS,
+    ENEMY_STATE,
+    ENEMY_STATE_VARIABLE,
 }

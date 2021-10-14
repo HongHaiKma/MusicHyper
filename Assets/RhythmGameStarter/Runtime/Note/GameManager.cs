@@ -339,13 +339,16 @@ namespace RhythmGameStarter
                 PrefabManager.Instance.DespawnPool(m_Enemy.gameObject);
             }
 
-            GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
-            enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
-            enemy.transform.localPosition = Vector3.zero;
-            enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
-            enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+            if (GameManager.Instance.m_WeekNo != 1)
+            {
+                GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+                enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+                enemy.transform.localPosition = Vector3.zero;
+                enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+                enemy.transform.localScale = new Vector3(1f, 1f, 1f);
 
-            GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+                GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+            }
 
             UIManager.Instance.OpenDialoguePopup(false);
 
@@ -373,7 +376,7 @@ namespace RhythmGameStarter
                 Destroy(GameManager.Instance.m_Enemy.gameObject);
             }
 
-            if (GameManager.Instance.m_WeekNo == 1)
+            if (GameManager.Instance.m_WeekNo != 1)
             {
                 GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
                 enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
@@ -758,19 +761,48 @@ namespace RhythmGameStarter
         {
             if (!m_NoteInGame[0].m_NoteSetup.m_PlayerNote)
             {
-                if (GameManager.Instance.m_Enemy.m_State == E_State.IDLE)
-                {
-                    GameManager.Instance.m_Enemy.SetState(E_State.SING);
-                }
+                // if (m_Enemy == null)
+                // {
+                //     if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+                //     {
+                //         if (true)
+                //         {
+
+                //         }
+                //     }
+                //     m_Enemy = FindObjectOfType<Enemy>().GetComponent<Enemy>();
+                // }
+
+                // if (m_Enemy != null)
+                // {
+                //     if (m_Enemy.m_State == E_State.IDLE)
+                //     {
+                //         m_Enemy.SetState(E_State.SING);
+                //     }
+                // }
+
+                EventManager1<E_State>.CallEvent(GameEvent.ENEMY_STATE, E_State.SING);
+
                 // GameManager.Instance.l_LightEnemy.intensity = 4.5f;
                 // GameManager.Instance.l_LightPlayer.intensity = 2.5f;
             }
             else
             {
-                if (GameManager.Instance.m_Enemy.m_State == E_State.SING)
-                {
-                    GameManager.Instance.m_Enemy.SetState(E_State.IDLE);
-                }
+                // if (m_Enemy == null)
+                // {
+                //     m_Enemy = FindObjectOfType<Enemy>().GetComponent<Enemy>();
+                // }
+
+                // if (m_Enemy != null)
+                // {
+                //     if (m_Enemy.m_State == E_State.SING)
+                //     {
+                //         m_Enemy.SetState(E_State.IDLE);
+                //     }
+                // }
+
+                EventManager1<E_State>.CallEvent(GameEvent.ENEMY_STATE, E_State.IDLE);
+
                 // GameManager.Instance.l_LightEnemy.intensity = 2f;
                 // GameManager.Instance.l_LightPlayer.intensity = 6.05f;
             }

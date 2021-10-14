@@ -265,7 +265,6 @@ public class SongPlaylist : EnhancedScrollerCellView
 
             if (songId != 1)
             {
-
                 GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
                 enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
                 enemy.transform.localPosition = Vector3.zero;

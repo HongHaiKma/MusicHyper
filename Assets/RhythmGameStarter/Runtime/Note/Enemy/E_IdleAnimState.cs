@@ -15,11 +15,13 @@ namespace RhythmGameStarter
 
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (m_Enemy == null)
-            {
-                m_Enemy = GameManager.Instance.m_Enemy;
-            }
-            m_Enemy.m_State = E_State.IDLE;
+            // if (m_Enemy == null)
+            // {
+            //     m_Enemy = GameManager.Instance.m_Enemy;
+            // }
+            // m_Enemy.m_State = E_State.IDLE;
+
+            EventManager1<E_State>.CallEvent(GameEvent.ENEMY_STATE_VARIABLE, E_State.IDLE);
         }
 
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

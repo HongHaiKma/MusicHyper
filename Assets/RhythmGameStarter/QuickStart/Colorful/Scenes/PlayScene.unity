@@ -3133,6 +3133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Load
       objectReference: {fileID: 0}
+    - target: {fileID: 6606684965056771360, guid: e1d6e1b55670f124c98e95b8139e1d92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6606684965056771366, guid: e1d6e1b55670f124c98e95b8139e1d92,
         type: 3}
       propertyPath: m_RootOrder
@@ -22229,6 +22234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: back (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355119077967482286, guid: e14492c41483a3840a74d901b1ab7081,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1839026878143993620, guid: e14492c41483a3840a74d901b1ab7081,
         type: 3}
