@@ -138,85 +138,85 @@ namespace RhythmGameStarter
             // GUIManager.Instance.AddClickEvent(btn_Pause, PauseSongPopup);
         }
 
-        private void Update()
-        {
-            // if (g_RhythymCore.activeInHierarchy)
-            // {
-            //     txt_Time.text = ((int)SongManager.Instance.songPosition).ToString();
-            // }
+        // private void Update()
+        // {
+        //     // if (g_RhythymCore.activeInHierarchy)
+        //     // {
+        //     //     txt_Time.text = ((int)SongManager.Instance.songPosition).ToString();
+        //     // }
 
-            // if (Input.GetKeyDown(KeyCode.C))
-            // {
-            //     m_Golg = ProfileManager.GetGold2();
-            //     m_Test = GameData.Instance.GetSongConfig(19).m_Price + 0;
-            // }
+        //     // if (Input.GetKeyDown(KeyCode.C))
+        //     // {
+        //     //     m_Golg = ProfileManager.GetGold2();
+        //     //     m_Test = GameData.Instance.GetSongConfig(19).m_Price + 0;
+        //     // }
 
-            // if (Input.GetKeyDown(KeyCode.A))
-            // {
-            //     // m_StorysongNo++;
-            //     // SongManager.Instance.defaultSong = m_WeekSongs[m_StorysongNo];
-            //     // SoundManager.Instance.PauseBGM();
-            //     // m_TrySong = false;
+        //     // if (Input.GetKeyDown(KeyCode.A))
+        //     // {
+        //     //     // m_StorysongNo++;
+        //     //     // SongManager.Instance.defaultSong = m_WeekSongs[m_StorysongNo];
+        //     //     // SoundManager.Instance.PauseBGM();
+        //     //     // m_TrySong = false;
 
-            //     // WeekConfig song = m_WeekConfigs[m_StorysongNo];
+        //     //     // WeekConfig song = m_WeekConfigs[m_StorysongNo];
 
-            //     // if (m_Enemy.gameObject != null)
-            //     // {
-            //     //     PrefabManager.Instance.DespawnPool(m_Enemy.gameObject);
-            //     // }
+        //     //     // if (m_Enemy.gameObject != null)
+        //     //     // {
+        //     //     //     PrefabManager.Instance.DespawnPool(m_Enemy.gameObject);
+        //     //     // }
 
-            //     // GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
-            //     // enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
-            //     // enemy.transform.localPosition = Vector3.zero;
-            //     // enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
-            //     // enemy.transform.localScale = new Vector3(1f, 1f, 1f);
-            //     // GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+        //     //     // GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+        //     //     // enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+        //     //     // enemy.transform.localPosition = Vector3.zero;
+        //     //     // enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+        //     //     // enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+        //     //     // GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
 
-            //     // ResetSong();
-            //     NextWeekSong();
-            // }
+        //     //     // ResetSong();
+        //     //     NextWeekSong();
+        //     // }
 
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                // List<WeekConfig> weekConfigs = GameManager.Instance.m_WeekConfigs;
-                // for (int i = 0; i < GameManager.Instance.m_WeekConfigs.Count; i++)
-                // {
-                //     Helper.DebugLog("Name: " + GameManager.Instance.m_WeekConfigs[i].m_Name);
-                // }
-                Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
-            }
+        //     // if (Input.GetKeyDown(KeyCode.S))
+        //     // {
+        //     //     // List<WeekConfig> weekConfigs = GameManager.Instance.m_WeekConfigs;
+        //     //     // for (int i = 0; i < GameManager.Instance.m_WeekConfigs.Count; i++)
+        //     //     // {
+        //     //     //     Helper.DebugLog("Name: " + GameManager.Instance.m_WeekConfigs[i].m_Name);
+        //     //     // }
+        //     //     Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
+        //     // }
 
-            // if (Input.GetKeyDown(KeyCode.D))
-            // {
-            //     Time.timeScale = 10f;
-            // }
+        //     // if (Input.GetKeyDown(KeyCode.D))
+        //     // {
+        //     //     Time.timeScale = 10f;
+        //     // }
 
-            // if (SongManager.Instance.songHasStarted)
-            // {
-            //     List<TimeInfo> timeInfo = m_EnemyTime.m_TimeInfo;
+        //     // if (SongManager.Instance.songHasStarted)
+        //     // {
+        //     //     List<TimeInfo> timeInfo = m_EnemyTime.m_TimeInfo;
 
-            //     for (int i = 0; i < timeInfo.Count; i++)
-            //     {
-            //         if (timeInfo[i].IsInRange(SongManager.Instance.songPosition))
-            //         {
-            //             if (m_Enemy.m_State == E_State.IDLE)
-            //             {
-            //                 m_Enemy.SetState(E_State.SING);
-            //                 l_LightEnemy.intensity = 4.5f;
-            //                 l_LightPlayer.intensity = 2.5f;
-            //             }
-            //             return;
-            //         }
-            //     }
+        //     //     for (int i = 0; i < timeInfo.Count; i++)
+        //     //     {
+        //     //         if (timeInfo[i].IsInRange(SongManager.Instance.songPosition))
+        //     //         {
+        //     //             if (m_Enemy.m_State == E_State.IDLE)
+        //     //             {
+        //     //                 m_Enemy.SetState(E_State.SING);
+        //     //                 l_LightEnemy.intensity = 4.5f;
+        //     //                 l_LightPlayer.intensity = 2.5f;
+        //     //             }
+        //     //             return;
+        //     //         }
+        //     //     }
 
-            //     if (m_Enemy.m_State == E_State.SING)
-            //     {
-            //         m_Enemy.SetState(E_State.IDLE);
-            //         l_LightEnemy.intensity = 2f;
-            //         l_LightPlayer.intensity = 6.05f;
-            //     }
-            // }
-        }
+        //     //     if (m_Enemy.m_State == E_State.SING)
+        //     //     {
+        //     //         m_Enemy.SetState(E_State.IDLE);
+        //     //         l_LightEnemy.intensity = 2f;
+        //     //         l_LightPlayer.intensity = 6.05f;
+        //     //     }
+        //     // }
+        // }
 
         public override void OnEnable()
         {
@@ -256,6 +256,16 @@ namespace RhythmGameStarter
             // GUIManager.Instance.AddClickEvent(btn_LeftSong, OnPrevSong);
             // GUIManager.Instance.AddClickEvent(btn_RightSong, OnNextSong);
             // GUIManager.Instance.AddClickEvent(btn_Pause, PauseSongPopup);
+        }
+
+        public override void StartListenToEvents()
+        {
+            EventManager.AddListener(GameEvent.CHECK_ENEMY_TURN, CheckEnemyTurn);
+        }
+
+        public override void StopListenToEvents()
+        {
+            EventManager.RemoveListener(GameEvent.CHECK_ENEMY_TURN, CheckEnemyTurn);
         }
 
         public void AddClickEvent()

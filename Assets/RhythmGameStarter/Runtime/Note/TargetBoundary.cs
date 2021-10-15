@@ -39,7 +39,8 @@ namespace RhythmGameStarter
                     if (GameManager.Instance.m_NoteInGame.Count != 0)
                     {
                         // GameManager.Instance.m_NoteInGame.Remove(note);
-                        GameManager.Instance.CheckEnemyTurn();
+                        // GameManager.Instance.CheckEnemyTurn();
+                        EventManager.CallEvent(GameEvent.CHECK_ENEMY_TURN);
                     }
                 }
 

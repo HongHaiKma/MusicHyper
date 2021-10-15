@@ -170,4 +170,5 @@ public enum GameEvent
     REMOVE_ADS,
     ENEMY_STATE,
     ENEMY_STATE_VARIABLE,
+    CHECK_ENEMY_TURN,
 }

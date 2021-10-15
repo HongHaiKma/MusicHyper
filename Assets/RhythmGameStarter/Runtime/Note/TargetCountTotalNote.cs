@@ -22,7 +22,8 @@ namespace RhythmGameStarter
                     note.m_NoteSetup.m_IsAdded = true;
                 }
 
-                GameManager.Instance.CheckEnemyTurn();
+                // GameManager.Instance.CheckEnemyTurn();
+                EventManager.CallEvent(GameEvent.CHECK_ENEMY_TURN);
 
                 // if (note.action == Note.NoteAction.Swipe)
                 // {

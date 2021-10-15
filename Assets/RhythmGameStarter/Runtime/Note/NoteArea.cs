@@ -300,7 +300,8 @@ namespace RhythmGameStarter
 
                 GameManager.Instance.UpdatePlayerNotes(note);
 
-                GameManager.Instance.CheckEnemyTurn();
+                // GameManager.Instance.CheckEnemyTurn();
+                EventManager.CallEvent(GameEvent.CHECK_ENEMY_TURN);
 
                 switch (note.action)
                 {
