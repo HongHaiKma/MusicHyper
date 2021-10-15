@@ -24,6 +24,12 @@
             "deviceId": "08211FDD400529",
             "name": "com.musicchallenge.fmfmod.modcharacter",
             "processId": 12493,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 2595,
             "exited": false
         },
         {
@@ -36,6 +42,18 @@
             "deviceId": "988678514c3231504f",
             "name": "com.sec.android.app.launcher",
             "processId": 10262,
+            "exited": false
+        },
+        {
+            "deviceId": "R58N865PKRK",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 29084,
+            "exited": true
+        },
+        {
+            "deviceId": "R58N865PKRK",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 29286,
             "exited": false
         }
     ],

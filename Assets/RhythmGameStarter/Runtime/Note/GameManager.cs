@@ -769,6 +769,7 @@ namespace RhythmGameStarter
 
         public void CheckEnemyTurn()
         {
+            Helper.DebugLog("ZZZZZZZZZZZZZZZZZZZZZ");
             if (!m_NoteInGame[0].m_NoteSetup.m_PlayerNote)
             {
                 // if (m_Enemy == null)
