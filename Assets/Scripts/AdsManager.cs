@@ -52,7 +52,7 @@ public class AdsManager : Singleton<AdsManager>
     private void Awake()
     {
         // AudienceNetworkAds.Initialize();
-        FB.Init();
+        // FB.Init();
 
         if (!PlayerPrefs.HasKey(m_Ads))
         {

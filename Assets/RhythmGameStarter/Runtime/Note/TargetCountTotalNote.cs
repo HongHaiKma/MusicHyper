@@ -8,7 +8,7 @@ namespace RhythmGameStarter
     {
         void OnTriggerEnter(Collider col)
         {
-            if (col.tag == "Note")
+            if (col.Equals("Note"))
             {
                 GameManager.Instance.UpdateMaxNote();
 
@@ -22,8 +22,8 @@ namespace RhythmGameStarter
                     note.m_NoteSetup.m_IsAdded = true;
                 }
 
-                // GameManager.Instance.CheckEnemyTurn();
-                EventManager.CallEvent(GameEvent.CHECK_ENEMY_TURN);
+                GameManager.Instance.CheckEnemyTurn();
+                // EventManager.CallEvent(GameEvent.CHECK_ENEMY_TURN);
 
                 // if (note.action == Note.NoteAction.Swipe)
                 // {

@@ -52,10 +52,10 @@ namespace RhythmGameStarter
                 m_LocalProfile.Update();
             }
 
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Helper.DebugLog("Next Add" + MyProfile.m_InterTime.GetTimeToNextAdd(1, ""));
-            }
+            // if (Input.GetKeyDown(KeyCode.C))
+            // {
+            //     Helper.DebugLog("Next Add" + MyProfile.m_InterTime.GetTimeToNextAdd(1, ""));
+            // }
         }
 
         private void OnEnable()

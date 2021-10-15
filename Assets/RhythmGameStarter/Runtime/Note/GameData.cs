@@ -5,8 +5,17 @@ using SimpleJSON;
 using RhythmGameStarter;
 
 [DefaultExecutionOrder(-95)]
-public class GameData : Singleton<GameData>
+public class GameData : MonoBehaviour
 {
+    private static GameData m_Instance;
+    public static GameData Instance
+    {
+        get
+        {
+            return m_Instance;
+        }
+    }
+
     public List<TextAsset> m_DataText = new List<TextAsset>();
 
     private Dictionary<int, SongConfig> m_SongConfigs = new Dictionary<int, SongConfig>();
@@ -15,6 +24,16 @@ public class GameData : Singleton<GameData>
 
     private void Awake()
     {
+        if (m_Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            m_Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         LoadSongConfig();
         LoadWeekConfig();
         LoadDialogueConfig();
