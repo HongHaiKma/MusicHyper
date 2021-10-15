@@ -299,7 +299,7 @@ namespace AppLovinMax.Scripts.Editor
             var plist = new PlistDocument();
             plist.ReadFromFile(plistPath);
 
-            plist.root.SetString("NSAdvertisingAttributionReportEndpoint", AppLovinAdvertisingAttributionEndpoint);
+            SetAttributionReportEndpointIfNeeded(plist);
 
 #if UNITY_2018_2_OR_NEWER
             EnableVerboseLoggingIfNeeded(plist);
@@ -309,6 +309,25 @@ namespace AppLovinMax.Scripts.Editor
             UpdateAppTransportSecuritySettingsIfNeeded(plist);
 
             plist.WriteToFile(plistPath);
+        }
+
+        private static void SetAttributionReportEndpointIfNeeded(PlistDocument plist)
+        {
+            if (AppLovinSettings.Instance.SetAttributionReportEndpoint)
+            {
+                plist.root.SetString("NSAdvertisingAttributionReportEndpoint", AppLovinAdvertisingAttributionEndpoint);
+            }
+            else
+            {
+                PlistElement attributionReportEndPoint;
+                plist.root.values.TryGetValue("NSAdvertisingAttributionReportEndpoint", out attributionReportEndPoint);
+
+                // Check if we had previously set the attribution endpoint and un-set it.
+                if (attributionReportEndPoint != null && AppLovinAdvertisingAttributionEndpoint.Equals(attributionReportEndPoint.AsString()))
+                {
+                    plist.root.values.Remove("NSAdvertisingAttributionReportEndpoint");
+                }
+            }
         }
 
 #if UNITY_2018_2_OR_NEWER
