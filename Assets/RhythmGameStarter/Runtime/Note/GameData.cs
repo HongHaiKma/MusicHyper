@@ -39,71 +39,71 @@ public class GameData : MonoBehaviour
         LoadDialogueConfig();
     }
 
-    private void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.C))
-        // {
-        //     // Helper.DebugLog("Song Count: " + GetSongConfig()[15].m_Name);
-        //     // Helper.DebugLog("Song Count: " + m_SongConfigs.Count);
-        //     // for (int i = 1; i <= GetWeekConfigs().Count; i++)
-        //     // {
-        //     //     Helper.DebugLog("Id: " + GetWeekConfigs()[i].m_Id.ToString());
-        //     //     Helper.DebugLog("name: " + GetWeekConfigs()[i].m_Name);
-        //     //     Helper.DebugLog("Easy: " + GetWeekConfigs()[i].m_Easy.ToString());
-        //     //     Helper.DebugLog("Normal: " + GetWeekConfigs()[i].m_Normal.ToString());
-        //     //     Helper.DebugLog("Hard: " + GetWeekConfigs()[i].m_Hard.ToString());
-        //     //     Helper.DebugLog("Enemy: " + GetWeekConfigs()[i].m_EnemyName);
-        //     //     Helper.DebugLog("Week: " + GetWeekConfigs()[i].m_Week.ToString());
-        //     // }
+    // private void Update()
+    // {
+    //     // if (Input.GetKeyDown(KeyCode.C))
+    //     // {
+    //     //     // Helper.DebugLog("Song Count: " + GetSongConfig()[15].m_Name);
+    //     //     // Helper.DebugLog("Song Count: " + m_SongConfigs.Count);
+    //     //     // for (int i = 1; i <= GetWeekConfigs().Count; i++)
+    //     //     // {
+    //     //     //     Helper.DebugLog("Id: " + GetWeekConfigs()[i].m_Id.ToString());
+    //     //     //     Helper.DebugLog("name: " + GetWeekConfigs()[i].m_Name);
+    //     //     //     Helper.DebugLog("Easy: " + GetWeekConfigs()[i].m_Easy.ToString());
+    //     //     //     Helper.DebugLog("Normal: " + GetWeekConfigs()[i].m_Normal.ToString());
+    //     //     //     Helper.DebugLog("Hard: " + GetWeekConfigs()[i].m_Hard.ToString());
+    //     //     //     Helper.DebugLog("Enemy: " + GetWeekConfigs()[i].m_EnemyName);
+    //     //     //     Helper.DebugLog("Week: " + GetWeekConfigs()[i].m_Week.ToString());
+    //     //     // }
 
-        //     // for (int i = 1; i <= GetSongConfigs().Count; i++)
-        //     // {
-        //     //     Helper.DebugLog("Id: " + GetSongConfigs()[i].m_Id);
-        //     //     Helper.DebugLog("name: " + GetSongConfigs()[i].m_Name);
-        //     //     Helper.DebugLog("Easy: " + GetSongConfigs()[i].m_1stReward.ToString());
-        //     //     Helper.DebugLog("Normal: " + GetSongConfigs()[i].m_ReplayReward.ToString());
-        //     //     Helper.DebugLog("Hard: " + GetSongConfigs()[i].m_Price.ToString());
-        //     //     Helper.DebugLog("Enemy: " + GetSongConfigs()[i].m_EnemyName);
-        //     // }
+    //     //     // for (int i = 1; i <= GetSongConfigs().Count; i++)
+    //     //     // {
+    //     //     //     Helper.DebugLog("Id: " + GetSongConfigs()[i].m_Id);
+    //     //     //     Helper.DebugLog("name: " + GetSongConfigs()[i].m_Name);
+    //     //     //     Helper.DebugLog("Easy: " + GetSongConfigs()[i].m_1stReward.ToString());
+    //     //     //     Helper.DebugLog("Normal: " + GetSongConfigs()[i].m_ReplayReward.ToString());
+    //     //     //     Helper.DebugLog("Hard: " + GetSongConfigs()[i].m_Price.ToString());
+    //     //     //     Helper.DebugLog("Enemy: " + GetSongConfigs()[i].m_EnemyName);
+    //     //     // }
 
-        //     // GetWeekSong(4);
+    //     //     // GetWeekSong(4);
 
-        //     // for (int i = 1; i <= m_DialogueConfigs.Count; i++)
-        //     // {
-        //     //     Helper.DebugLog(m_DialogueConfigs[i].m_Dialogue);
-        //     // }
+    //     //     // for (int i = 1; i <= m_DialogueConfigs.Count; i++)
+    //     //     // {
+    //     //     //     Helper.DebugLog(m_DialogueConfigs[i].m_Dialogue);
+    //     //     // }
 
-        //     // List<Dialogue> dias = GetDialogueBySongID(5);
-        //     // for (int i = 1; i <= m_DialogueConfigs.Count; i++)
-        //     // {
-        //     //     Helper.DebugLog(m_DialogueConfigs[i].m_EnemyTurn);
-        //     //     // Helper.DebugLog(dias[i].m_Dialogue);
-        //     // }
+    //     //     // List<Dialogue> dias = GetDialogueBySongID(5);
+    //     //     // for (int i = 1; i <= m_DialogueConfigs.Count; i++)
+    //     //     // {
+    //     //     //     Helper.DebugLog(m_DialogueConfigs[i].m_EnemyTurn);
+    //     //     //     // Helper.DebugLog(dias[i].m_Dialogue);
+    //     //     // }
 
-        //     // // BigNumber score = new BigNumber(ProfileManager.GetSongWeekProfiles(1).m_NormalScore);
-        //     // BigNumber score = new BigNumber("100");
+    //     //     // // BigNumber score = new BigNumber(ProfileManager.GetSongWeekProfiles(1).m_NormalScore);
+    //     //     // BigNumber score = new BigNumber("100");
 
-        //     // ProfileManager.GetSongWeekProfiles(2).m_EasyScore = "100".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(2).m_NormalScore = "200".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(2).m_HardScore = "300".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(3).m_EasyScore = "100".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(3).m_NormalScore = "200".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(3).m_HardScore = "300".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(4).m_EasyScore = "100".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(4).m_NormalScore = "200".ToString();
-        //     // ProfileManager.GetSongWeekProfiles(4).m_HardScore = "300".ToString();
-        //     // ProfileManager.Instance.SaveData();
+    //     //     // ProfileManager.GetSongWeekProfiles(2).m_EasyScore = "100".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(2).m_NormalScore = "200".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(2).m_HardScore = "300".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(3).m_EasyScore = "100".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(3).m_NormalScore = "200".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(3).m_HardScore = "300".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(4).m_EasyScore = "100".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(4).m_NormalScore = "200".ToString();
+    //     //     // ProfileManager.GetSongWeekProfiles(4).m_HardScore = "300".ToString();
+    //     //     // ProfileManager.Instance.SaveData();
 
-        //     // Helper.DebugLog("Easy: " + ProfileManager.GetSongWeekProfiles(1).m_NormalScore);
-        //     // Helper.DebugLog("Easy: " + ProfileManager.GetSongWeekProfiles(1).m_HardScore);
+    //     //     // Helper.DebugLog("Easy: " + ProfileManager.GetSongWeekProfiles(1).m_NormalScore);
+    //     //     // Helper.DebugLog("Easy: " + ProfileManager.GetSongWeekProfiles(1).m_HardScore);
 
-        //     List<WeekConfig> week = GetWeekSong(6);
-        //     for (int i = 0; i < week.Count; i++)
-        //     {
-        //         Helper.DebugLog("ID: " + week[i].m_Name);
-        //     }
-        // }
-    }
+    //     //     List<WeekConfig> week = GetWeekSong(6);
+    //     //     for (int i = 0; i < week.Count; i++)
+    //     //     {
+    //     //         Helper.DebugLog("ID: " + week[i].m_Name);
+    //     //     }
+    //     // }
+    // }
 
     public void LoadSongConfig()
     {
@@ -417,17 +417,28 @@ namespace RhythmGameStarter
         public int m_Id;
         public int m_HighScore;
         public int m_FinishFirst;
+        public int m_Ads;
 
         public void Init(int _id)
         {
             m_Id = _id;
             m_HighScore = 0;
             m_FinishFirst = 0;
+            m_Ads = 1;
         }
 
         public void Load()
         {
             // SongConfig cdc = GameData.Instance.GetSongConfig(m_Id);
+            // if (m_Id == 1)
+            // {
+            //     Helper.DebugLog("ID: " + m_Id);
+            //     m_Ads = 1;
+            // }
+            // else
+            // {
+            //     m_Ads = 0;
+            // }
         }
 
         public void SetHighScore(int _highScore)

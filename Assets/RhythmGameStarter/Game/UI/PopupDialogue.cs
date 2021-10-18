@@ -103,6 +103,7 @@ namespace RhythmGameStarter
                 if (GameManager.Instance.m_1stSong)
                 {
                     GameManager.Instance.PlaySongStory();
+                    // GameManager.Instance.PlaySongStoryNext();
                 }
                 else
                 {

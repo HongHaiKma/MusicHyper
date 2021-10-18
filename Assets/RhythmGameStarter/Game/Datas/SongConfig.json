@@ -8,7 +8,8 @@
         "Price": "0",
         "Enemy": "girl friend",
         "Enemy No": "1",
-        "Breakscore Reward": "5"
+        "Breakscore Reward": "5",
+        "Ads": "1"
     },
     {
         "ID": "2",
@@ -19,7 +20,8 @@
         "Price": "30",
         "Enemy": "dad",
         "Enemy No": "2",
-        "Breakscore Reward": "15"
+        "Breakscore Reward": "15",
+        "Ads": "1"
     },
     {
         "ID": "3",
@@ -30,7 +32,8 @@
         "Price": "30",
         "Enemy": "dad",
         "Enemy No": "2",
-        "Breakscore Reward": "15"
+        "Breakscore Reward": "15",
+        "Ads": "1"
     },
     {
         "ID": "4",
@@ -41,7 +44,8 @@
         "Price": "30",
         "Enemy": "dad",
         "Enemy No": "2",
-        "Breakscore Reward": "15"
+        "Breakscore Reward": "15",
+        "Ads": "1"
     },
     {
         "ID": "5",
@@ -52,7 +56,8 @@
         "Price": "50",
         "Enemy": "racing_boy",
         "Enemy No": "3",
-        "Breakscore Reward": "25"
+        "Breakscore Reward": "25",
+        "Ads": "1"
     },
     {
         "ID": "6",
@@ -63,7 +68,8 @@
         "Price": "50",
         "Enemy": "racing_boy",
         "Enemy No": "3",
-        "Breakscore Reward": "25"
+        "Breakscore Reward": "25",
+        "Ads": "1"
     },
     {
         "ID": "7",
@@ -74,7 +80,8 @@
         "Price": "50",
         "Enemy": "racing_boy",
         "Enemy No": "3",
-        "Breakscore Reward": "25"
+        "Breakscore Reward": "25",
+        "Ads": "1"
     },
     {
         "ID": "8",
@@ -85,7 +92,8 @@
         "Price": "80",
         "Enemy": "pico",
         "Enemy No": "4",
-        "Breakscore Reward": "40"
+        "Breakscore Reward": "40",
+        "Ads": "1"
     },
     {
         "ID": "9",
@@ -96,7 +104,8 @@
         "Price": "80",
         "Enemy": "pico",
         "Enemy No": "4",
-        "Breakscore Reward": "40"
+        "Breakscore Reward": "40",
+        "Ads": "1"
     },
     {
         "ID": "10",
@@ -107,7 +116,8 @@
         "Price": "90",
         "Enemy": "pico",
         "Enemy No": "4",
-        "Breakscore Reward": "45"
+        "Breakscore Reward": "45",
+        "Ads": "1"
     },
     {
         "ID": "11",
@@ -118,7 +128,8 @@
         "Price": "90",
         "Enemy": "mom",
         "Enemy No": "5",
-        "Breakscore Reward": "45"
+        "Breakscore Reward": "45",
+        "Ads": "1"
     },
     {
         "ID": "12",
@@ -129,7 +140,8 @@
         "Price": "130",
         "Enemy": "mom",
         "Enemy No": "5",
-        "Breakscore Reward": "65"
+        "Breakscore Reward": "65",
+        "Ads": "1"
     },
     {
         "ID": "13",
@@ -140,7 +152,8 @@
         "Price": "130",
         "Enemy": "mom",
         "Enemy No": "5",
-        "Breakscore Reward": "65"
+        "Breakscore Reward": "65",
+        "Ads": "1"
     },
     {
         "ID": "14",
@@ -151,7 +164,8 @@
         "Price": "130",
         "Enemy": "parent",
         "Enemy No": "6",
-        "Breakscore Reward": "65"
+        "Breakscore Reward": "65",
+        "Ads": "1"
     },
     {
         "ID": "15",
@@ -162,7 +176,8 @@
         "Price": "150",
         "Enemy": "parent",
         "Enemy No": "6",
-        "Breakscore Reward": "75"
+        "Breakscore Reward": "75",
+        "Ads": "1"
     },
     {
         "ID": "16",
@@ -173,7 +188,8 @@
         "Price": "150",
         "Enemy": "biker",
         "Enemy No": "7",
-        "Breakscore Reward": "75"
+        "Breakscore Reward": "75",
+        "Ads": "1"
     },
     {
         "ID": "17",
@@ -184,7 +200,8 @@
         "Price": "150",
         "Enemy": "senpai",
         "Enemy No": "8",
-        "Breakscore Reward": "75"
+        "Breakscore Reward": "75",
+        "Ads": "1"
     },
     {
         "ID": "18",
@@ -195,7 +212,8 @@
         "Price": "500",
         "Enemy": "senpai",
         "Enemy No": "8",
-        "Breakscore Reward": "250"
+        "Breakscore Reward": "250",
+        "Ads": "1"
     },
     {
         "ID": "19",
@@ -206,6 +224,7 @@
         "Price": "1000",
         "Enemy": "spirit",
         "Enemy No": "9",
-        "Breakscore Reward": "500"
+        "Breakscore Reward": "500",
+        "Ads": "1"
     }
 ]

@@ -33,6 +33,8 @@ public class AdsManager : Singleton<AdsManager>
 
     public int m_TrySongId;
 
+    public int m_FreeSong;
+
 
     [Header("MAX SDK")]
     // string adUnitId = "lBnu4FPbTxGUi8cqgwNENfRfqINTVk8B9NxC2Japp2DqKPThsIhPCF7zcC6wr9_IN8OLTcG9SR4dT4OJwQPTBf";
@@ -112,7 +114,21 @@ public class AdsManager : Singleton<AdsManager>
         MaxSdk.SetSdkKey(adUnitId);
         MaxSdk.InitializeSdk();
 
-        LoadBanner();
+        // LoadBanner();
+    }
+
+    public override void StartListenToEvents()
+    {
+        base.StartListenToEvents();
+        EventManager.AddListener(GameEvent.WATCH_INTER, WatchInterstitial);
+        EventManager.AddListener(GameEvent.LOAD_BANNER, LoadBanner);
+    }
+
+    public override void StopListenToEvents()
+    {
+        base.StartListenToEvents();
+        EventManager.RemoveListener(GameEvent.WATCH_INTER, WatchInterstitial);
+        EventManager.RemoveListener(GameEvent.LOAD_BANNER, LoadBanner);
     }
 
     #region MAX SDK
@@ -302,17 +318,17 @@ public class AdsManager : Singleton<AdsManager>
     //     StopListenToEvent();
     // }
 
-    public void StartListenToEvent()
-    {
-        // EventManager.AddListener(GameEvent.END_GAME, LoadBanner);
-        // EventManager.AddListener(GameEvent.END_GAME, LoadInter);
-    }
+    // public void StartListenToEvent()
+    // {
+    //     // EventManager.AddListener(GameEvent.END_GAME, LoadBanner);
+    //     // EventManager.AddListener(GameEvent.END_GAME, LoadInter);
+    // }
 
-    public void StopListenToEvent()
-    {
-        // EventManager.RemoveListener(GameEvent.END_GAME, LoadBanner);
-        // EventManager.RemoveListener(GameEvent.END_GAME, LoadInter);
-    }
+    // public void StopListenToEvent()
+    // {
+    //     // EventManager.RemoveListener(GameEvent.END_GAME, LoadBanner);
+    //     // EventManager.RemoveListener(GameEvent.END_GAME, LoadInter);
+    // }
 
     // public void RequestBanner()
     // {
@@ -452,7 +468,35 @@ public class AdsManager : Singleton<AdsManager>
 
     public void WatchInterstitial()
     {
-        if (m_WatchInter && PlayerPrefs.GetInt(m_Ads) == 1 && ProfileManager.MyProfile.m_InterTime.GetCurrentValue() <= 0)
+        if (PlayerPrefs.GetInt(m_Ads) == 1)
+        {
+            Helper.DebugLog("Ads Manager Check ads");
+            // if (interstitial.IsLoaded())
+            // {
+            //     interstitial.Show();
+            //     // AnalysticsManager.LogInterAdsShow();
+            // }
+            // else
+            // {
+            //     // RequestInter();
+            //     LoadInter();
+            // }
+            if (MaxSdk.IsInterstitialReady(m_InterId))
+            {
+                AnalysticsManager.LogInterAdsShow();
+                ProfileManager.MyProfile.m_InterTime.Reset();
+                MaxSdk.ShowInterstitial(m_InterId);
+            }
+            else
+            {
+                LoadInterstitial();
+            }
+        }
+    }
+
+    public void WatchInterstitial2()
+    {
+        if (PlayerPrefs.GetInt(m_Ads) == 1 && ProfileManager.MyProfile.m_InterTime.GetCurrentValue() <= 0)
         {
             Helper.DebugLog("Ads Manager Check ads");
             // if (interstitial.IsLoaded())
@@ -615,6 +659,12 @@ public class AdsManager : Singleton<AdsManager>
             case RewardType.CONTINUE:
                 EventManager.CallEvent(GameEvent.CONTINUE);
                 break;
+            case RewardType.UNLOCK_FREE_SONG:
+                EventManager1<int>.CallEvent(GameEvent.UNLOCK_FREE_SONG, m_FreeSong);
+                break;
+            case RewardType.UNLOCK_WEEK:
+                EventManager.CallEvent(GameEvent.UNLOCK_WEEK);
+                break;
             default:
                 break;
         }
@@ -692,6 +742,12 @@ public class AdsManager : Singleton<AdsManager>
         StartCoroutine(IEWatchRewardVideo(_rewardType));
     }
 
+    public void WatchFreeSongVideo(RewardType _rewardType, int _songId)
+    {
+        m_FreeSong = _songId;
+        StartCoroutine(IEWatchRewardVideo(_rewardType));
+    }
+
     IEnumerator IEWatchRewardVideo(RewardType _rewardType)
     {
         // LoadRewardVideo();
@@ -753,4 +809,6 @@ public enum RewardType
     TRY_SONG,
     X3_CLAIM,
     CONTINUE,
+    UNLOCK_FREE_SONG,
+    UNLOCK_WEEK,
 }

@@ -36,11 +36,11 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.+' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:6
     implementation 'com.android.support:support-v4:25.3.1' // Facebook.Unity.Editor.AndroidSupportLibraryResolver.addSupportLibraryDependency
     implementation 'com.applovin.mediation:facebook-adapter:[6.5.1.0]' // Assets/MaxSdk/Mediation/Facebook/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:google-adapter:[20.4.0.0]' // Assets/MaxSdk/Mediation/Google/Editor/Dependencies.xml:5
+    implementation 'com.applovin.mediation:google-adapter:[20.4.0.1]' // Assets/MaxSdk/Mediation/Google/Editor/Dependencies.xml:5
     implementation 'com.applovin.mediation:google-ad-manager-adapter:[20.4.0.0]' // Assets/MaxSdk/Mediation/GoogleAdManager/Editor/Dependencies.xml:5
     implementation 'com.applovin.mediation:inmobi-adapter:9.9.9.8' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:ironsource-adapter:7.1.10.1.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:mintegral-adapter:15.7.11.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:mintegral-adapter:15.7.21.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:unityads-adapter:3.7.5.1' // Assets/MaxSdk/Mediation/UnityAds/Editor/Dependencies.xml:4
     implementation 'com.applovin:applovin-sdk:10.3.4' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
     implementation 'com.facebook.android:facebook-applinks:[11.0, 12)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:6
@@ -101,7 +101,8 @@ android {
     }
 
     aaptOptions {
-        noCompress = ['.ress', '.resource', '.obb'] + unityStreamingAssets.tokenize(', ')
+        // noCompress = ['.ress', '.resource', '.obb'] + unityStreamingAssets.tokenize(', ')
+        noCompress = ['.unity3d', '.ress', '.resource','.bundle', '.obb'**STREAMING_ASSETS**] + unityStreamingAssets.tokenize(', ')
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
     }**PACKAGING_OPTIONS**
 }**REPOSITORIES**

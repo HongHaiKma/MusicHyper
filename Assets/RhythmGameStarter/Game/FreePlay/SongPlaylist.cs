@@ -55,12 +55,14 @@ public class SongPlaylist : EnhancedScrollerCellView
     {
         EventManager.AddListener(GameEvent.DISPLAY_SONG_INFO, DisplaySongInfo);
         EventManager1<int>.AddListener(GameEvent.TRY_SONG, PlayTrySong);
+        EventManager1<int>.AddListener(GameEvent.UNLOCK_FREE_SONG, UnlockFreeSong);
     }
 
     public void RemoveListener()
     {
         EventManager.RemoveListener(GameEvent.DISPLAY_SONG_INFO, DisplaySongInfo);
         EventManager1<int>.RemoveListener(GameEvent.TRY_SONG, PlayTrySong);
+        EventManager1<int>.RemoveListener(GameEvent.UNLOCK_FREE_SONG, UnlockFreeSong);
     }
 
     public void SetData(SongData data)
@@ -103,7 +105,7 @@ public class SongPlaylist : EnhancedScrollerCellView
             else
             {
                 btn_PlaySong.gameObject.SetActive(false);
-                btn_TrySong.gameObject.SetActive(true);
+                btn_TrySong.gameObject.SetActive(false);
                 g_Lock.SetActive(true);
                 img_EnemyAva.color = GameManager.Instance.m_SongPLayFade;
             }
@@ -126,8 +128,9 @@ public class SongPlaylist : EnhancedScrollerCellView
 
             // if (ProfileManager.IsEnoughGold(configs.m_Price))
             // {
-            btn_BuySongGold.gameObject.SetActive(ProfileManager.IsEnoughGold(configs.m_Price));
-            g_OutOfGold.SetActive(!ProfileManager.IsEnoughGold(configs.m_Price));
+            // btn_BuySongGold.gameObject.SetActive(ProfileManager.IsEnoughGold(configs.m_Price));
+            btn_BuySongGold.gameObject.SetActive(true);
+            g_OutOfGold.SetActive(false);
             // }
             // else
             // {
@@ -135,12 +138,12 @@ public class SongPlaylist : EnhancedScrollerCellView
             //     g_OutOfGold.SetActive(true);
             // }
 
-            btn_TrySong.gameObject.SetActive(true);
+            btn_TrySong.gameObject.SetActive(false);
             if (songId <= count)
             {
                 // SongConfig config = GameData.Instance.GetSongConfig(songId);
-                txt_BuySongGold.text = configs.m_Price.ToString2();
-                txt_OutOfGold.text = configs.m_Price.ToString2();
+                // txt_BuySongGold.text = configs.m_Price.ToString2();
+                // txt_OutOfGold.text = configs.m_Price.ToString2();
             }
 
             txt_HighScore.gameObject.SetActive(false);
@@ -166,6 +169,8 @@ public class SongPlaylist : EnhancedScrollerCellView
 
     public void PlaySong()
     {
+        GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
+
         GUIManager.Instance.SetBlockPopup(true);
         TrackManager.Instance.beatSize = 1.5f;
 
@@ -292,14 +297,26 @@ public class SongPlaylist : EnhancedScrollerCellView
 
     public void BuySong()
     {
-        SongConfig config = GameData.Instance.GetSongConfig(songId);
-        BigNumber gold = ProfileManager.GetGold2();
-        if (gold >= config.m_Price)
+        // SongConfig config = GameData.Instance.GetSongConfig(songId);
+        // BigNumber gold = ProfileManager.GetGold2();
+        // if (gold >= config.m_Price)
+        // {
+        //     ProfileManager.ConsumeGold(config.m_Price);
+        //     ProfileManager.UnlockSong(songId);
+        //     EventManager.CallEvent(GameEvent.DISPLAY_SONG_INFO);
+        //     GameManager.Instance.txt_TotalGold.text = ProfileManager.GetGold();
+        // }
+        AdsManager.Instance.WatchFreeSongVideo(RewardType.UNLOCK_FREE_SONG, songId);
+    }
+
+    public void UnlockFreeSong(int _songId)
+    {
+        if (_songId == songId)
         {
-            ProfileManager.ConsumeGold(config.m_Price);
+            AnalysticsManager.LogUnlockFreeplaySong();
             ProfileManager.UnlockSong(songId);
+            Helper.DebugLog("UNLOCK FREE SONG: " + songId);
             EventManager.CallEvent(GameEvent.DISPLAY_SONG_INFO);
-            GameManager.Instance.txt_TotalGold.text = ProfileManager.GetGold();
         }
     }
 

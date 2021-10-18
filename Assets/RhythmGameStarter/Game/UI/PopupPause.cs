@@ -48,8 +48,12 @@ namespace RhythmGameStarter
 
         public void Replay()
         {
+            EventManager.CallEvent(GameEvent.WATCH_INTER);
+
             if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
             {
+                // GameManager.Instance.m_DefaultSong++;
+                // SongManager.Instance.defaultSong = GameManager.Instance.m_Songs[GameManager.Instance.m_DefaultSong - 1];
                 int songID = GameManager.Instance.m_DefaultSong;
                 SongConfig songs = GameData.Instance.GetSongConfig(songID);
                 AnalysticsManager.LogReplayFreeplaySong(songs.m_Name);
@@ -71,30 +75,31 @@ namespace RhythmGameStarter
             FadeOut();
             // GameManager.Instance.m_ReturnHome = true;
             Note.m_ReturnHome = true;
-            GUIManager.Instance.LoadPlayScene();
+            // GUIManager.Instance.LoadPlayScene();
+            GUIManager.Instance.ChangeToPlayScene(true);
             // StartCoroutine(DelayHome());
         }
 
-        IEnumerator DelayHome()
-        {
-            GUIManager.Instance.SetLoadingPopup(true);
-            int count = GameManager.Instance.m_NoteInGame.Count;
-            // for (int i = 0; i < count; i++)
-            // {
-            //     GameManager.Instance.m_NoteInGame[i].gameObject.SetActive(false);
-            //     GameManager.Instance.m_NoteInGame.Remove(GameManager.Instance.m_NoteInGame[i]);
-            // }
+        // IEnumerator DelayHome()
+        // {
+        //     GUIManager.Instance.SetLoadingPopup(true);
+        //     int count = GameManager.Instance.m_NoteInGame.Count;
+        //     // for (int i = 0; i < count; i++)
+        //     // {
+        //     //     GameManager.Instance.m_NoteInGame[i].gameObject.SetActive(false);
+        //     //     GameManager.Instance.m_NoteInGame.Remove(GameManager.Instance.m_NoteInGame[i]);
+        //     // }
 
-            while (GameManager.Instance.m_NoteInGame.Count > 0)
-            {
-                GameManager.Instance.m_NoteInGame[0].gameObject.SetActive(false);
-            }
+        //     while (GameManager.Instance.m_NoteInGame.Count > 0)
+        //     {
+        //         GameManager.Instance.m_NoteInGame[0].gameObject.SetActive(false);
+        //     }
 
-            yield return new WaitUntil(() => GameManager.Instance.m_NoteInGame.Count == 0);
-            // yield return null;
+        //     yield return new WaitUntil(() => GameManager.Instance.m_NoteInGame.Count == 0);
+        //     // yield return null;
 
-            GUIManager.Instance.LoadPlayScene();
-        }
+        //     GUIManager.Instance.LoadPlayScene();
+        // }
 
         public void SetVibration()
         {

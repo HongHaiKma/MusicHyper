@@ -87,7 +87,7 @@ namespace RhythmGameStarter
             // PlayerPrefs.SetInt(ConfigKeys.rateUs, 1);
 
             // ic_Gold = "8999999";
-            ic_Gold = "1000";
+            ic_Gold = "100000";
             m_Gold = new BigNumber(ic_Gold);
 
             ic_Keys = "0";
@@ -290,6 +290,7 @@ namespace RhythmGameStarter
         {
             if (GetSongProfile(_id) == null)
             {
+                Helper.DebugLog("Unlock song: " + _id);
                 SongProfile newSong = new SongProfile();
                 newSong.Init(_id);
                 newSong.Load();

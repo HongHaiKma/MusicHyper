@@ -27,6 +27,10 @@ namespace RhythmGameStarter
         public TextMeshProUGUI txt_Combo;
         public TextMeshProUGUI txt_Miss;
 
+        public TextMeshProUGUI txt_StartingIn;
+        public float m_Time;
+        public bool m_NextZone;
+
         private void Awake()
         {
             GUIManager.Instance.AddClickEvent(btn_X3Claim, X3Claim);
@@ -38,6 +42,17 @@ namespace RhythmGameStarter
 
         private void OnEnable()
         {
+            m_Time = 3f;
+            txt_StartingIn.text = "NEXT ZONE IN 3";
+            btn_NextZone.interactable = true;
+            btn_NextZone.gameObject.SetActive(true);
+            m_NextZone = false;
+
+            btn_X3Claim.gameObject.SetActive(false);
+            btn_Mode.gameObject.SetActive(false);
+            btn_Home.gameObject.SetActive(false);
+            btn_Claim.gameObject.SetActive(false);
+
             Helper.DebugLog("PopuWin Enableeeeeeeeeeeeeeeeee");
 
             SoundManager.Instance.PlayBGM(0);
@@ -46,8 +61,8 @@ namespace RhythmGameStarter
 
             AddListener();
 
-            btn_Mode.gameObject.SetActive(false);
-            btn_Home.gameObject.SetActive(false);
+            // btn_Mode.gameObject.SetActive(false);
+            // btn_Home.gameObject.SetActive(false);
 
             txt_Combo.text = "COMBO: " + StatsSystem.Instance.maxCombo.ToString();
             // txt_Combo.text += System.Environment.NewLine;
@@ -57,8 +72,8 @@ namespace RhythmGameStarter
             // txt_Miss.text += System.Environment.NewLine;
             // txt_Miss.text += StatsSystem.Instance.missed.ToString();
 
-            btn_Claim.gameObject.SetActive(false);
-            btn_NextZone.gameObject.SetActive(false);
+            // btn_Claim.gameObject.SetActive(false);
+            // btn_NextZone.gameObject.SetActive(false);
 
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
@@ -66,11 +81,11 @@ namespace RhythmGameStarter
                 if (GameManager.Instance.IsStoryWeekEnd())
                 {
                     StartCoroutine(DelayNextZone());
-                    btn_Claim.gameObject.SetActive(false);
+                    // btn_Claim.gameObject.SetActive(false);
                 }
                 else
                 {
-                    btn_NextZone.gameObject.SetActive(false);
+                    // btn_NextZone.gameObject.SetActive(false);
                     StartCoroutine(DelayClaim());
                 }
             }
@@ -108,7 +123,8 @@ namespace RhythmGameStarter
                 txt_X3GoldClaim.text = (totalReward * 3).ToString();
                 txt_TotalGold.text = ProfileManager.GetGold();
 
-                btn_X3Claim.gameObject.SetActive(totalReward > 0 ? true : false);
+                // btn_X3Claim.gameObject.SetActive(totalReward > 0 ? true : false);
+                // btn_X3Claim.gameObject.SetActive(false);
                 txt_GoldClaim.gameObject.SetActive(totalReward > 0 ? true : false);
 
                 return;
@@ -159,6 +175,32 @@ namespace RhythmGameStarter
         private void OnDestroy()
         {
             RemoveListener();
+        }
+
+        private void Update()
+        {
+            m_Time -= Time.deltaTime;
+            txt_StartingIn.text = "NEXT ZONE IN " + (int)m_Time;
+
+            if (btn_NextZone.interactable)
+            {
+                if (m_Time <= 0.5f)
+                {
+                    btn_NextZone.interactable = false;
+                }
+            }
+
+            if (m_Time <= 0f)
+            {
+                m_Time = 0f;
+                txt_StartingIn.text = "NEXT ZONE IN 0";
+                if (!m_NextZone)
+                {
+                    FadeOut();
+                    NextZone();
+                    m_NextZone = true;
+                }
+            }
         }
 
         public void AddListener()
@@ -285,53 +327,76 @@ namespace RhythmGameStarter
 
         public void X3ClaimLogic()
         {
-            Helper.DebugLog("X3ClaimLogic");
-            AnalysticsManager.LogX3Claim();
-            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            // Helper.DebugLog("X3ClaimLogic");
+            // AnalysticsManager.LogX3Claim();
+            // if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            // {
+            //     ProfileManager.AddGold(CalGoldStory() * 3);
+            //     SetWeekProfile();
+            //     Helper.DebugLog("X3 claim logic Story");
+            //     // GameManager.Instance.NextWeekSong();
+            //     // txt_Mode.text = "Story";
+            //     if (GameManager.Instance.IsStoryWeekEnd())
+            //     {
+            //         if (ProfileManager.GetWeek() < 8)
+            //         {
+            //             ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+            //         }
+            //         AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
+            //         Mode();
+            //     }
+            //     else
+            //     {
+            //         StatsSystem.Instance.score = 0;
+            //         StatsSystem.Instance.combo = 0;
+            //         StatsSystem.Instance.missed = 0;
+            //         StatsSystem.Instance.UpdateScoreDisplay();
+            //         ComboSystem.Instance.UpdateComboDisplay();
+            //         GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+
+            //         GameManager.Instance.NextWeekSong();
+            //     }
+
+            //     FadeOut();
+            //     return;
+            // }
+            // else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            // {
+            //     ProfileManager.AddGold(CalGoldWin() * 3);
+            //     SetSongProfile();
+            // }
+
+            ProfileManager.UnlockWeek(ProfileManager.GetWeek());
+
+            GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
+
+            AnalysticsManager.LogPlayZoneX(GameManager.Instance.m_WeekNo);
+
+            GameManager.Instance.txt_Time.gameObject.SetActive(false);
+
+            UIManager.Instance.g_StoryMenu.SetActive(false);
+            List<WeekConfig> weekConfigs = GameData.Instance.GetWeekSong(ProfileManager.GetWeek());
+            GameManager.Instance.m_StorysongNo = 0;
+            GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
+            GameManager.Instance.m_WeekConfigs = weekConfigs;
+
+            int count = weekConfigs.Count;
+            for (int i = 0; i < count; i++)
             {
-                ProfileManager.AddGold(CalGoldStory() * 3);
-                SetWeekProfile();
-                Helper.DebugLog("X3 claim logic Story");
-                // GameManager.Instance.NextWeekSong();
-                // txt_Mode.text = "Story";
-                if (GameManager.Instance.IsStoryWeekEnd())
-                {
-                    if (ProfileManager.GetWeek() < 8)
-                    {
-                        ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
-                    }
-                    AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
-                    Mode();
-                }
-                else
-                {
-                    StatsSystem.Instance.score = 0;
-                    StatsSystem.Instance.combo = 0;
-                    StatsSystem.Instance.missed = 0;
-                    StatsSystem.Instance.UpdateScoreDisplay();
-                    ComboSystem.Instance.UpdateComboDisplay();
-                    GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
-
-                    GameManager.Instance.NextWeekSong();
-                }
-
-                FadeOut();
-                return;
-            }
-            else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
-            {
-                ProfileManager.AddGold(CalGoldWin() * 3);
-                SetSongProfile();
+                GameManager.Instance.m_WeekSongs.Add(GameManager.Instance.m_Songs[weekConfigs[i].m_Id - 1]);
             }
 
-            btn_X3Claim.interactable = false;
-            btn_Claim.interactable = false;
-            txt_TotalGold.text = ProfileManager.GetGold();
+            UIManager.Instance.OpenDialoguePopup(true);
 
-            btn_X3Claim.gameObject.SetActive(false);
-            btn_Claim.gameObject.SetActive(false);
-            btn_Mode.gameObject.SetActive(true);
-            btn_Home.gameObject.SetActive(true);
+            // btn_X3Claim.interactable = false;
+            // btn_Claim.interactable = false;
+            // txt_TotalGold.text = ProfileManager.GetGold();
+
+            // btn_X3Claim.gameObject.SetActive(false);
+            // btn_Claim.gameObject.SetActive(false);
+            // btn_Mode.gameObject.SetActive(false);
+            // btn_Home.gameObject.SetActive(true);
+            btn_NextZone.gameObject.SetActive(true);
 
             StatsSystem.Instance.score = 0;
             StatsSystem.Instance.combo = 0;
@@ -342,45 +407,68 @@ namespace RhythmGameStarter
 
         public void Claim()
         {
-            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            // if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            // {
+            //     ProfileManager.AddGold(CalGoldStory());
+            //     SetWeekProfile();
+            //     GameManager.Instance.NextWeekSong();
+            //     FadeOut();
+
+            //     // StatsSystem.Instance.score = 0;
+            //     // StatsSystem.Instance.combo = 0;
+            //     // StatsSystem.Instance.missed = 0;
+
+            //     // StatsSystem.Instance.UpdateScoreDisplay();
+            //     // ComboSystem.Instance.UpdateComboDisplay();
+
+            //     StatsSystem.Instance.score = 0;
+            //     StatsSystem.Instance.combo = 0;
+            //     StatsSystem.Instance.missed = 0;
+            //     StatsSystem.Instance.UpdateScoreDisplay();
+            //     ComboSystem.Instance.UpdateComboDisplay();
+            //     GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+
+            //     return;
+            // }
+            // else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            // {
+            //     ProfileManager.AddGold(CalGoldWin());
+            //     SetSongProfile();
+
+            //     AdsManager.Instance.WatchInterstitial();
+            // }
+
+            ProfileManager.UnlockWeek(ProfileManager.GetWeek());
+
+            GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
+
+            AnalysticsManager.LogPlayZoneX(GameManager.Instance.m_WeekNo);
+
+            GameManager.Instance.txt_Time.gameObject.SetActive(false);
+
+            UIManager.Instance.g_StoryMenu.SetActive(false);
+            List<WeekConfig> weekConfigs = GameData.Instance.GetWeekSong(ProfileManager.GetWeek());
+            GameManager.Instance.m_StorysongNo = 0;
+            GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
+            GameManager.Instance.m_WeekConfigs = weekConfigs;
+
+            int count = weekConfigs.Count;
+            for (int i = 0; i < count; i++)
             {
-                ProfileManager.AddGold(CalGoldStory());
-                SetWeekProfile();
-                GameManager.Instance.NextWeekSong();
-                FadeOut();
-
-                // StatsSystem.Instance.score = 0;
-                // StatsSystem.Instance.combo = 0;
-                // StatsSystem.Instance.missed = 0;
-
-                // StatsSystem.Instance.UpdateScoreDisplay();
-                // ComboSystem.Instance.UpdateComboDisplay();
-
-                StatsSystem.Instance.score = 0;
-                StatsSystem.Instance.combo = 0;
-                StatsSystem.Instance.missed = 0;
-                StatsSystem.Instance.UpdateScoreDisplay();
-                ComboSystem.Instance.UpdateComboDisplay();
-                GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
-
-                return;
-            }
-            else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
-            {
-                ProfileManager.AddGold(CalGoldWin());
-                SetSongProfile();
-
-                AdsManager.Instance.WatchInterstitial();
+                GameManager.Instance.m_WeekSongs.Add(GameManager.Instance.m_Songs[weekConfigs[i].m_Id - 1]);
             }
 
-            btn_X3Claim.interactable = false;
-            btn_Claim.interactable = false;
+            UIManager.Instance.OpenDialoguePopup(true);
+
+            // btn_X3Claim.interactable = false;
+            // btn_Claim.interactable = false;
             txt_TotalGold.text = ProfileManager.GetGold();
 
-            btn_X3Claim.gameObject.SetActive(false);
-            btn_Claim.gameObject.SetActive(false);
-            btn_Mode.gameObject.SetActive(true);
-            btn_Home.gameObject.SetActive(true);
+            // btn_X3Claim.gameObject.SetActive(false);
+            // btn_Claim.gameObject.SetActive(false);
+            // btn_Mode.gameObject.SetActive(false);
+            // btn_Home.gameObject.SetActive(false);
+            btn_NextZone.gameObject.SetActive(true);
 
             StatsSystem.Instance.score = 0;
             StatsSystem.Instance.combo = 0;
@@ -391,30 +479,127 @@ namespace RhythmGameStarter
 
         public void NextZone()
         {
-            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
-            {
-                ProfileManager.AddGold(CalGoldStory());
-                SetWeekProfile();
-                btn_X3Claim.interactable = false;
-                btn_Claim.interactable = false;
-                txt_TotalGold.text = ProfileManager.GetGold();
+            // if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+            // {
+            //     ProfileManager.AddGold(CalGoldStory());
+            //     SetWeekProfile();
+            //     btn_X3Claim.interactable = false;
+            //     btn_Claim.interactable = false;
+            //     txt_TotalGold.text = ProfileManager.GetGold();
 
-                txt_Mode.text = "STORY";
-                if (GameManager.Instance.IsStoryWeekEnd())
+            //     txt_Mode.text = "STORY";
+            //     if (GameManager.Instance.IsStoryWeekEnd())
+            //     {
+            //         if (ProfileManager.GetWeek() < 8)
+            //         {
+            //             ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+            //         }
+            //         Mode();
+            //     }
+            //     else
+            //     {
+            //         GameManager.Instance.NextWeekSong();
+            //         StatsSystem.Instance.score = 0;
+            //         StatsSystem.Instance.combo = 0;
+            //     }
+            // }
+
+            // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
+
+            // if (StatsSystem.Instance.score >= weekProfile.m_HighScore)
+            // {
+            //     weekProfile.SetHighScore(StatsSystem.Instance.score);
+            // }
+
+            SongWeekProfile songWeekProfile = ProfileManager.GetSongWeekProfiles(GameManager.Instance.m_StorySongID);
+
+            songWeekProfile.SetScoreByLevel(GameManager.Instance.m_StoryLevel, StatsSystem.Instance.score);
+
+            if (ProfileManager.GetWeek() >= 8)
+            {
+                bool foundWeek = false;
+                for (int i = 1; i <= 8; i++)
                 {
-                    if (ProfileManager.GetWeek() < 8)
+                    WeekProfile profile = ProfileManager.GetWeekProfiles(i);
+                    if (profile == null)
                     {
-                        ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+                        foundWeek = true;
+                        ProfileManager.UnlockWeek(i);
+                        ProfileManager.SetWeek(i);
+                        // defaultSong = i;
+                        // m_DefaultSong = defaultSong;
+                        // SongManager.Instance.defaultSong = m_Songs[m_DefaultSong - 1];
+                        // int songID = GameManager.Instance.m_DefaultSong;
+                        // SongConfig songs = GameData.Instance.GetSongConfig(songID);
+                        // AnalysticsManager.LogReplayFreeplaySong(songs.m_Name);
+                        break;
                     }
-                    Mode();
                 }
-                else
+
+                if (!foundWeek)
                 {
-                    GameManager.Instance.NextWeekSong();
-                    StatsSystem.Instance.score = 0;
-                    StatsSystem.Instance.combo = 0;
+                    GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenStoryMenu());
+                    return;
                 }
             }
+
+            GameManager.Instance.OnEnable();
+
+            if (ProfileManager.GetWeek() < 8)
+            {
+                ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+            }
+
+            ProfileManager.UnlockWeek(ProfileManager.GetWeek());
+
+            Helper.DebugLog("Next zone unlock week: " + ProfileManager.GetWeek());
+
+            GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
+
+            AnalysticsManager.LogPlayZoneX(GameManager.Instance.m_WeekNo);
+
+            GameManager.Instance.txt_Time.gameObject.SetActive(false);
+
+            UIManager.Instance.g_StoryMenu.SetActive(false);
+            List<WeekConfig> weekConfigs = GameData.Instance.GetWeekSong(ProfileManager.GetWeek());
+            GameManager.Instance.m_StorysongNo = 0;
+            GameManager.Instance.m_StorySongID = weekConfigs[0].m_Id;
+            GameManager.Instance.m_WeekConfigs = weekConfigs;
+
+            GameManager.Instance.m_WeekNo = ProfileManager.GetWeek();
+            GameManager.Instance.m_WeekSongs.Clear();
+
+            int count = weekConfigs.Count;
+            for (int i = 0; i < count; i++)
+            {
+                GameManager.Instance.m_WeekSongs.Add(GameManager.Instance.m_Songs[weekConfigs[i].m_Id - 1]);
+            }
+
+            StatsSystem.Instance.missed = 0;
+            StatsSystem.Instance.combo = 0;
+            StatsSystem.Instance.score = 0;
+            GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+            ComboSystem.Instance.UpdateComboDisplay();
+            StatsSystem.Instance.UpdateScoreDisplay();
+
+            if (GameManager.Instance.m_Enemy != null)
+            {
+                GameManager.Instance.m_Enemy.SetAnimTrigger("Idle");
+            }
+
+            GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[GameManager.Instance.m_WeekNo - 1];
+
+            GameManager.Instance.ResetVsBar();
+            // StartCoroutine(GameManager.Instance.IEResetSong());
+            // SongManager.Instance.delay = 4f;
+            // SongManager.Instance.StopSong(true);
+            // SongManager.Instance.PlaySong();
+
+            GameManager.Instance.PauseSong();
+
+            UIManager.Instance.OpenDialoguePopup(true);
+
+            gameObject.SetActive(false);
         }
 
         public void Mode()
@@ -424,7 +609,7 @@ namespace RhythmGameStarter
             Note.m_ReturnHome = true;
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
-                GUIManager.Instance.LoadPlayScene(() =>
+                GUIManager.Instance.ChangeToPlayScene(true, () =>
                 {
                     AdsManager.Instance.WatchInterstitial();
                     UIManager.Instance.OpenStoryMenu();
@@ -434,7 +619,7 @@ namespace RhythmGameStarter
             }
             else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
             {
-                GUIManager.Instance.LoadPlayScene(() => UIManager.Instance.OpenFreeplayMenu());
+                GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
                 // UIManager.Instance.OpenFreeplayMenu();
                 // GameManager.Instance.StopSong();
             }
@@ -478,7 +663,7 @@ namespace RhythmGameStarter
         IEnumerator DelayClaim()
         {
             yield return Yielders.Get(1.5f);
-            btn_Claim.gameObject.SetActive(true);
+            // btn_Claim.gameObject.SetActive(true);
         }
 
         IEnumerator DelayNextZone()

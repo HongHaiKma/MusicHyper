@@ -20,6 +20,8 @@ namespace RhythmGameStarter
 
         private void OnEnable()
         {
+            EventManager.CallEvent(GameEvent.WATCH_INTER);
+
             SoundManager.Instance.PlayBGM(1);
 
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
@@ -73,13 +75,13 @@ namespace RhythmGameStarter
             Note.m_ReturnHome = true;
             if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
-                GUIManager.Instance.LoadPlayScene(() => UIManager.Instance.OpenStoryMenu());
+                GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenStoryMenu());
                 // UIManager.Instance.OpenStoryMenu();
                 // GameManager.Instance.StopSong();
             }
             else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
             {
-                GUIManager.Instance.LoadPlayScene(() => UIManager.Instance.OpenFreeplayMenu());
+                GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
                 // UIManager.Instance.OpenFreeplayMenu();
                 // GameManager.Instance.StopSong();
             }

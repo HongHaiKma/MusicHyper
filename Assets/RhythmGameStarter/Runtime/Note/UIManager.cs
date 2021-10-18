@@ -230,17 +230,55 @@ namespace RhythmGameStarter
 
         public void OpenWinPopup(bool _value)
         {
-            ProfileManager.MyProfile.m_OpenRateUs++;
-            ProfileManager.Instance.SaveData();
+            // ProfileManager.MyProfile.m_OpenRateUs++;
+            // ProfileManager.Instance.SaveData();
 
-            if (ProfileManager.MyProfile.m_OpenRateUs > 4 && ProfileManager.MyProfile.m_RateUs == 0)
+            // // if (ProfileManager.MyProfile.m_OpenRateUs > 4 && ProfileManager.MyProfile.m_RateUs == 0)
+            // // {
+            // //     UIManager.Instance.OpenRatePopup();
+            // //     ProfileManager.MyProfile.m_OpenRateUs = 0;
+            // //     ProfileManager.Instance.SaveData();
+            // // }
+
+            // g_WinPop.SetActive(_value);
+
+            if (_value)
             {
-                UIManager.Instance.OpenRatePopup();
-                ProfileManager.MyProfile.m_OpenRateUs = 0;
-                ProfileManager.Instance.SaveData();
+                GameManager.Instance.ContinueNextFreeSong();
+                EventManager.CallEvent(GameEvent.WATCH_INTER);
+            }
+            else
+            {
+                // GameManager.Instance.ContinueNextStorySong();
+
+                if (GameManager.Instance.IsStoryWeekEnd())
+                {
+                    // if (ProfileManager.GetWeek() < 8)
+                    // {
+                    //     ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+                    // }
+                    AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
+
+                    g_WinPop.SetActive(true);
+                    // Helper.DebugLog("OEPN WINnnnnnnnnnnnnnnnnnnnnnn");
+                    EventManager.CallEvent(GameEvent.WATCH_INTER);
+                }
+                else
+                {
+                    StatsSystem.Instance.score = 0;
+                    StatsSystem.Instance.combo = 0;
+                    StatsSystem.Instance.missed = 0;
+                    StatsSystem.Instance.UpdateScoreDisplay();
+                    ComboSystem.Instance.UpdateComboDisplay();
+                    GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+
+                    GameManager.Instance.NextWeekSong();
+
+                    EventManager.CallEvent(GameEvent.WATCH_INTER);
+                }
             }
 
-            g_WinPop.SetActive(_value);
+            // EventManager.CallEvent(GameEvent.WATCH_INTER);
         }
     }
 }

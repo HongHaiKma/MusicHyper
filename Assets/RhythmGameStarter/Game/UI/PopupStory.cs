@@ -83,6 +83,18 @@ namespace RhythmGameStarter
             SetWeek();
 
             img_BGColor.color = m_BGColor[m_Week - 1];
+
+            EventManager.AddListener(GameEvent.UNLOCK_WEEK, UnlockWeek);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.RemoveListener(GameEvent.UNLOCK_WEEK, UnlockWeek);
+        }
+
+        private void OnDestroy()
+        {
+            EventManager.RemoveListener(GameEvent.UNLOCK_WEEK, UnlockWeek);
         }
 
         // private void Update()
@@ -183,19 +195,19 @@ namespace RhythmGameStarter
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_EasyScore);
                         score += songScore;
-                        // Helper.DebugLog("Easy score: " + songScore);
+                        Helper.DebugLog("Easy score: " + songScore);
                     }
                     else if (GameManager.Instance.m_StoryLevel == StoryLevel.NORMAL)
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_NormalScore);
                         score += songScore;
-                        // Helper.DebugLog("Normal score: " + songScore);
+                        Helper.DebugLog("Normal score: " + songScore);
                     }
                     else if (GameManager.Instance.m_StoryLevel == StoryLevel.HARD)
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_HardScore);
                         score += songScore;
-                        // Helper.DebugLog("Hard score: " + songScore);
+                        Helper.DebugLog("Hard score: " + songScore);
                     }
                 }
 
@@ -297,7 +309,7 @@ namespace RhythmGameStarter
                 {
                     btn_BuyWeek.interactable = false;
                     g_Unlock.SetActive(false);
-                    g_OutOfGold.SetActive(true);
+                    g_OutOfGold.SetActive(false);
                     g_UnlockBoss.SetActive(true);
 
                     // Helper.DebugLog("Not Enough");
@@ -314,17 +326,32 @@ namespace RhythmGameStarter
 
         public void BuyWeek()
         {
-            if (ProfileManager.IsEnoughGold(m_PriceWeek))
-            {
-                SoundManager.Instance.PlayButtonClickConfirm();
-                ProfileManager.ConsumeGold(m_PriceWeek);
-                ProfileManager.UnlockWeek(m_Week);
-                btn_Play.gameObject.SetActive(true);
-                btn_BuyWeek.gameObject.SetActive(false);
-                txt_TotalGold.text = ProfileManager.GetGold();
-                GameManager.Instance.txt_TotalGold.text = ProfileManager.GetGold();
-                g_UnlockBoss.SetActive(false);
-            }
+            // if (ProfileManager.IsEnoughGold(m_PriceWeek))
+            // {
+            //     SoundManager.Instance.PlayButtonClickConfirm();
+            //     ProfileManager.ConsumeGold(m_PriceWeek);
+            //     ProfileManager.UnlockWeek(m_Week);
+            //     btn_Play.gameObject.SetActive(true);
+            //     btn_BuyWeek.gameObject.SetActive(false);
+            //     txt_TotalGold.text = ProfileManager.GetGold();
+            //     GameManager.Instance.txt_TotalGold.text = ProfileManager.GetGold();
+            //     g_UnlockBoss.SetActive(false);
+            // }
+            AdsManager.Instance.WatchRewardVideo(RewardType.UNLOCK_WEEK);
+        }
+
+        public void UnlockWeek()
+        {
+            AnalysticsManager.LogUnlockChallengeSong();
+
+            SoundManager.Instance.PlayButtonClickConfirm();
+            // ProfileManager.ConsumeGold(m_PriceWeek);
+            ProfileManager.UnlockWeek(m_Week);
+            btn_Play.gameObject.SetActive(true);
+            btn_BuyWeek.gameObject.SetActive(false);
+            txt_TotalGold.text = ProfileManager.GetGold();
+            GameManager.Instance.txt_TotalGold.text = ProfileManager.GetGold();
+            g_UnlockBoss.SetActive(false);
         }
 
         public void Play()
@@ -333,6 +360,8 @@ namespace RhythmGameStarter
             // {
 
             // }
+
+            GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
 
             AnalysticsManager.LogPlayZoneX(GameManager.Instance.m_WeekNo);
 

@@ -66,8 +66,13 @@ public class GUIManager : MonoBehaviour
         }
     }
 
+    private bool IsChanging;
+    public string m_NextScene;
+
     private void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         if (m_Instance != null)
         {
             DestroyImmediate(gameObject);
@@ -144,7 +149,93 @@ public class GUIManager : MonoBehaviour
 
         SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
 
-        async = SceneManager.LoadSceneAsync("PlayScene", LoadSceneMode.Single);
+        async = SceneManager.LoadSceneAsync("InitScene", LoadSceneMode.Single);
+        async.allowSceneActivation = false;
+
+        float _loadProgress = 0;
+        while (_loadProgress <= 1)
+        {
+            _loadProgress += 0.02f;
+            // m_PanelLoading.img_LoadingBar.fillAmount = _loadProgress;
+            // img_LoadingBar.fillAmount = _loadProgress;
+            int percent = (int)(_loadProgress * 100f);
+            if (percent > 100) percent = 100;
+            // m_TextLoadingPer.text = percent + "%";
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        while (async.progress < 0.9f)
+        {
+            yield return null;
+        }
+
+        async.allowSceneActivation = true;
+    }
+
+    // public void FindPanelLoadingAds()
+    // {
+    //     m_PanelLoadingAds = FindObjectOfType<PanelLoadingAds>().GetComponent<PanelLoadingAds>();
+    // }
+
+    // public PanelLoading GetPanelLoading()
+    // {
+    //     return m_PanelLoading;
+    // }
+
+    // public PanelLoadingAds GetPanelLoadingAds()
+    // {
+    //     if (m_PanelLoadingAds == null)
+    //     {
+    //         FindPanelLoadingAds();
+    //     }
+
+    //     return m_PanelLoadingAds;
+    // }
+
+    private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
+    {
+        if (!isLoadInitScene)
+        {
+            isLoadInitScene = true;
+            ChangeToPlayScene(false);
+        }
+    }
+
+    public void ChangeToPlayScene(bool _loading, UnityAction _callback = null)
+    {
+        // Debug.Log("PlayScene");
+        ChangeScene(_loading, "PlayScene", () =>
+        {
+            if (_callback != null)
+            {
+                _callback();
+                Helper.DebugLog("Callback change scene called!!!!");
+            }
+        });
+        //SpineTextureManager.Instance.LoadBackgroundMaterialByName(1);
+    }
+
+    public void ChangeScene(bool _loading, string name, UnityAction _callback = null)
+    {
+        if (IsChanging) return;
+        IsChanging = true;
+        m_NextScene = name;
+        // GUIManager.Instance.ClearAllOpenedPopupList();
+        // Time.timeScale = 1;
+        // m_ChangeSceneCallback = _changeSceneCallback;
+        // IngameEntityManager.Instance.ClearMap();
+        // GUIManager.Instance.ClearAllOpenedPanelList();
+        // GUIManager.Instance.ClearAllOpenedPopupList();
+        StartCoroutine(OnChangingScene(_loading, _callback));
+    }
+
+    public IEnumerator OnChangingScene(bool _loading, UnityAction _callback = null)
+    {
+        SetLoadingPopup(true);
+
+        // SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+
+        async = SceneManager.LoadSceneAsync(m_NextScene, LoadSceneMode.Single);
         async.allowSceneActivation = false;
 
 
@@ -177,6 +268,8 @@ public class GUIManager : MonoBehaviour
 
         yield return Yielders.Get(0.1f);
 
+        IsChanging = false;
+
         FindMainCanvas();
 
         yield return Yielders.Get(0.1f);
@@ -205,35 +298,6 @@ public class GUIManager : MonoBehaviour
         //     g_PanelLoading.SetActive(false);
         //     g_SubCanvas.SetActive(false);
         // }
-    }
-
-    // public void FindPanelLoadingAds()
-    // {
-    //     m_PanelLoadingAds = FindObjectOfType<PanelLoadingAds>().GetComponent<PanelLoadingAds>();
-    // }
-
-    // public PanelLoading GetPanelLoading()
-    // {
-    //     return m_PanelLoading;
-    // }
-
-    // public PanelLoadingAds GetPanelLoadingAds()
-    // {
-    //     if (m_PanelLoadingAds == null)
-    //     {
-    //         FindPanelLoadingAds();
-    //     }
-
-    //     return m_PanelLoadingAds;
-    // }
-
-    private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
-    {
-        if (!isLoadInitScene)
-        {
-            isLoadInitScene = true;
-            // GameManager.Instance.ChangeToPlayScene(false);
-        }
     }
 
     public void AddClickEvent(Button _bt, UnityAction _callback)

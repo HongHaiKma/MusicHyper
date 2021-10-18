@@ -119,5 +119,17 @@ namespace RhythmGameStarter
             string eventName = "PURCHASE_REMOVE_ADS";
             FirebaseManager.Instance.LogAnalyticsEvent(eventName);
         }
+
+        public static void LogUnlockChallengeSong()
+        {
+            string eventName = "UNLOCK_CHALLENGE_ADS";
+            FirebaseManager.Instance.LogAnalyticsEvent(eventName);
+        }
+
+        public static void LogUnlockFreeplaySong()
+        {
+            string eventName = "UNLOCK_FREE_ADS";
+            FirebaseManager.Instance.LogAnalyticsEvent(eventName);
+        }
     }
 }

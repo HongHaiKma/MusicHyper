@@ -5,7 +5,7 @@
 
 #import "MAUnityAdManager.h"
 
-#define VERSION @"4.3.10"
+#define VERSION @"4.3.11"
 
 #define KEY_WINDOW [UIApplication sharedApplication].keyWindow
 #define DEVICE_SPECIFIC_ADVIEW_AD_FORMAT ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? MAAdFormat.leader : MAAdFormat.banner
@@ -18,6 +18,7 @@ extern "C" {
     
     // UnityAppController.mm
     UIViewController* UnityGetGLViewController(void);
+    UIWindow* UnityGetMainWindow(void);
     
     // life cycle management
     void UnityPause(int pause);
@@ -137,7 +138,7 @@ static NSString *ALSerializeKeyValuePairSeparator;
             self.safeAreaBackground.translatesAutoresizingMaskIntoConstraints = NO;
             self.safeAreaBackground.userInteractionEnabled = NO;
             
-            UIViewController *rootViewController = UnityGetGLViewController();
+            UIViewController *rootViewController = [self unityViewController];
             [rootViewController.view addSubview: self.safeAreaBackground];
         });
         
@@ -1010,9 +1011,9 @@ static NSString *ALSerializeKeyValuePairSeparator;
             // Check edge case where ad may be detatched from view controller
             if ( !view.window.rootViewController )
             {
-                [self log: @"%@ missing view controller - re-attaching to %@...", adFormat, UnityGetGLViewController()];
+                [self log: @"%@ missing view controller - re-attaching to %@...", adFormat, [self unityViewController]];
                 
-                UIViewController *rootViewController = UnityGetGLViewController();
+                UIViewController *rootViewController = [self unityViewController];
                 [rootViewController.view addSubview: view];
                 
                 [self positionAdViewForAdUnitIdentifier: adUnitIdentifier adFormat: adFormat];
@@ -1163,7 +1164,7 @@ static NSString *ALSerializeKeyValuePairSeparator;
         self.adViewPositions[adUnitIdentifier] = adViewPosition;
         self.adViewOffsets[adUnitIdentifier] = [NSValue valueWithCGPoint: offset];
         
-        UIViewController *rootViewController = UnityGetGLViewController();
+        UIViewController *rootViewController = [self unityViewController];
         [rootViewController.view addSubview: result];
     }
     
@@ -1482,6 +1483,12 @@ static NSString *ALSerializeKeyValuePairSeparator;
         
         [NSLayoutConstraint activateConstraints: constraints];
     });
+}
+
+- (UIViewController *)unityViewController
+{
+    // Handle edge case where `UnityGetGLViewController()` returns nil
+    return UnityGetGLViewController() ?: UnityGetMainWindow().rootViewController ?: [KEY_WINDOW rootViewController];
 }
 
 + (void)forwardUnityEventWithArgs:(NSDictionary<NSString *, NSString *> *)args

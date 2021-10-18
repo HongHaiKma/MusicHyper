@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "08211FDD400529",
+    "m_SelectedDeviceId": "R58N865PKRK",
     "m_SelectedPackage": {
         "deviceId": "",
         "name": "",
@@ -37,6 +37,12 @@
             "name": "com.sec.android.app.launcher",
             "processId": 10262,
             "exited": false
+        },
+        {
+            "deviceId": "R58N865PKRK",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 1093,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -72,7 +78,7 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 300.0,
+        "MemoryWindowHeight": 255.0,
         "MemoryWindowWidth": 170.0,
         "MemoryTypeEnabled": [
             true,
@@ -86,8 +92,8 @@
             true,
             true
         ],
-        "MemoryGroup": 2,
-        "Behavior": 0
+        "MemoryGroup": 1,
+        "Behavior": 1
     },
     "m_Filter": "",
     "m_FilterIsRegularExpression": false,

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 2d17cc63b76b03241a1597263f648f5e, type: 3}
   bpm: 128
-  useCurrentBpmMidiImport: 1
+  useCurrentBpmMidiImport: 0
   notes:
   - noteName: 0
     noteOctave: 4

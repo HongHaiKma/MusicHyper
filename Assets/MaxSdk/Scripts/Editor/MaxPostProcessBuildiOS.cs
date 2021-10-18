@@ -60,6 +60,7 @@ namespace AppLovinMax.Scripts.Editor
                 var dynamicLibraryPathsToEmbed = new List<string>(2);
                 dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "HyprMX/HyprMX.xcframework"));
                 dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "smaato-ios-sdk/vendor/OMSDK_Smaato.xcframework"));
+                dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "FBSDKCoreKit_Basics/XCFrameworks/FBSDKCoreKit_Basics.xcframework"));
                 if (ShouldEmbedSnapSdk())
                 {
                     dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "SAKSDK/SAKSDK.framework"));
