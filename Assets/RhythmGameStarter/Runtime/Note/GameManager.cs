@@ -53,8 +53,6 @@ namespace RhythmGameStarter
         }
         public Transform[] tf_Knots;
         public float[] tf_VsFillPos;
-        public Light l_LightPlayer;
-        public Light l_LightEnemy;
 
         [Header("UI")]
         public TextMeshProUGUI txt_Time;
