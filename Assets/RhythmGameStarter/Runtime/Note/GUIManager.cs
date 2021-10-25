@@ -248,6 +248,8 @@ public class GUIManager : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
+        // SetLoadingPopup(false);
+
         // if (g_PanelLoading != null)
         // {
         //     g_PanelLoading.SetActive(false);
