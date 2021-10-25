@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RhythmGameStarter;
 
+[DefaultExecutionOrder(-100)]
 public class Manager : MonoBehaviour
 {
     private static Manager m_Instance;
