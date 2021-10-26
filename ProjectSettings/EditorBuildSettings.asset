@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/RhythmGameStarter/QuickStart/Colorful/Scenes/FirstScene.unity
     guid: 61206e4568fc5a6499c35e996545f15d
   - enabled: 1
+    path: Assets/RhythmGameStarter/QuickStart/Colorful/Scenes/InitScene.unity
+    guid: 2854db6b7a7e5f7498b16ec8bc5cee13
+  - enabled: 1
     path: Assets/RhythmGameStarter/QuickStart/Colorful/Scenes/PlayScene.unity
     guid: 555f16c4143216e41ab1f8b34b6de267
   m_configObjects:

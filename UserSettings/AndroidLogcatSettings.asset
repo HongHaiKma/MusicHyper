@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "R58N865PKRK",
+    "m_SelectedDeviceId": "08211FDD400529",
     "m_SelectedPackage": {
         "deviceId": "",
         "name": "",
@@ -24,6 +24,18 @@
             "deviceId": "08211FDD400529",
             "name": "com.musicchallenge.fmfmod.modcharacter",
             "processId": 12493,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 31838,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 7328,
             "exited": false
         },
         {
@@ -42,6 +54,24 @@
             "deviceId": "R58N865PKRK",
             "name": "com.musicchallenge.fmfmod.modcharacter",
             "processId": 1093,
+            "exited": false
+        },
+        {
+            "deviceId": "f9e20612",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 15214,
+            "exited": true
+        },
+        {
+            "deviceId": "f9e20612",
+            "name": "com.oppo.launcher",
+            "processId": 3137,
+            "exited": false
+        },
+        {
+            "deviceId": "f9e20612",
+            "name": "com.musicchallenge.fmfmod.modcharacter",
+            "processId": 27415,
             "exited": false
         }
     ],
