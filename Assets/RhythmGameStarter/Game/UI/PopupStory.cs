@@ -389,15 +389,15 @@ namespace RhythmGameStarter
             GameManager.Instance.m_StoryLevel = (StoryLevel)m_Level;
             if (GameManager.Instance.m_StoryLevel == StoryLevel.EASY)
             {
-                TrackManager.Instance.beatSize = 1.5f;
+                TrackManager.Instance.beatSize = 1f;
             }
             else if (GameManager.Instance.m_StoryLevel == StoryLevel.NORMAL)
             {
-                TrackManager.Instance.beatSize = 2.5f;
+                TrackManager.Instance.beatSize = 2f;
             }
             else if (GameManager.Instance.m_StoryLevel == StoryLevel.HARD)
             {
-                TrackManager.Instance.beatSize = 4.5f;
+                TrackManager.Instance.beatSize = 3f;
             }
             // txt_Level.text = GameManager.Instance.m_StoryLevel.ToString();
         }

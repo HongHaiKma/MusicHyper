@@ -16,12 +16,14 @@ namespace RhythmGameStarter
         public List<Dialogue> m_Dialogues = new List<Dialogue>();
         public TextMeshProUGUI txt_EnemyName;
         public Button btn_Next;
+        public Button btn_Skip;
 
         // IEnumerator m_Cou;
 
         private void Awake()
         {
             GUIManager.Instance.AddClickEvent(btn_Next, NextDialogue);
+            GUIManager.Instance.AddClickEvent(btn_Skip, Skip);
         }
 
         private void OnEnable()
@@ -82,6 +84,20 @@ namespace RhythmGameStarter
         //         }
         //     }
         // }
+
+        public void Skip()
+        {
+            UIManager.Instance.CloseDialoguePopup();
+            if (GameManager.Instance.m_1stSong)
+            {
+                GameManager.Instance.PlaySongStory();
+                // GameManager.Instance.PlaySongStoryNext();
+            }
+            else
+            {
+                GameManager.Instance.ResetSong();
+            }
+        }
 
         public void NextDialogue()
         {

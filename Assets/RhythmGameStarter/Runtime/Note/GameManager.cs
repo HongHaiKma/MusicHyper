@@ -128,6 +128,8 @@ namespace RhythmGameStarter
 
         public bool m_NextStory;
 
+        public GameObject[] fixEffect;
+
         public void Awake()
         {
             // Application.targetFrameRate = 60;
@@ -168,16 +170,16 @@ namespace RhythmGameStarter
                 // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
 
                 // ProfileManager.UnlockWeek(7);
-                // for (int i = 1; i <= 19; i++)
-                // {
-                //     ProfileManager.UnlockSong(i);
-                // }
+                for (int i = 1; i <= 19; i++)
+                {
+                    ProfileManager.UnlockSong(i);
+                }
                 // for (int i = 1; i <= 8; i++)
                 // {
                 //     ProfileManager.UnlockWeek(i);
                 // }
 
-                ProfileManager.UnlockWeek(3);
+                // ProfileManager.UnlockWeek(3);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -858,6 +860,11 @@ namespace RhythmGameStarter
 
         public void ContinueNextStorySong()
         {
+            for (int i = 0; i < fixEffect.Length; i++)
+            {
+                fixEffect[i].SetActive(false);
+            }
+
             WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
 
             Helper.DebugLog("GameManager.Instance.m_WeekNo = " + GameManager.Instance.m_WeekNo);
@@ -892,6 +899,11 @@ namespace RhythmGameStarter
 
         public void ContinueNextFreeSong()
         {
+            for (int i = 0; i < fixEffect.Length; i++)
+            {
+                fixEffect[i].SetActive(false);
+            }
+
             int songId = GameManager.Instance.m_DefaultSong;
             SongProfile songsong = ProfileManager.GetSongProfiles(songId);
 
@@ -930,6 +942,7 @@ namespace RhythmGameStarter
                     if (defaultSong == -1)
                     {
                         GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
+                        // GUIManager.Instance.ChangeToPlayScene(true);
                         Helper.DebugLog("Out of song");
                         return;
                     }

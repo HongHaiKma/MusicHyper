@@ -8,6 +8,7 @@ using EnhancedUI.EnhancedScroller;
 
 // namespace RhythmGameStarter
 // {
+// [DefaultExecutionOrder(-94)]
 public class SongPlaylist : EnhancedScrollerCellView
 {
     public int id;
@@ -71,8 +72,14 @@ public class SongPlaylist : EnhancedScrollerCellView
         DisplaySongInfo();
     }
 
+    // public void DisplaySongInfo()
+    // {
+    //     StartCoroutine(IEDisplaySongInfo());
+    // }
+
     public void DisplaySongInfo()
     {
+        // yield return new WaitUntil(() => ProfileManager.Instance != null);
         // songId = 4 * GameManager.Instance.m_FreePlayListId + id;
         BG.sprite = SpriteManager.Instance.m_SongPlaylistBG[SpriteManager.Instance.m_SongPlaylistBGIndex[songId - 1]];
         int count = GameData.Instance.GetSongCount();
@@ -172,7 +179,7 @@ public class SongPlaylist : EnhancedScrollerCellView
         GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
 
         GUIManager.Instance.SetBlockPopup(true);
-        TrackManager.Instance.beatSize = 1.5f;
+        TrackManager.Instance.beatSize = 1f;
 
         GameManager.Instance.txt_Time.gameObject.SetActive(false);
 
@@ -237,7 +244,7 @@ public class SongPlaylist : EnhancedScrollerCellView
         if (songId == _songId)
         {
             GUIManager.Instance.SetBlockPopup(true);
-            TrackManager.Instance.beatSize = 1.5f;
+            TrackManager.Instance.beatSize = 1f;
 
             GameManager.Instance.txt_Time.gameObject.SetActive(false);
 
