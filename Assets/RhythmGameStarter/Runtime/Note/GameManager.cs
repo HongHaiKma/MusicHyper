@@ -146,6 +146,11 @@ namespace RhythmGameStarter
             // GUIManager.Instance.AddClickEvent(btn_LeftSong, OnPrevSong);
             // GUIManager.Instance.AddClickEvent(btn_RightSong, OnNextSong);
             // GUIManager.Instance.AddClickEvent(btn_Pause, PauseSongPopup);
+
+            // for (int i = 1; i <= 19; i++)
+            // {
+            //     ProfileManager.UnlockSong(i);
+            // }
         }
 
         private void Update()
@@ -163,15 +168,24 @@ namespace RhythmGameStarter
                 // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
 
                 // ProfileManager.UnlockWeek(7);
-                ProfileManager.UnlockSong(10);
+                // for (int i = 1; i <= 19; i++)
+                // {
+                //     ProfileManager.UnlockSong(i);
+                // }
+                // for (int i = 1; i <= 8; i++)
+                // {
+                //     ProfileManager.UnlockWeek(i);
+                // }
+
+                ProfileManager.UnlockWeek(3);
             }
 
-            // if (Input.GetKeyDown(KeyCode.D))
-            // {
-            //     // ContinueNextFreeSong();
-            //     // ContinueNextStorySong();
-            //     ProfileManager.UnlockWeek(6);
-            // }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                // ContinueNextFreeSong();
+                ContinueNextStorySong();
+                // ProfileManager.UnlockWeek(6);
+            }
         }
 
         public override void OnEnable()
@@ -916,6 +930,7 @@ namespace RhythmGameStarter
                     if (defaultSong == -1)
                     {
                         GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
+                        Helper.DebugLog("Out of song");
                         return;
                     }
                 }

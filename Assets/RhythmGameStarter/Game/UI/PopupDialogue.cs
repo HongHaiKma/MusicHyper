@@ -43,7 +43,15 @@ namespace RhythmGameStarter
             // StartCoroutine(m_Cou);
             txt_EnemyName.text = GameData.Instance.GetSongConfig(GameManager.Instance.m_StorySongID).m_EnemyName;
 
-            img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
+            if (GameManager.Instance.m_WeekNo == 4)
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_Enemies[4];
+            }
+            else
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
+            }
+
             // img_Enemy.SetNativeSize();
             Helper.DebugLog("Enemy Turn: " + m_Dialogues[m_DialogueID].m_EnemyTurn);
             if (m_Dialogues[m_DialogueID].m_EnemyTurn != 0)
@@ -86,7 +94,15 @@ namespace RhythmGameStarter
                 // StartCoroutine(m_Cou);
                 if (m_Dialogues[m_DialogueID].m_EnemyTurn != 0)
                 {
-                    img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
+                    // img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
+                    if (GameManager.Instance.m_WeekNo == 4)
+                    {
+                        img_Enemy.sprite = SpriteManager.Instance.m_Enemies[4];
+                    }
+                    else
+                    {
+                        img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
+                    }
                     img_Enemy.gameObject.SetActive(true);
                     g_Char.SetActive(false);
                 }

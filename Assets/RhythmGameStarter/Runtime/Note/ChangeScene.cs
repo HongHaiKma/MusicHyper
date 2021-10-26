@@ -18,6 +18,12 @@ public class ChangeScene : Editor
         OpenScene("PlayScene");
     }
 
+    [MenuItem("Scene/InitScene")]
+    public static void OpenInitScene()
+    {
+        OpenScene("InitScene");
+    }
+
     // [MenuItem("Scene/Popup Prefab")]
     // public static void OpenPopupFolder()
     // {

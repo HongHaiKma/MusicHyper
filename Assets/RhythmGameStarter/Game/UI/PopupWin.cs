@@ -119,13 +119,13 @@ namespace RhythmGameStarter
                 }
 
                 txt_ScoreSong.text = "SCORE: " + StatsSystem.Instance.score;
-                txt_GoldClaim.text = totalReward.ToString();
+                // txt_GoldClaim.text = totalReward.ToString();
                 txt_X3GoldClaim.text = (totalReward * 3).ToString();
                 txt_TotalGold.text = ProfileManager.GetGold();
 
                 // btn_X3Claim.gameObject.SetActive(totalReward > 0 ? true : false);
                 // btn_X3Claim.gameObject.SetActive(false);
-                txt_GoldClaim.gameObject.SetActive(totalReward > 0 ? true : false);
+                txt_GoldClaim.gameObject.SetActive(false);
 
                 return;
             }
@@ -161,7 +161,7 @@ namespace RhythmGameStarter
                 g_HighScore.SetActive(false);
             }
 
-            txt_GoldClaim.text = CalGoldWin().ToString();
+            // txt_GoldClaim.text = CalGoldWin().ToString();
             txt_X3GoldClaim.text = (CalGoldWin() * 3).ToString();
 
             txt_TotalGold.text = ProfileManager.GetGold();
