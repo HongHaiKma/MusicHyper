@@ -244,8 +244,10 @@ namespace RhythmGameStarter
 
             if (_value)
             {
-                GameManager.Instance.ContinueNextFreeSong();
-                EventManager.CallEvent(GameEvent.WATCH_INTER);
+                // GameManager.Instance.ContinueNextFreeSong();
+                // EventManager1<int>.CallEvent(GameEvent.RATE, m_StarNo)
+                EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.FREE);
+                // EventManager1<>
             }
             else
             {
@@ -257,28 +259,37 @@ namespace RhythmGameStarter
                     // {
                     //     ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
                     // }
-                    AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
+                    // AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
 
-                    g_WinPop.SetActive(true);
+                    // g_WinPop.SetActive(true);
+
                     // Helper.DebugLog("OEPN WINnnnnnnnnnnnnnnnnnnnnnn");
-                    EventManager.CallEvent(GameEvent.WATCH_INTER);
+                    EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.END_STORY);
                 }
                 else
                 {
-                    StatsSystem.Instance.score = 0;
-                    StatsSystem.Instance.combo = 0;
-                    StatsSystem.Instance.missed = 0;
-                    StatsSystem.Instance.UpdateScoreDisplay();
-                    ComboSystem.Instance.UpdateComboDisplay();
-                    GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+                    // StatsSystem.Instance.score = 0;
+                    // StatsSystem.Instance.combo = 0;
+                    // StatsSystem.Instance.missed = 0;
+                    // StatsSystem.Instance.UpdateScoreDisplay();
+                    // ComboSystem.Instance.UpdateComboDisplay();
+                    // GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
 
-                    GameManager.Instance.NextWeekSong();
+                    // GameManager.Instance.NextWeekSong();
 
-                    EventManager.CallEvent(GameEvent.WATCH_INTER);
+                    EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.STORY);
                 }
             }
 
             // EventManager.CallEvent(GameEvent.WATCH_INTER);
         }
     }
+}
+
+public enum InterType
+{
+    NONE,
+    END_STORY,
+    STORY,
+    FREE
 }

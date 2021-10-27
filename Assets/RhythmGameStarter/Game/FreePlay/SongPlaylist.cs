@@ -179,7 +179,7 @@ public class SongPlaylist : EnhancedScrollerCellView
         GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
 
         GUIManager.Instance.SetBlockPopup(true);
-        TrackManager.Instance.beatSize = 1f;
+        TrackManager.Instance.beatSize = 1.5f;
 
         GameManager.Instance.txt_Time.gameObject.SetActive(false);
 
@@ -234,7 +234,7 @@ public class SongPlaylist : EnhancedScrollerCellView
 
         AnalysticsManager.LogPlayFreeSong(song.m_Name);
 
-
+        GameManager.Instance.txt_SongName.text = song.m_Name;
 
         StartCoroutine(IEPlaySong());
     }
@@ -244,7 +244,7 @@ public class SongPlaylist : EnhancedScrollerCellView
         if (songId == _songId)
         {
             GUIManager.Instance.SetBlockPopup(true);
-            TrackManager.Instance.beatSize = 1f;
+            TrackManager.Instance.beatSize = 1.5f;
 
             GameManager.Instance.txt_Time.gameObject.SetActive(false);
 

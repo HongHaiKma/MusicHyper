@@ -30,6 +30,7 @@ public class AdsManager : Singleton<AdsManager>
     public bool openRwdAds;
     public bool openRwdAds2;
     private RewardType m_RewardType;
+    private InterType m_InterType;
 
     public int m_TrySongId;
 
@@ -43,9 +44,9 @@ public class AdsManager : Singleton<AdsManager>
     // private string m_BannerId = "a29cb6e6fe5d0f40";
 
     string adUnitId = "lBnu4FPbTxGUi8cqgwNENfRfqINTVk8B9NxC2Japp2DqKPThsIhPCF7zcC6wr9_IN8OLTcG9SR4dT4OJwQPTBf";
-    private string m_InterId = "d7ca787637c32b03";
-    private string m_RewardId = "1e7e983078a113d1";
-    private string m_BannerId = "be213b3cc42f51ca";
+    private string m_InterId = "d6314ac95f0daa9c";
+    private string m_RewardId = "f3cfb48864daa76d";
+    private string m_BannerId = "71d80a40d260fd23";
 
     int retryAttempt;
 
@@ -120,14 +121,14 @@ public class AdsManager : Singleton<AdsManager>
     public override void StartListenToEvents()
     {
         base.StartListenToEvents();
-        EventManager.AddListener(GameEvent.WATCH_INTER, WatchInterstitial);
+        EventManager1<InterType>.AddListener(GameEvent.WATCH_INTER, WatchInterstitial);
         EventManager.AddListener(GameEvent.LOAD_BANNER, LoadBanner);
     }
 
     public override void StopListenToEvents()
     {
         base.StartListenToEvents();
-        EventManager.RemoveListener(GameEvent.WATCH_INTER, WatchInterstitial);
+        EventManager1<InterType>.RemoveListener(GameEvent.WATCH_INTER, WatchInterstitial);
         EventManager.RemoveListener(GameEvent.LOAD_BANNER, LoadBanner);
     }
 
@@ -281,7 +282,33 @@ public class AdsManager : Singleton<AdsManager>
     private void OnInterstitialHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
     {
         // Interstitial ad is hidden. Pre-load the next ad.
+        StartCoroutine(IEOnInterHidden());
         LoadInterstitial();
+    }
+
+    IEnumerator IEOnInterHidden()
+    {
+        yield return null;
+
+        switch (m_InterType)
+        {
+            case InterType.END_STORY:
+                AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
+                UIManager.Instance.g_WinPop.SetActive(true);
+                break;
+            case InterType.STORY:
+                StatsSystem.Instance.score = 0;
+                StatsSystem.Instance.combo = 0;
+                StatsSystem.Instance.missed = 0;
+                StatsSystem.Instance.UpdateScoreDisplay();
+                ComboSystem.Instance.UpdateComboDisplay();
+                GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+                GameManager.Instance.NextWeekSong();
+                break;
+            case InterType.FREE:
+                GameManager.Instance.ContinueNextFreeSong();
+                break;
+        }
     }
 
     #endregion
@@ -466,8 +493,21 @@ public class AdsManager : Singleton<AdsManager>
     //     this.rewardedAd.LoadAd(request);
     // }
 
-    public void WatchInterstitial()
+    public void WatchInterstitial(InterType _interType)
     {
+        StartCoroutine(IEWatchInterstitial(_interType));
+    }
+
+    IEnumerator IEWatchInterstitial(InterType _interType)
+    {
+        GUIManager.Instance.SetLoadingPopup(true);
+        LoadInterstitial();
+
+        yield return Yielders.Get(1f);
+        yield return Yielders.EndOfFrame;
+        GUIManager.Instance.SetLoadingPopup(false);
+
+        m_InterType = _interType;
         if (PlayerPrefs.GetInt(m_Ads) == 1)
         {
             Helper.DebugLog("Ads Manager Check ads");
@@ -489,6 +529,25 @@ public class AdsManager : Singleton<AdsManager>
             }
             else
             {
+                switch (m_InterType)
+                {
+                    case InterType.END_STORY:
+                        AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
+                        UIManager.Instance.g_WinPop.SetActive(true);
+                        break;
+                    case InterType.STORY:
+                        StatsSystem.Instance.score = 0;
+                        StatsSystem.Instance.combo = 0;
+                        StatsSystem.Instance.missed = 0;
+                        StatsSystem.Instance.UpdateScoreDisplay();
+                        ComboSystem.Instance.UpdateComboDisplay();
+                        GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
+                        GameManager.Instance.NextWeekSong();
+                        break;
+                    case InterType.FREE:
+                        GameManager.Instance.ContinueNextFreeSong();
+                        break;
+                }
                 LoadInterstitial();
             }
         }
@@ -496,6 +555,19 @@ public class AdsManager : Singleton<AdsManager>
 
     public void WatchInterstitial2()
     {
+        StartCoroutine(IEWatchInterstitial2());
+    }
+
+    IEnumerator IEWatchInterstitial2()
+    {
+        GUIManager.Instance.SetLoadingPopup(true);
+        LoadInterstitial();
+
+        yield return Yielders.Get(1f);
+        yield return Yielders.EndOfFrame;
+        GUIManager.Instance.SetLoadingPopup(false);
+
+        m_InterType = InterType.NONE;
         if (PlayerPrefs.GetInt(m_Ads) == 1 && ProfileManager.MyProfile.m_InterTime.GetCurrentValue() <= 0)
         {
             Helper.DebugLog("Ads Manager Check ads");
@@ -812,3 +884,11 @@ public enum RewardType
     UNLOCK_FREE_SONG,
     UNLOCK_WEEK,
 }
+
+// public enum InterType
+// {
+//     NONE,
+//     END_STORY,
+//     STORY,
+//     FREE
+// }

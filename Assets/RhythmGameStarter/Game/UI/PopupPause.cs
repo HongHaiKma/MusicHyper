@@ -48,7 +48,7 @@ namespace RhythmGameStarter
 
         public void Replay()
         {
-            EventManager.CallEvent(GameEvent.WATCH_INTER);
+            AdsManager.Instance.WatchInterstitial2();
 
             if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
             {

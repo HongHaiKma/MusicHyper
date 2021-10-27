@@ -11,7 +11,7 @@ public class FreePlayMenu : MonoBehaviour, IEnhancedScrollerDelegate
     public EnhancedScrollerCellView g_SongViewPrefab;
     public EnhancedScroller m_Scroller;
 
-    private void Start()
+    private void OnEnable()
     {
         m_Scroller.Delegate = this;
 

@@ -49,6 +49,10 @@ namespace RhythmGameStarter
             {
                 img_Enemy.sprite = SpriteManager.Instance.m_Enemies[4];
             }
+            else if (GameManager.Instance.m_WeekNo == 3)
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_Enemies[3];
+            }
             else
             {
                 img_Enemy.sprite = SpriteManager.Instance.m_Enemies[m_Dialogues[m_DialogueID].m_EnemyTurn];
@@ -114,6 +118,10 @@ namespace RhythmGameStarter
                     if (GameManager.Instance.m_WeekNo == 4)
                     {
                         img_Enemy.sprite = SpriteManager.Instance.m_Enemies[4];
+                    }
+                    else if (GameManager.Instance.m_WeekNo == 3)
+                    {
+                        img_Enemy.sprite = SpriteManager.Instance.m_Enemies[3];
                     }
                     else
                     {

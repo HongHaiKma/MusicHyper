@@ -20,7 +20,7 @@ namespace RhythmGameStarter
 
         private void OnEnable()
         {
-            EventManager.CallEvent(GameEvent.WATCH_INTER);
+            // AdsManager.Instance.WatchInterstitial2();
 
             SoundManager.Instance.PlayBGM(1);
 
@@ -39,6 +39,8 @@ namespace RhythmGameStarter
 
         public void Replay()
         {
+            AdsManager.Instance.WatchInterstitial2();
+
             SoundManager.Instance.PauseBGM();
 
             FadeOut();
@@ -69,7 +71,8 @@ namespace RhythmGameStarter
 
         public void Home()
         {
-            AdsManager.Instance.WatchInterstitial();
+            // AdsManager.Instance.WatchInterstitial();
+            // AdsManager.Instance.WatchInterstitial2();
 
             FadeOut();
             Note.m_ReturnHome = true;

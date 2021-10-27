@@ -379,6 +379,10 @@ namespace RhythmGameStarter
                 GameManager.Instance.m_WeekSongs.Add(GameManager.Instance.m_Songs[weekConfigs[i].m_Id - 1]);
             }
 
+            SongConfig songs = GameData.Instance.GetSongConfig(GameManager.Instance.m_StorySongID);
+
+            GameManager.Instance.txt_SongName.text = songs.m_Name;
+
             UIManager.Instance.OpenDialoguePopup(true);
 
             // GameManager.Instance.PlaySongStory();
@@ -389,15 +393,15 @@ namespace RhythmGameStarter
             GameManager.Instance.m_StoryLevel = (StoryLevel)m_Level;
             if (GameManager.Instance.m_StoryLevel == StoryLevel.EASY)
             {
-                TrackManager.Instance.beatSize = 1f;
+                TrackManager.Instance.beatSize = 1.5f;
             }
             else if (GameManager.Instance.m_StoryLevel == StoryLevel.NORMAL)
             {
-                TrackManager.Instance.beatSize = 2f;
+                TrackManager.Instance.beatSize = 2.5f;
             }
             else if (GameManager.Instance.m_StoryLevel == StoryLevel.HARD)
             {
-                TrackManager.Instance.beatSize = 3f;
+                TrackManager.Instance.beatSize = 4f;
             }
             // txt_Level.text = GameManager.Instance.m_StoryLevel.ToString();
         }

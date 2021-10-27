@@ -130,6 +130,8 @@ namespace RhythmGameStarter
 
         public GameObject[] fixEffect;
 
+        public TextMeshProUGUI txt_SongName;
+
         public void Awake()
         {
             // Application.targetFrameRate = 60;
@@ -160,7 +162,7 @@ namespace RhythmGameStarter
             if (Input.GetKeyDown(KeyCode.C))
             {
                 // ContinueNextFreeSong();
-                // ContinueNextStorySong();
+                ContinueNextStorySong();
                 // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
 
                 // if (weekProfile != null)
@@ -170,24 +172,35 @@ namespace RhythmGameStarter
                 // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
 
                 // ProfileManager.UnlockWeek(7);
-                for (int i = 1; i <= 19; i++)
-                {
-                    ProfileManager.UnlockSong(i);
-                }
+                // for (int i = 1; i <= 19; i++)
+                // {
+                //     ProfileManager.UnlockSong(i);
+                // }
                 // for (int i = 1; i <= 8; i++)
                 // {
                 //     ProfileManager.UnlockWeek(i);
                 // }
 
                 // ProfileManager.UnlockWeek(3);
+
+                // List<SongProfile> songs = ProfileManager.GetSongProfiles();
+
+                // for (int i = 0; i < songs.Count; i++)
+                // {
+                //     Helper.DebugLog("Song: " + songs[i].m_Id);
+                // }
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                // ContinueNextFreeSong();
-                ContinueNextStorySong();
-                // ProfileManager.UnlockWeek(6);
-            }
+            // if (Input.GetKeyDown(KeyCode.D))
+            // {
+            //     // ContinueNextFreeSong();
+            //     // ContinueNextStorySong();
+            //     // ProfileManager.UnlockWeek(6);
+            //     for (int i = 1; i <= 19; i++)
+            //     {
+            //         ProfileManager.UnlockSong(i);
+            //     }
+            // }
         }
 
         public override void OnEnable()
@@ -331,6 +344,10 @@ namespace RhythmGameStarter
 
                 GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
             }
+
+            SongConfig songs = GameData.Instance.GetSongConfig(m_StorySongID);
+
+            txt_SongName.text = songs.m_Name;
 
             UIManager.Instance.OpenDialoguePopup(false);
 
@@ -941,7 +958,7 @@ namespace RhythmGameStarter
 
                     if (defaultSong == -1)
                     {
-                        GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
+                        GUIManager.Instance.ChangeToPlayScene(true);
                         // GUIManager.Instance.ChangeToPlayScene(true);
                         Helper.DebugLog("Out of song");
                         return;
@@ -990,6 +1007,9 @@ namespace RhythmGameStarter
             StatsSystem.Instance.UpdateScoreDisplay();
             GUIManager.Instance.SetBlockPopup(true);
             GameManager.Instance.ResetSong();
+
+            txt_SongName.text = song.m_Name;
+            Helper.DebugLog("Song Name: " + song.m_Name);
         }
     }
 

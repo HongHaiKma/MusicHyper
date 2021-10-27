@@ -35,7 +35,7 @@ namespace RhythmGameStarter
         {
             GUIManager.Instance.AddClickEvent(btn_X3Claim, X3Claim);
             GUIManager.Instance.AddClickEvent(btn_Claim, Claim);
-            GUIManager.Instance.AddClickEvent(btn_Mode, Mode);
+            // GUIManager.Instance.AddClickEvent(btn_Mode, Mode);
             GUIManager.Instance.AddClickEvent(btn_Home, Home);
             GUIManager.Instance.AddClickEvent(btn_NextZone, NextZone);
         }
@@ -602,28 +602,28 @@ namespace RhythmGameStarter
             gameObject.SetActive(false);
         }
 
-        public void Mode()
-        {
-            Helper.DebugLog("Call mode");
-            FadeOut();
-            Note.m_ReturnHome = true;
-            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
-            {
-                GUIManager.Instance.ChangeToPlayScene(true, () =>
-                {
-                    AdsManager.Instance.WatchInterstitial();
-                    UIManager.Instance.OpenStoryMenu();
-                });
-                // UIManager.Instance.OpenStoryMenu();
-                // GameManager.Instance.StopSong();
-            }
-            else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
-            {
-                GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
-                // UIManager.Instance.OpenFreeplayMenu();
-                // GameManager.Instance.StopSong();
-            }
-        }
+        // public void Mode()
+        // {
+        //     Helper.DebugLog("Call mode");
+        //     FadeOut();
+        //     Note.m_ReturnHome = true;
+        //     if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+        //     {
+        //         GUIManager.Instance.ChangeToPlayScene(true, () =>
+        //         {
+        //             AdsManager.Instance.WatchInterstitial();
+        //             UIManager.Instance.OpenStoryMenu();
+        //         });
+        //         // UIManager.Instance.OpenStoryMenu();
+        //         // GameManager.Instance.StopSong();
+        //     }
+        //     else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+        //     {
+        //         GUIManager.Instance.ChangeToPlayScene(true, () => UIManager.Instance.OpenFreeplayMenu());
+        //         // UIManager.Instance.OpenFreeplayMenu();
+        //         // GameManager.Instance.StopSong();
+        //     }
+        // }
 
         public void Home()
         {
