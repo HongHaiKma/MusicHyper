@@ -9,16 +9,6 @@ namespace EnhancedScrollerDemos.RefreshDemo
     /// </summary>
     public class CellView : EnhancedScrollerCellView
     {
-        // private void OnDestroy()
-        // {
-        //     Helper.DebugLog("CellView Destroy");
-        // }
-
-        // private void OnEnalbe()
-        // {
-        //     Helper.DebugLog("CellView Enable");
-        // }
-
         /// <summary>
         /// This is a reference to the cell's underlying data.
         /// We will store it in the SetData method, and use it

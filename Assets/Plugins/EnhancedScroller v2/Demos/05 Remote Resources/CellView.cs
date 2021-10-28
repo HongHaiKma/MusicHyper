@@ -28,22 +28,35 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
 
             // Get the remote texture
 
-#if UNITY_2017_4_OR_NEWER
-            var webRequest = UnityWebRequestTexture.GetTexture(path);
-            yield return webRequest.SendWebRequest();
-            if (webRequest.isNetworkError || webRequest.isHttpError)
-            {
-                Debug.LogError("Failed to download image [" + path + "]: " + webRequest.error);
-            }
-            else
-            {
-                texture = ((DownloadHandlerTexture)webRequest.downloadHandler).texture;
-            }
-#else
-            WWW www = new WWW(path);
-            yield return www;
-            texture = www.texture;
-#endif
+            #if UNITY_2020_1_OR_NEWER
+                        var webRequest = UnityWebRequestTexture.GetTexture(path);
+                        yield return webRequest.SendWebRequest();
+                        if (webRequest.result != UnityWebRequest.Result.Success)
+                        {
+                            Debug.LogError("Failed to download image [" + path + "]: " + webRequest.error);
+                        }
+                        else
+                        {
+                            texture = ((DownloadHandlerTexture)webRequest.downloadHandler).texture;
+                        }
+            #else
+                #if UNITY_2017_4_OR_NEWER
+                            var webRequest = UnityWebRequestTexture.GetTexture(path);
+                            yield return webRequest.SendWebRequest();
+                            if (webRequest.isNetworkError || webRequest.isHttpError)
+                            {
+                                Debug.LogError("Failed to download image [" + path + "]: " + webRequest.error);
+                            }
+                            else
+                            {
+                                texture = ((DownloadHandlerTexture)webRequest.downloadHandler).texture;
+                            }
+                #else
+                            WWW www = new WWW(path);
+                            yield return www;
+                            texture = www.texture;
+                #endif
+            #endif
 
             if (texture != null)
             {

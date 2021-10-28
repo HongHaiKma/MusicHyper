@@ -2,6 +2,44 @@ EnhancedScroller
 http://u3d.as/fXk
 
 
+Version 2.30.2
+23 September 2021
+Requires Unity 2019.4.4f1+
+
+    Fixes:
+        - Updated CellView.cs in Demo #5 to handle UnityWebRequest results for Unity version 2020+ without getting a deprecated code warning.
+
+
+
+Version 2.30.1
+7 September 2021
+Requires Unity 2019.4.4f1+
+
+    Fixes:
+        - Added optional forceCalculateRange parameter (with default to false) to JumpToDataIndex to force a calculation of the active cell range immediately after the jump (instead of one frame after).
+
+
+
+Version 2.30.0
+19 August 2021
+Requires Unity 2019.4.4f1+
+
+    Features:
+        - Changed the parenting of recycled cell views to deactivate the game objects for efficiency
+
+    Fixes:
+        - Fixed Demo 16 return to main menu button
+
+
+
+Version 2.29.2
+10 August 2021
+Requires Unity 2019.4.4f1+
+
+    Fixes:
+        - Fixed snapping when using more than one finger on touchscreen devices
+
+
 Version 2.29.1
 18 March 2021
 Requires Unity 2019.4.4f1+

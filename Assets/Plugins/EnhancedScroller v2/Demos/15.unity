@@ -542,10 +542,10 @@ PrefabInstance:
     - target: {fileID: 11475720, guid: b79e0efbbd683c24986053525fc1f90e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1649476739}
+      objectReference: {fileID: 824721525}
     - target: {fileID: 11475720, guid: b79e0efbbd683c24986053525fc1f90e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Getit
+      value: ReturnToMainMenuButton_OnClick
       objectReference: {fileID: 0}
     - target: {fileID: 22405360, guid: b79e0efbbd683c24986053525fc1f90e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -627,6 +627,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 824721523}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &824721525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11499180, guid: b79e0efbbd683c24986053525fc1f90e,
+    type: 3}
+  m_PrefabInstance: {fileID: 824721523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15378b901f31f94b8b0225d847079aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &902329219
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,17 @@ using UnityEngine.SceneManagement;
 namespace RhythmGameStarter
 {
     [DefaultExecutionOrder(-90)]
-    public class GameManager : Singleton<GameManager>
+    public class GameManager : MonoBehaviour
     {
+        private static GameManager m_Instance;
+        public static GameManager Instance
+        {
+            get
+            {
+                return m_Instance;
+            }
+        }
+
         public ModePlay m_ModePlay;
         public StoryLevel m_StoryLevel;
 
@@ -135,6 +144,17 @@ namespace RhythmGameStarter
         public void Awake()
         {
             // Application.targetFrameRate = 60;
+            // Helper.DebugLog("Managers AWAKE");
+            if (m_Instance != null)
+            {
+                DestroyImmediate(gameObject);
+            }
+            else
+            {
+                m_Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+
             if (!PlayerPrefs.HasKey("Vibration"))
             {
                 PlayerPrefs.SetInt("Vibration", 1);
@@ -157,55 +177,56 @@ namespace RhythmGameStarter
             // }
         }
 
-        private void Update()
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.C))
+        //     {
+        //         // ContinueNextFreeSong();
+        //         ContinueNextStorySong();
+        //         // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
+
+        //         // if (weekProfile != null)
+        //         // {
+        //         //     Helper.DebugLog("High score: " + weekProfile.m_HighScore);
+        //         // }
+        //         // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
+
+        //         // ProfileManager.UnlockWeek(7);
+        //         // for (int i = 1; i <= 19; i++)
+        //         // {
+        //         //     ProfileManager.UnlockSong(i);
+        //         // }
+        //         // for (int i = 1; i <= 8; i++)
+        //         // {
+        //         //     ProfileManager.UnlockWeek(i);
+        //         // }
+
+        //         // ProfileManager.UnlockWeek(3);
+
+        //         // List<SongProfile> songs = ProfileManager.GetSongProfiles();
+
+        //         // for (int i = 0; i < songs.Count; i++)
+        //         // {
+        //         //     Helper.DebugLog("Song: " + songs[i].m_Id);
+        //         // }
+        //     }
+
+        //     // if (Input.GetKeyDown(KeyCode.D))
+        //     // {
+        //     //     // ContinueNextFreeSong();
+        //     //     // ContinueNextStorySong();
+        //     //     // ProfileManager.UnlockWeek(6);
+        //     //     for (int i = 1; i <= 19; i++)
+        //     //     {
+        //     //         ProfileManager.UnlockSong(i);
+        //     //     }
+        //     // }
+        // }
+
+        public void OnEnable()
         {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                // ContinueNextFreeSong();
-                ContinueNextStorySong();
-                // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
-
-                // if (weekProfile != null)
-                // {
-                //     Helper.DebugLog("High score: " + weekProfile.m_HighScore);
-                // }
-                // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
-
-                // ProfileManager.UnlockWeek(7);
-                // for (int i = 1; i <= 19; i++)
-                // {
-                //     ProfileManager.UnlockSong(i);
-                // }
-                // for (int i = 1; i <= 8; i++)
-                // {
-                //     ProfileManager.UnlockWeek(i);
-                // }
-
-                // ProfileManager.UnlockWeek(3);
-
-                // List<SongProfile> songs = ProfileManager.GetSongProfiles();
-
-                // for (int i = 0; i < songs.Count; i++)
-                // {
-                //     Helper.DebugLog("Song: " + songs[i].m_Id);
-                // }
-            }
-
-            // if (Input.GetKeyDown(KeyCode.D))
-            // {
-            //     // ContinueNextFreeSong();
-            //     // ContinueNextStorySong();
-            //     // ProfileManager.UnlockWeek(6);
-            //     for (int i = 1; i <= 19; i++)
-            //     {
-            //         ProfileManager.UnlockSong(i);
-            //     }
-            // }
-        }
-
-        public override void OnEnable()
-        {
-            base.OnEnable();
+            // base.OnEnable();
+            StartListenToEvents();
 
             // m_InterTime = (int)FirebaseManager.Instance.remoteConfig.GetValue("inter_cd_time").DoubleValue;
 
@@ -243,12 +264,22 @@ namespace RhythmGameStarter
             // GUIManager.Instance.AddClickEvent(btn_Pause, PauseSongPopup);
         }
 
-        public override void StartListenToEvents()
+        public void OnDisable()
+        {
+            StopListenToEvents();
+        }
+
+        public void OnDestroy()
+        {
+            StopListenToEvents();
+        }
+
+        public void StartListenToEvents()
         {
             EventManager.AddListener(GameEvent.CHECK_ENEMY_TURN, CheckEnemyTurn);
         }
 
-        public override void StopListenToEvents()
+        public void StopListenToEvents()
         {
             EventManager.RemoveListener(GameEvent.CHECK_ENEMY_TURN, CheckEnemyTurn);
         }

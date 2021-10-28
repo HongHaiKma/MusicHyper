@@ -63,7 +63,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
             // specifically a list within a list.
 
             _data = new List<MasterData>();
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < 1000; i++)
             {
                 var masterData = new MasterData()
                 {
@@ -73,7 +73,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
 
                 _data.Add(masterData);
 
-                for (var j = 0; j < 4; j++)
+                for (var j = 0; j < 20; j++)
                     masterData.childData.Add(new DetailData() { someText = i.ToString() + "," + j.ToString() });
             }
 

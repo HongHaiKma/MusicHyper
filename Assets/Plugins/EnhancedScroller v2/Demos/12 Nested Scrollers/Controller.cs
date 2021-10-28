@@ -71,11 +71,6 @@ namespace EnhancedScrollerDemos.NestedScrollers
 
                 _data.Add(masterData);
 
-                // if (i == 999)
-                // {
-                //     Helper.DebugLog("AAAAAAAAAAA");
-                // }
-
                 for (var j = 0; j < 20; j++)
                     masterData.childData.Add(new DetailData() { someText = i.ToString() + "," + j.ToString() });
             }
