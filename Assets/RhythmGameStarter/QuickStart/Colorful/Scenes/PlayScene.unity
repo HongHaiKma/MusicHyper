@@ -2387,7 +2387,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: d3b817b7450a40346b2257513085ab99, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2395,7 +2395,7 @@ SpriteRenderer:
   m_Size: {x: 20.32, y: 16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &183257146
@@ -29401,7 +29401,7 @@ MonoBehaviour:
   beatSize: 5
   useNotePool: 1
   poolLookAheadTime: 5
-  syncMode: 1
+  syncMode: 0
   syncSmoothing: 1
   onNoteInit:
     m_PersistentCalls:
