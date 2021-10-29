@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
   m_Name: 01. Tuz
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: c8da474dc213d55478a943d2a82f5a37, type: 3}
+  clip: {fileID: 8300000, guid: 3a71187f9f940234ea1bc537201497f5, type: 3}
   bpm: 128
   useCurrentBpmMidiImport: 0
   notes:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
   m_Name: 12. High
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: c5567caf56d7b924db88539b281a988e, type: 3}
+  clip: {fileID: 8300000, guid: 8573cf77cf61d6548894a3c86eaad91c, type: 3}
   bpm: 200
   useCurrentBpmMidiImport: 0
   notes:

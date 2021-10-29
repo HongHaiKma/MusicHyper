@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
   m_Name: 09. Philly Nice
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: c3eb61b92d1c4444792990922b0e1a02, type: 3}
+  clip: {fileID: 8300000, guid: 60245dc2aeb1a4944a84581178bcbb00, type: 3}
   bpm: 165
   useCurrentBpmMidiImport: 0
   notes:

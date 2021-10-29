@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
   m_Name: 02. Bopeebo
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 0931405653d08164ab349a259cdc7fbc, type: 3}
+  clip: {fileID: 8300000, guid: 5ef082c8d5734634b810609f4d0fc11b, type: 3}
   bpm: 128
   useCurrentBpmMidiImport: 0
   notes:

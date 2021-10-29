@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9aee7e548d5de44a366308702e981a, type: 3}
   m_Name: 03. Fresh
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d23185ae826a8aa48a4ed39af50e06b7, type: 3}
+  clip: {fileID: 8300000, guid: d030aaccafd19f84c95024d4ce535035, type: 3}
   bpm: 128
   useCurrentBpmMidiImport: 0
   notes:

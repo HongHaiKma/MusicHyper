@@ -2078,7 +2078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148126552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.94, y: -0.46, z: 5.08}
+  m_LocalPosition: {x: -13.94, y: -0.6, z: 5.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4369,21 +4369,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IngameShootingFx: {fileID: 1704088591}
   m_BGM: {fileID: 1003317096}
-  m_ButtonClick: {fileID: 8300000, guid: 56bbc69a0f325c343908e239dd4e2fb4, type: 3}
-  m_ButtonArrow: {fileID: 8300000, guid: b3c129df21a6f5a44a9f88a23b5560e0, type: 3}
-  m_ButtonConfirm: {fileID: 8300000, guid: dc5cc3c914ccdad479548319302754cd, type: 3}
+  m_ButtonClick: {fileID: 8300000, guid: fd1fbf2cbced2694bb024724e8195594, type: 3}
+  m_ButtonArrow: {fileID: 8300000, guid: b8cf6367895fab74d8f61fb38e710b75, type: 3}
+  m_ButtonConfirm: {fileID: 8300000, guid: 1440c8b70ae8c344cba91f8f11718fd2, type: 3}
   m_SoundGetGold: {fileID: 0}
-  m_SoundCrack: {fileID: 8300000, guid: b4604fa000b71c84485582abe63c171a, type: 3}
+  m_SoundCrack: {fileID: 8300000, guid: 17f4d3e2168738d499c1a79e50ccd86d, type: 3}
   m_WaterSpray: {fileID: 0}
   m_BGMTheme:
-  - {fileID: 8300000, guid: 2efb98c16ac097e4bb336d70f7c2308a, type: 3}
-  - {fileID: 8300000, guid: 2e3a91bd7af740642b1c038e6e08a122, type: 3}
+  - {fileID: 8300000, guid: f3511c9e7e6a3dc4ab12b8ab955ccd4a, type: 3}
+  - {fileID: 8300000, guid: 6330f89d471d9354484e0e210e8e5adf, type: 3}
   m_SoundBigPrize: {fileID: 0}
-  m_One: {fileID: 8300000, guid: 13e1a8b2520358a499e8f5ac192609ae, type: 3}
-  m_Two: {fileID: 8300000, guid: 6b1f85274266ceb41a78512612eb401c, type: 3}
-  m_Three: {fileID: 8300000, guid: 7f1f01c8be148994696de242628e2d17, type: 3}
-  m_Go: {fileID: 8300000, guid: 2667e1b2732beb64094dad9e40c0c3a9, type: 3}
-  m_BtnSound: {fileID: 8300000, guid: 56bbc69a0f325c343908e239dd4e2fb4, type: 3}
+  m_One: {fileID: 8300000, guid: 816b9b1b71144c244aca64105d89b92d, type: 3}
+  m_Two: {fileID: 8300000, guid: bdfe078b914582e4d9f6b5348900611a, type: 3}
+  m_Three: {fileID: 8300000, guid: 06c5d8c97284b2e478938149c5705623, type: 3}
+  m_Go: {fileID: 8300000, guid: 71a23a91963feea4a8a5645f1f1b6263, type: 3}
+  m_BtnSound: {fileID: 8300000, guid: fd1fbf2cbced2694bb024724e8195594, type: 3}
 --- !u!1 &349576554
 GameObject:
   m_ObjectHideFlags: 0
