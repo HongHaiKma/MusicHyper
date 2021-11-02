@@ -226,5 +226,89 @@
         "Enemy No": "9",
         "Breakscore Reward": "500",
         "Ads": "1"
+    },
+    {
+        "ID": "20",
+        "Name": "Pink Soldiers",
+        "BPM": "225",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "pink soldier",
+        "Enemy No": "9",
+        "Breakscore Reward": "500",
+        "Ads": "1"
+    },
+    {
+        "ID": "21",
+        "Name": "Red Light",
+        "BPM": "240",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "pink soldier",
+        "Enemy No": "9",
+        "Breakscore Reward": "500",
+        "Ads": "1"
+    },
+    {
+        "ID": "22",
+        "Name": "Dead Light",
+        "BPM": "255",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "pink soldier",
+        "Enemy No": "9",
+        "Breakscore Reward": "500",
+        "Ads": "1"
+    },
+    {
+        "ID": "23",
+        "Name": "Bush Whack",
+        "BPM": "255",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "Pumpkire",
+        "Enemy No": "10",
+        "Breakscore Reward": "500",
+        "Ads": "1"
+    },
+    {
+        "ID": "24",
+        "Name": "Fool Hardy",
+        "BPM": "260",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "Pumpkire",
+        "Enemy No": "10",
+        "Breakscore Reward": "500",
+        "Ads": "1"
+    },
+    {
+        "ID": "25",
+        "Name": "Rabbit Lucky",
+        "BPM": "266",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "Rabbit",
+        "Enemy No": "11",
+        "Breakscore Reward": "500",
+        "Ads": "1"
+    },
+    {
+        "ID": "26",
+        "Name": "The Real Rabbit",
+        "BPM": "275",
+        "First Reward": "1350",
+        "Replay Reward": "40",
+        "Price": "1000",
+        "Enemy": "Rabbit",
+        "Enemy No": "11",
+        "Breakscore Reward": "500",
+        "Ads": "1"
     }
 ]

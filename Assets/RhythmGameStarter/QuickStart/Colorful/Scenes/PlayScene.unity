@@ -13803,7 +13803,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: -9.1
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -37.5
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -15661,6 +15661,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2f294a77ff98c14e9d263d2951484ea, type: 2}
   - {fileID: 11400000, guid: 1ca614f8810ca0f4c9223b2a4388c4c6, type: 2}
   - {fileID: 11400000, guid: 668c567c2d415f746829435c7b78f86a, type: 2}
+  - {fileID: 11400000, guid: 370cfe8ce7f2b824189579e0c326cba2, type: 2}
+  - {fileID: 11400000, guid: d6cd7542460c0bb43913c1f6e9dbcad5, type: 2}
+  - {fileID: 11400000, guid: d92e6eb5f1663584dae8d4b5103bb575, type: 2}
+  - {fileID: 11400000, guid: a877f2ac5175ac04bbbd38ae10c3162d, type: 2}
+  - {fileID: 11400000, guid: 6667fa0580ca29c48bc8269aabe88496, type: 2}
+  - {fileID: 11400000, guid: 1c0d536ed861e0349b6f60252cb20620, type: 2}
+  - {fileID: 11400000, guid: ed367728b41960f4197fa340db4c334c, type: 2}
   mat_Sing1: {fileID: 2100000, guid: b572d52ea87523545a50630120a07c8a, type: 2}
   mat_Sing2: {fileID: 2100000, guid: 1ec0b352d0de26b49846506477e1c7a0, type: 2}
   mat_Sing3: {fileID: 2100000, guid: c4ac7285c30ef7149830532004562842, type: 2}

@@ -82,7 +82,7 @@ namespace RhythmGameStarter
             SetLevel();
             SetWeek();
 
-            img_BGColor.color = m_BGColor[m_Week - 1];
+            img_BGColor.color = m_BGColor[(m_Week - 1) % 8];
 
             EventManager.AddListener(GameEvent.UNLOCK_WEEK, UnlockWeek);
         }
@@ -133,7 +133,7 @@ namespace RhythmGameStarter
             if (m_Week < 1)
             {
                 // m_Week = ProfileManager.GetWeek();
-                m_Week = 8;
+                m_Week = 11;
                 ProfileManager.SetWeek(m_Week);
             }
             SetWeek();
@@ -144,7 +144,7 @@ namespace RhythmGameStarter
             SoundManager.Instance.PlayButtonClickArrow();
             m_Week++;
             ProfileManager.SetWeek(m_Week);
-            if (m_Week > 8)
+            if (m_Week > 11)
             {
                 m_Week = 1;
                 ProfileManager.SetWeek(m_Week);
@@ -155,7 +155,7 @@ namespace RhythmGameStarter
         public void SetWeek()
         {
             // Helper.DebugLog("Set Week");
-            img_BGColor.DOColor(m_BGColor[m_Week - 1], 0.35f);
+            img_BGColor.DOColor(m_BGColor[(m_Week - 1) % 8], 0.35f);
 
             GameManager.Instance.m_WeekNo = m_Week;
 

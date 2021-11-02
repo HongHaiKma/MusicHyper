@@ -346,5 +346,125 @@
         "Dialogue": "You dont’ mind your bodies being borrowed right? It’s only fair…",
         "Enemy": "9",
         "SongID": "18"
+    },
+    {
+        "ID": "59",
+        "Dialogue": "Look here boyfriend, if you want to win this game, you need to rap battle with me!",
+        "Enemy": "10",
+        "SongID": "19"
+    },
+    {
+        "ID": "60",
+        "Dialogue": "Beep!!",
+        "Enemy": "0",
+        "SongID": "19"
+    },
+    {
+        "ID": "61",
+        "Dialogue": "If you're ready, we can start?",
+        "Enemy": "10",
+        "SongID": "19"
+    },
+    {
+        "ID": "62",
+        "Dialogue": "WHAT THE -?",
+        "Enemy": "10",
+        "SongID": "20"
+    },
+    {
+        "ID": "63",
+        "Dialogue": "Beep?",
+        "Enemy": "0",
+        "SongID": "20"
+    },
+    {
+        "ID": "64",
+        "Dialogue": "The bullets, they dont work!",
+        "Enemy": "10",
+        "SongID": "20"
+    },
+    {
+        "ID": "65",
+        "Dialogue": "I stopped them, it kinda comes with being a demon. If you want to kill him, just beat him in a rap battle.",
+        "Enemy": "1",
+        "SongID": "20"
+    },
+    {
+        "ID": "66",
+        "Dialogue": "huh?…",
+        "Enemy": "10",
+        "SongID": "20"
+    },
+    {
+        "ID": "67",
+        "Dialogue": "I am literally a demon and can summon anything at any time to kill you instantly.",
+        "Enemy": "1",
+        "SongID": "20"
+    },
+    {
+        "ID": "68",
+        "Dialogue": "God danmit, I dont think I have a choice here.",
+        "Enemy": "10",
+        "SongID": "21"
+    },
+    {
+        "ID": "69",
+        "Dialogue": "Beep!",
+        "Enemy": "0",
+        "SongID": "21"
+    },
+    {
+        "ID": "70",
+        "Dialogue": "Dam brats trespassing with their noise cannons...You should know it's dangerours to wander in the dark... But if you want a show, I'll give you a show!",
+        "Enemy": "11",
+        "SongID": "22"
+    },
+    {
+        "ID": "71",
+        "Dialogue": "Oh... Silly boy! It's you again! You shouldn't have come here...",
+        "Enemy": "11",
+        "SongID": "23"
+    },
+    {
+        "ID": "72",
+        "Dialogue": "Hey Hey!",
+        "Enemy": "12",
+        "SongID": "24"
+    },
+    {
+        "ID": "73",
+        "Dialogue": "Yo Yo!",
+        "Enemy": "0",
+        "SongID": "24"
+    },
+    {
+        "ID": "74",
+        "Dialogue": "Hello! Can you state your name and what you're auditioning for? also be sure to face the camera when you do so!",
+        "Enemy": "12",
+        "SongID": "24"
+    },
+    {
+        "ID": "75",
+        "Dialogue": "Camera, you say!? Well well well, Hello world! My name is one many of you may have heard, but certainly never gets old!",
+        "Enemy": "1",
+        "SongID": "24"
+    },
+    {
+        "ID": "76",
+        "Dialogue": "Beeeppp!",
+        "Enemy": "0",
+        "SongID": "24"
+    },
+    {
+        "ID": "77",
+        "Dialogue": "RABBIT RUN! My name is RABBIT RUN! And I am auditioning for a music gig here.",
+        "Enemy": "12",
+        "SongID": "25"
+    },
+    {
+        "ID": "78",
+        "Dialogue": "OKAYYYYYY!!!!!! You gonna show me what you got or what???",
+        "Enemy": "0",
+        "SongID": "25"
     }
 ]
