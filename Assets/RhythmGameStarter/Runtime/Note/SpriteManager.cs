@@ -15,4 +15,9 @@ public class SpriteManager : Singleton<SpriteManager>
     public Sprite[] m_RateStar;
     public Sprite[] m_EnemyIcons;
     public Sprite[] m_BGInGame;
+
+    // private void OnInspectorGUI()
+    // {
+    //     var texture = AssetPreview.GetAssetPreview(m_EnemyAvas);
+    // }
 }

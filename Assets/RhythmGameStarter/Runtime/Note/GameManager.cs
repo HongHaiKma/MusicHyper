@@ -171,10 +171,10 @@ namespace RhythmGameStarter
             // GUIManager.Instance.AddClickEvent(btn_RightSong, OnNextSong);
             // GUIManager.Instance.AddClickEvent(btn_Pause, PauseSongPopup);
 
-            // for (int i = 1; i <= 26; i++)
-            // {
-            //     ProfileManager.UnlockSong(i);
-            // }
+            for (int i = 1; i <= 26; i++)
+            {
+                ProfileManager.UnlockSong(i);
+            }
 
             for (int i = 1; i <= 11; i++)
             {
