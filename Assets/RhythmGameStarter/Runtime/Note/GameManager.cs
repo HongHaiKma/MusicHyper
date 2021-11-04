@@ -171,23 +171,23 @@ namespace RhythmGameStarter
             // GUIManager.Instance.AddClickEvent(btn_RightSong, OnNextSong);
             // GUIManager.Instance.AddClickEvent(btn_Pause, PauseSongPopup);
 
-            for (int i = 1; i <= 26; i++)
-            {
-                ProfileManager.UnlockSong(i);
-            }
+            // for (int i = 1; i <= 26; i++)
+            // {
+            //     ProfileManager.UnlockSong(i);
+            // }
 
-            for (int i = 1; i <= 11; i++)
-            {
-                ProfileManager.UnlockWeek(i);
-            }
+            // for (int i = 1; i <= 11; i++)
+            // {
+            //     ProfileManager.UnlockWeek(i);
+            // }
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                // ContinueNextFreeSong();
-                ContinueNextStorySong();
+                ContinueNextFreeSong();
+                // ContinueNextStorySong();
                 // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
 
                 // if (weekProfile != null)
@@ -363,7 +363,14 @@ namespace RhythmGameStarter
 
             WeekConfig song = m_WeekConfigs[m_StorysongNo];
 
-            GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+            if (song.m_Week >= 9)
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week];
+            }
+            else
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+            }
 
             if (m_Enemy.gameObject != null)
             {
@@ -404,7 +411,14 @@ namespace RhythmGameStarter
 
             WeekConfig song = m_WeekConfigs[m_StorysongNo];
 
-            img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+            if (song.m_Week >= 9)
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week];
+            }
+            else
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+            }
 
             if (m_Enemy != null)
             {
@@ -459,7 +473,14 @@ namespace RhythmGameStarter
 
             WeekConfig song = m_WeekConfigs[m_StorysongNo];
 
-            img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+            if (song.m_Week >= 9)
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week];
+            }
+            else
+            {
+                img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
+            }
 
             if (m_Enemy != null)
             {
@@ -972,7 +993,7 @@ namespace RhythmGameStarter
 
             if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
             {
-                if (GameManager.Instance.m_DefaultSong >= 19)
+                if (GameManager.Instance.m_DefaultSong >= 26)
                 {
                     int length = GameData.Instance.GetSongCount();
                     int defaultSong = -1;

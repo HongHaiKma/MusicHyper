@@ -587,7 +587,16 @@ namespace RhythmGameStarter
                 GameManager.Instance.m_Enemy.SetAnimTrigger("Idle");
             }
 
-            GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[GameManager.Instance.m_WeekNo - 1];
+            if (GameManager.Instance.m_WeekNo >= 9)
+            {
+                GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[GameManager.Instance.m_WeekNo];
+            }
+            else
+            {
+                GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[GameManager.Instance.m_WeekNo - 1];
+            }
+
+            // GameManager.Instance.img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[GameManager.Instance.m_WeekNo - 1];
 
             GameManager.Instance.ResetVsBar();
             // StartCoroutine(GameManager.Instance.IEResetSong());

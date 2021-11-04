@@ -1792,6 +1792,66 @@ MonoBehaviour:
     noteLength: 2.3454545
     beatIndex: 471.25
     beatLengthIndex: 10.75
+  - noteName: 4
+    noteOctave: 7
+    time: 0.76363635
+    noteLength: 0.10909091
+    beatIndex: 3.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 30.981817
+    noteLength: 0.10909091
+    beatIndex: 142
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 48.545456
+    noteLength: 0.10909091
+    beatIndex: 222.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 49.909092
+    noteLength: 0.10909091
+    beatIndex: 228.75
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 61.2
+    noteLength: 0.10909091
+    beatIndex: 280.5
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 61.8
+    noteLength: 0.10909091
+    beatIndex: 283.25
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 63.545456
+    noteLength: 0.10909091
+    beatIndex: 291.25
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 67.527275
+    noteLength: 0.10909091
+    beatIndex: 309.5
+    beatLengthIndex: 0.5
+  - noteName: 4
+    noteOctave: 7
+    time: 99
+    noteLength: 0.10909091
+    beatIndex: 453.75
+    beatLengthIndex: 0.5
+  - noteName: 2
+    noteOctave: 7
+    time: 102.163635
+    noteLength: 0.10909091
+    beatIndex: 468.25
+    beatLengthIndex: 0.5
   useGenetator: 0
   runtimeGenerate: 0
   generator: {fileID: 0}
