@@ -159,7 +159,15 @@ namespace RhythmGameStarter
 
             GameManager.Instance.m_WeekNo = m_Week;
 
-            img_EnemyAva.sprite = SpriteManager.Instance.m_EnemyAvas[m_Week - 1];
+            if (m_Week >= 9)
+            {
+                img_EnemyAva.sprite = SpriteManager.Instance.m_EnemyAvas[m_Week];
+            }
+            else
+            {
+                img_EnemyAva.sprite = SpriteManager.Instance.m_EnemyAvas[m_Week - 1];
+            }
+
             GameManager.Instance.sr_BG.sprite = SpriteManager.Instance.m_BGInGame[m_Week - 1];
 
             img_EnemyAva.SetNativeSize();
@@ -195,19 +203,19 @@ namespace RhythmGameStarter
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_EasyScore);
                         score += songScore;
-                        Helper.DebugLog("Easy score: " + songScore);
+                        // Helper.DebugLog("Easy score: " + songScore);
                     }
                     else if (GameManager.Instance.m_StoryLevel == StoryLevel.NORMAL)
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_NormalScore);
                         score += songScore;
-                        Helper.DebugLog("Normal score: " + songScore);
+                        // Helper.DebugLog("Normal score: " + songScore);
                     }
                     else if (GameManager.Instance.m_StoryLevel == StoryLevel.HARD)
                     {
                         BigNumber songScore = new BigNumber(ProfileManager.GetSongWeekProfiles(ids[i]).m_HardScore);
                         score += songScore;
-                        Helper.DebugLog("Hard score: " + songScore);
+                        // Helper.DebugLog("Hard score: " + songScore);
                     }
                 }
 

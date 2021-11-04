@@ -87,6 +87,15 @@ public class SongPlaylist : EnhancedScrollerCellView
         SongProfile song = ProfileManager.GetSongProfiles(songId);
         SongConfig configs = GameData.Instance.GetSongConfig(songId);
 
+        if (configs.m_EnemyNo >= 10)
+        {
+            img_EnemyAva.gameObject.transform.localScale = new Vector3(0.85f, 0.85f, 1f);
+        }
+        else
+        {
+            img_EnemyAva.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+
         img_EnemyAva.sprite = SpriteManager.Instance.m_EnemyAvas[configs.m_EnemyNo - 1];
         GameManager.Instance.sr_BG.sprite = SpriteManager.Instance.m_BGInGame[configs.m_EnemyNo - 1];
 
