@@ -186,8 +186,8 @@ namespace RhythmGameStarter
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                ContinueNextFreeSong();
-                // ContinueNextStorySong();
+                // ContinueNextFreeSong();
+                ContinueNextStorySong();
                 // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
 
                 // if (weekProfile != null)

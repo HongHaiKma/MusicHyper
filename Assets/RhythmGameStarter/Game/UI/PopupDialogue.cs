@@ -70,6 +70,10 @@ namespace RhythmGameStarter
                 img_Enemy.gameObject.SetActive(false);
                 g_Char.SetActive(true);
             }
+
+            SongConfig songs = GameData.Instance.GetSongConfig(GameManager.Instance.m_StorySongID);
+
+            GameManager.Instance.txt_SongName.text = songs.m_Name;
         }
 
         // private void Update()

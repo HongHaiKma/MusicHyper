@@ -515,10 +515,10 @@ namespace RhythmGameStarter
 
             songWeekProfile.SetScoreByLevel(GameManager.Instance.m_StoryLevel, StatsSystem.Instance.score);
 
-            if (ProfileManager.GetWeek() >= 8)
+            if (ProfileManager.GetWeek() >= 11)
             {
                 bool foundWeek = false;
-                for (int i = 1; i <= 8; i++)
+                for (int i = 1; i <= 11; i++)
                 {
                     WeekProfile profile = ProfileManager.GetWeekProfiles(i);
                     if (profile == null)
@@ -545,7 +545,7 @@ namespace RhythmGameStarter
 
             GameManager.Instance.OnEnable();
 
-            if (ProfileManager.GetWeek() < 8)
+            if (ProfileManager.GetWeek() < 11)
             {
                 ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
             }
