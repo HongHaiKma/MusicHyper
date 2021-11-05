@@ -393,6 +393,24 @@ namespace RhythmGameStarter
 
             UIManager.Instance.OpenDialoguePopup(true);
 
+            WeekConfig song = GameManager.Instance.m_WeekConfigs[GameManager.Instance.m_StorysongNo];
+            if (GameManager.Instance.m_Enemy != null)
+            {
+                Destroy(GameManager.Instance.m_Enemy.gameObject);
+            }
+
+            if (GameManager.Instance.m_WeekNo != 1)
+            {
+                GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+                enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+                enemy.transform.localPosition = Vector3.zero;
+
+                enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+
+                enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+                GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
+            }
+
             // GameManager.Instance.PlaySongStory();
         }
 

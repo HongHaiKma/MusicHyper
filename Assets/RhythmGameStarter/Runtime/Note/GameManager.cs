@@ -420,22 +420,22 @@ namespace RhythmGameStarter
                 img_Enemy.sprite = SpriteManager.Instance.m_EnemyIcons[song.m_Week - 1];
             }
 
-            if (m_Enemy != null)
-            {
-                Destroy(GameManager.Instance.m_Enemy.gameObject);
-            }
+            // if (m_Enemy != null)
+            // {
+            //     Destroy(GameManager.Instance.m_Enemy.gameObject);
+            // }
 
-            if (m_WeekNo != 1)
-            {
-                GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
-                enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
-                enemy.transform.localPosition = Vector3.zero;
+            // if (m_WeekNo != 1)
+            // {
+            //     GameObject enemy = PrefabManager.Instance.SpawnEnemyPool(song.m_EnemyName, Vector3.zero);
+            //     enemy.transform.parent = GameManager.Instance.tf_EnemyHolder;
+            //     enemy.transform.localPosition = Vector3.zero;
 
-                enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
+            //     enemy.transform.localRotation = Quaternion.Euler(0f, -360f, 0f);
 
-                enemy.transform.localScale = new Vector3(1f, 1f, 1f);
-                m_Enemy = enemy.GetComponent<Enemy>();
-            }
+            //     enemy.transform.localScale = new Vector3(1f, 1f, 1f);
+            //     m_Enemy = enemy.GetComponent<Enemy>();
+            // }
 
 
 
