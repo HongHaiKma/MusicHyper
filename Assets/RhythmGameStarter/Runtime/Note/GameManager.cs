@@ -180,6 +180,8 @@ namespace RhythmGameStarter
             // {
             //     ProfileManager.UnlockWeek(i);
             // }
+
+            ProfileManager.UnlockWeek(2);
         }
 
         private void Update()
@@ -762,7 +764,10 @@ namespace RhythmGameStarter
                 {
                     m_knot--;
                     m_Knot--;
-                    tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
+                    if (m_knot % 2 == 0)
+                    {
+                        tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
+                    }
                 }
             }
             else
@@ -771,7 +776,10 @@ namespace RhythmGameStarter
                 {
                     m_knot++;
                     m_Knot++;
-                    tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
+                    if (m_knot % 2 == 0)
+                    {
+                        tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
+                    }
                 }
 
                 if (!m_TrySong)

@@ -26,6 +26,8 @@ public class SongPlaylist : EnhancedScrollerCellView
     public Image img_EnemyAva;
     public Image BG;
 
+    public GameObject g_PanelTut;
+
     private void Awake()
     {
         GUIManager.Instance.AddClickEvent2(btn_PlaySong, PlaySong);
@@ -35,11 +37,18 @@ public class SongPlaylist : EnhancedScrollerCellView
 
     public void OnEnable()
     {
+        g_PanelTut.SetActive(false);
         btn_PlaySong.gameObject.SetActive(false);
         SongConfig configs = GameData.Instance.GetSongConfig(songId);
         // g_OutOfGold.SetActive(!ProfileManager.IsEnoughGold(configs.m_Price));
         DisplaySongInfo();
         AddListener();
+
+        // if (songId == 1 && GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+        // {
+        //     Helper.DebugLog("Song id: " + songId);
+        //     TutorialManager.Instance.CheckTut(TutorialManager.m_1stClickFreeplayTutorial, () => btn_PlaySong.transform.parent = TutorialManager.Instance.go_TutPop.transform);
+        // }
     }
 
     public void OnDisable()
@@ -69,6 +78,22 @@ public class SongPlaylist : EnhancedScrollerCellView
     public void SetData(SongData data)
     {
         songId = data.m_ID;
+        Helper.DebugLog("Song id: " + songId);
+        Helper.DebugLog("Data id: " + data.m_ID);
+        if (songId == 1 && GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+        {
+            Helper.DebugLog("Song id: " + songId);
+            TutorialManager.Instance.CheckTut(TutorialManager.m_1stClickFreeplayTutorial, () =>
+            {
+                // btn_PlaySong.transform.parent = TutorialManager.Instance.tf_1stClickFreeplayTutorialBtnPos;
+                g_PanelTut.SetActive(true);
+                // btn_PlaySong.transform.parent = g_PanelTut.transform;
+                // g_PanelTut.transform.SetParent(TutorialManager.Instance.tf_1stClickFreeplayTutorialBtnPos, false);
+                btn_PlaySong.transform.SetParent(TutorialManager.Instance.tf_1stClickFreeplayTutorialBtnPos, false);
+                // btn_PlaySong.transform.position = TutorialManager.Instance.tf_1stClickFreeplayTutorialBtnPos.transform.position;
+            }
+            );
+        }
         DisplaySongInfo();
     }
 
@@ -81,6 +106,15 @@ public class SongPlaylist : EnhancedScrollerCellView
     {
         // yield return new WaitUntil(() => ProfileManager.Instance != null);
         // songId = 4 * GameManager.Instance.m_FreePlayListId + id;
+
+        // Helper.DebugLog("Song id: " + songId);
+
+        // if (songId == 1 && GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+        // {
+        //     Helper.DebugLog("Song id: " + songId);
+        //     TutorialManager.Instance.CheckTut(TutorialManager.m_1stClickFreeplayTutorial, () => btn_PlaySong.transform.parent = TutorialManager.Instance.go_TutPop.transform);
+        // }
+
         BG.sprite = SpriteManager.Instance.m_SongPlaylistBG[SpriteManager.Instance.m_SongPlaylistBGIndex[songId - 1]];
         int count = GameData.Instance.GetSongCount();
 
@@ -185,6 +219,16 @@ public class SongPlaylist : EnhancedScrollerCellView
 
     public void PlaySong()
     {
+        if (songId == 1 && GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+        {
+            TutorialManager.Instance.SetTut(TutorialManager.m_1stClickFreeplayTutorial, () =>
+            {
+                g_PanelTut.SetActive(false);
+                btn_PlaySong.transform.parent = this.transform;
+            }
+            );
+        }
+
         GameManager.Instance.m_RenderCam.cullingMask = GameManager.Instance.m_InGame;
 
         GUIManager.Instance.SetBlockPopup(true);

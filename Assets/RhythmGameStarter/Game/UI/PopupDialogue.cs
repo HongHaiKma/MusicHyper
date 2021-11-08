@@ -75,12 +75,15 @@ namespace RhythmGameStarter
 
             WeekConfig song = GameManager.Instance.m_WeekConfigs[GameManager.Instance.m_StorysongNo];
 
+            GameManager.Instance.txt_SongName.text = songs.m_Name;
+            GameManager.Instance.sr_BG.sprite = SpriteManager.Instance.m_BGInGame[songs.m_EnemyNo - 1];
+
             if (GameManager.Instance.m_StorysongNo == 0)
             {
                 if (GameManager.Instance.m_Enemy != null)
                 {
                     Destroy(GameManager.Instance.m_Enemy.gameObject);
-                    Helper.DebugLog("= NULLL");
+                    // Helper.DebugLog("= NULLL");
                 }
 
                 if (GameManager.Instance.m_WeekNo != 1)
@@ -94,7 +97,7 @@ namespace RhythmGameStarter
                     enemy.transform.localScale = new Vector3(1f, 1f, 1f);
                     GameManager.Instance.m_Enemy = enemy.GetComponent<Enemy>();
 
-                    Helper.DebugLog("SPQNWWWWWWWW");
+                    // Helper.DebugLog("SPQNWWWWWWWW");
                 }
             }
         }

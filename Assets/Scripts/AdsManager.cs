@@ -534,6 +534,11 @@ public class AdsManager : Singleton<AdsManager>
                     case InterType.END_STORY:
                         AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
                         UIManager.Instance.g_WinPop.SetActive(true);
+
+                        // SongConfig songs = GameData.Instance.GetSongConfig(GameManager.Instance.m_StorySongID + 1);
+                        // GameManager.Instance.txt_SongName.text = songs.m_Name;
+                        // GameManager.Instance.sr_BG.sprite = SpriteManager.Instance.m_BGInGame[songs.m_EnemyNo];
+
                         break;
                     case InterType.STORY:
                         StatsSystem.Instance.score = 0;

@@ -49,6 +49,8 @@ namespace RhythmGameStarter
         public Button btn_Mail;
         public Button btn_RemoveAds;
 
+        public GameObject g_FreeplayScroller;
+
         private void Awake()
         {
             GUIManager.Instance.AddClickEvent2(btn_FreeplayMenu, OpenFreeplayMenu);
@@ -88,6 +90,19 @@ namespace RhythmGameStarter
 
             tf_Knot.localPosition = (PlayerPrefs.GetInt("Vibration") == 1) ? tf_On.localPosition : tf_Off.localPosition;
         }
+
+        public override void OnEnable()
+        {
+            TutorialManager.Instance.CheckTut(TutorialManager.m_1stClickFreeplay, () => btn_FreeplayMenu.transform.parent = TutorialManager.Instance.go_TutPop.transform);
+        }
+
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.A))
+        //     {
+        //         TutorialManager.Instance.CheckTut(TutorialManager.m_1stClickFreeplay);
+        //     }
+        // }
 
         public void OpenMail()
         {
@@ -152,6 +167,7 @@ namespace RhythmGameStarter
 
         public void OpenFreeplayMenu()
         {
+            TutorialManager.Instance.SetTut(TutorialManager.m_1stClickFreeplay, () => btn_FreeplayMenu.transform.parent = g_MainMenu.transform);
             GameManager.Instance.m_ModePlay = ModePlay.FREEPLAY;
             g_MainMenu.SetActive(false);
             g_FreeplayMenu.SetActive(true);
