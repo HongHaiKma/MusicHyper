@@ -515,8 +515,11 @@ namespace RhythmGameStarter
 
             songWeekProfile.SetScoreByLevel(GameManager.Instance.m_StoryLevel, StatsSystem.Instance.score);
 
+            bool is11 = false;
+
             if (ProfileManager.GetWeek() >= 11)
             {
+                is11 = true;
                 bool foundWeek = false;
                 for (int i = 1; i <= 11; i++)
                 {
@@ -526,6 +529,7 @@ namespace RhythmGameStarter
                         foundWeek = true;
                         ProfileManager.UnlockWeek(i);
                         ProfileManager.SetWeek(i);
+                        Helper.DebugLog("Week NOT: " + i);
                         // defaultSong = i;
                         // m_DefaultSong = defaultSong;
                         // SongManager.Instance.defaultSong = m_Songs[m_DefaultSong - 1];
@@ -533,6 +537,10 @@ namespace RhythmGameStarter
                         // SongConfig songs = GameData.Instance.GetSongConfig(songID);
                         // AnalysticsManager.LogReplayFreeplaySong(songs.m_Name);
                         break;
+                    }
+                    else
+                    {
+                        Helper.DebugLog("Week exitsed: " + i);
                     }
                 }
 
@@ -547,7 +555,14 @@ namespace RhythmGameStarter
 
             if (ProfileManager.GetWeek() < 11)
             {
-                ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+                if (is11)
+                {
+                    ProfileManager.SetWeek(ProfileManager.GetWeek());
+                }
+                else
+                {
+                    ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
+                }
             }
 
             ProfileManager.UnlockWeek(ProfileManager.GetWeek());

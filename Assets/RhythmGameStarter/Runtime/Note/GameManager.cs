@@ -181,54 +181,54 @@ namespace RhythmGameStarter
             //     ProfileManager.UnlockWeek(i);
             // }
 
-            ProfileManager.UnlockWeek(2);
+            // ProfileManager.UnlockWeek(11);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                // ContinueNextFreeSong();
-                ContinueNextStorySong();
-                // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.C))
+        //     {
+        //         // ContinueNextFreeSong();
+        //         ContinueNextStorySong();
+        //         // WeekProfile weekProfile = ProfileManager.GetWeekProfiles(GameManager.Instance.m_WeekNo);
 
-                // if (weekProfile != null)
-                // {
-                //     Helper.DebugLog("High score: " + weekProfile.m_HighScore);
-                // }
-                // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
+        //         // if (weekProfile != null)
+        //         // {
+        //         //     Helper.DebugLog("High score: " + weekProfile.m_HighScore);
+        //         // }
+        //         // Helper.DebugLog("Week Play: " + GameManager.Instance.m_WeekNo);
 
-                // ProfileManager.UnlockWeek(7);
-                // for (int i = 1; i <= 19; i++)
-                // {
-                //     ProfileManager.UnlockSong(i);
-                // }
-                // for (int i = 1; i <= 8; i++)
-                // {
-                //     ProfileManager.UnlockWeek(i);
-                // }
+        //         // ProfileManager.UnlockWeek(7);
+        //         // for (int i = 1; i <= 19; i++)
+        //         // {
+        //         //     ProfileManager.UnlockSong(i);
+        //         // }
+        //         // for (int i = 1; i <= 8; i++)
+        //         // {
+        //         //     ProfileManager.UnlockWeek(i);
+        //         // }
 
-                // ProfileManager.UnlockWeek(3);
+        //         // ProfileManager.UnlockWeek(3);
 
-                // List<SongProfile> songs = ProfileManager.GetSongProfiles();
+        //         // List<SongProfile> songs = ProfileManager.GetSongProfiles();
 
-                // for (int i = 0; i < songs.Count; i++)
-                // {
-                //     Helper.DebugLog("Song: " + songs[i].m_Id);
-                // }
-            }
+        //         // for (int i = 0; i < songs.Count; i++)
+        //         // {
+        //         //     Helper.DebugLog("Song: " + songs[i].m_Id);
+        //         // }
+        //     }
 
-            // if (Input.GetKeyDown(KeyCode.D))
-            // {
-            //     // ContinueNextFreeSong();
-            //     // ContinueNextStorySong();
-            //     // ProfileManager.UnlockWeek(6);
-            //     for (int i = 1; i <= 19; i++)
-            //     {
-            //         ProfileManager.UnlockSong(i);
-            //     }
-            // }
-        }
+        //     // if (Input.GetKeyDown(KeyCode.D))
+        //     // {
+        //     //     // ContinueNextFreeSong();
+        //     //     // ContinueNextStorySong();
+        //     //     // ProfileManager.UnlockWeek(6);
+        //     //     for (int i = 1; i <= 19; i++)
+        //     //     {
+        //     //         ProfileManager.UnlockSong(i);
+        //     //     }
+        //     // }
+        // }
 
         public void OnEnable()
         {
@@ -764,10 +764,10 @@ namespace RhythmGameStarter
                 {
                     m_knot--;
                     m_Knot--;
-                    if (m_knot % 2 == 0)
-                    {
-                        tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
-                    }
+                    // if (m_knot % 2 == 0)
+                    // {
+                    tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
+                    // }
                 }
             }
             else
@@ -776,10 +776,10 @@ namespace RhythmGameStarter
                 {
                     m_knot++;
                     m_Knot++;
-                    if (m_knot % 2 == 0)
-                    {
-                        tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
-                    }
+                    // if (m_knot % 2 == 0)
+                    // {
+                    tf_Icon.DOMoveX(tf_Knots[m_knot].position.x, 0.5f);
+                    // }
                 }
 
                 if (!m_TrySong)
