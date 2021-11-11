@@ -193,7 +193,64 @@ namespace RhythmGameStarter
 
         public void OpenRatePopup()
         {
-            g_RatePop.SetActive(true);
+            if (ProfileManager.MyProfile.m_OpenRateUs < 2 && ProfileManager.MyProfile.m_RateUs == 0)
+            {
+                if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+                {
+                    ProfileManager.MyProfile.m_ChallengeRate++;
+                    if (ProfileManager.MyProfile.m_ChallengeRate >= 1)
+                    {
+                        // GameManager.Instance.PauseSong();
+                        g_RatePop.SetActive(true);
+                    }
+                    else
+                    {
+                        // StartCoroutine(GameManager.Instance.IEPlaySong());
+                        if (GameManager.Instance.IsStoryWeekEnd())
+                        {
+                            EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.END_STORY);
+                        }
+                        else
+                        {
+                            EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.STORY);
+                        }
+                    }
+                }
+                else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+                {
+                    ProfileManager.MyProfile.m_FreeRate++;
+                    if (ProfileManager.MyProfile.m_FreeRate >= 2)
+                    {
+                        // GameManager.Instance.PauseSong();
+                        g_RatePop.SetActive(true);
+                        Helper.DebugLog("3333333333333333333");
+                    }
+                    else
+                    {
+                        // StartCoroutine(GameManager.Instance.IEPlaySong());
+                        Helper.DebugLog("OpenRatePopup play free");
+                        EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.FREE);
+                    }
+                }
+            }
+            else
+            {
+                if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
+                {
+                    if (GameManager.Instance.IsStoryWeekEnd())
+                    {
+                        EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.END_STORY);
+                    }
+                    else
+                    {
+                        EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.STORY);
+                    }
+                }
+                else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+                {
+                    EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.FREE);
+                }
+            }
         }
 
         public void CloseRatePopup()
@@ -246,58 +303,53 @@ namespace RhythmGameStarter
 
         public void OpenWinPopup(bool _value)
         {
-            // ProfileManager.MyProfile.m_OpenRateUs++;
-            // ProfileManager.Instance.SaveData();
-
-            // // if (ProfileManager.MyProfile.m_OpenRateUs > 4 && ProfileManager.MyProfile.m_RateUs == 0)
-            // // {
-            // //     UIManager.Instance.OpenRatePopup();
-            // //     ProfileManager.MyProfile.m_OpenRateUs = 0;
-            // //     ProfileManager.Instance.SaveData();
-            // // }
-
-            // g_WinPop.SetActive(_value);
-
-            if (_value)
+            if (GameManager.Instance.m_ModePlay == ModePlay.STORY)
             {
-                // GameManager.Instance.ContinueNextFreeSong();
-                // EventManager1<int>.CallEvent(GameEvent.RATE, m_StarNo)
-                EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.FREE);
-                // EventManager1<>
-            }
-            else
-            {
-                // GameManager.Instance.ContinueNextStorySong();
-
-                if (GameManager.Instance.IsStoryWeekEnd())
+                if (GameManager.Instance.m_StorysongNo == 0)
                 {
-                    // if (ProfileManager.GetWeek() < 8)
-                    // {
-                    //     ProfileManager.SetWeek(ProfileManager.GetWeek() + 1);
-                    // }
-                    // AnalysticsManager.LogWinZoneX(GameManager.Instance.m_WeekNo);
-
-                    // g_WinPop.SetActive(true);
-
-                    // Helper.DebugLog("OEPN WINnnnnnnnnnnnnnnnnnnnnnn");
-                    EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.END_STORY);
+                    UIManager.Instance.OpenRatePopup();
                 }
                 else
                 {
-                    // StatsSystem.Instance.score = 0;
-                    // StatsSystem.Instance.combo = 0;
-                    // StatsSystem.Instance.missed = 0;
-                    // StatsSystem.Instance.UpdateScoreDisplay();
-                    // ComboSystem.Instance.UpdateComboDisplay();
-                    // GameManager.Instance.txt_Miss.text = "MISS:" + StatsSystem.Instance.missed.ToString();
-
-                    // GameManager.Instance.NextWeekSong();
-
-                    EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.STORY);
+                    if (_value)
+                    {
+                        EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.FREE);
+                    }
+                    else
+                    {
+                        if (GameManager.Instance.IsStoryWeekEnd())
+                        {
+                            EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.END_STORY);
+                        }
+                        else
+                        {
+                            EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.STORY);
+                        }
+                    }
                 }
             }
-
-            // EventManager.CallEvent(GameEvent.WATCH_INTER);
+            else if (GameManager.Instance.m_ModePlay == ModePlay.FREEPLAY)
+            {
+                UIManager.Instance.OpenRatePopup();
+            }
+            else
+            {
+                if (_value)
+                {
+                    EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.FREE);
+                }
+                else
+                {
+                    if (GameManager.Instance.IsStoryWeekEnd())
+                    {
+                        EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.END_STORY);
+                    }
+                    else
+                    {
+                        EventManager1<InterType>.CallEvent(GameEvent.WATCH_INTER, InterType.STORY);
+                    }
+                }
+            }
         }
     }
 }

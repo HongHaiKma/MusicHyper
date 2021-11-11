@@ -22,6 +22,9 @@ namespace RhythmGameStarter
         public int m_OpenRateUs;
         public int m_RateUs;
 
+        public int m_FreeRate;
+        public int m_ChallengeRate;
+
         public int m_StoryWeek;
 
         public int m_SelectedCharacter = 0;
@@ -48,6 +51,10 @@ namespace RhythmGameStarter
 
             m_Gold = new BigNumber(ic_Gold);
             m_Keys = new BigNumber(ic_Keys);
+
+            m_FreeRate = 0;
+            m_ChallengeRate = 0;
+
             LoadSongData();
             LoadWeekData();
             // if (GetCharacterProfile(CharacterType.BATMAN) != null)
@@ -98,6 +105,9 @@ namespace RhythmGameStarter
 
             m_OpenRateUs = 0;
             m_RateUs = 0;
+
+            m_FreeRate = 0;
+            m_ChallengeRate = 0;
 
             m_Week = 1;
 

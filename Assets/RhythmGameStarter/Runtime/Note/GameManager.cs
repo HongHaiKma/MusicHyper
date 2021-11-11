@@ -592,7 +592,7 @@ namespace RhythmGameStarter
             }
         }
 
-        IEnumerator IEPlaySong()
+        public IEnumerator IEPlaySong()
         {
             // SongManager.Instance.DisplayTime();
             // Time.timeScale = 1.5f;

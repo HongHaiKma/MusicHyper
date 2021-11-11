@@ -8,6 +8,9 @@ using RhythmGameStarter;
 using Facebook.Unity;
 // using AudienceNetwork;
 
+// namespace RhythmGameStarter
+// {
+
 [DefaultExecutionOrder(-92)]
 
 #region MAX
@@ -17,6 +20,9 @@ public class AdsManager : Singleton<AdsManager>
 
     // private BannerView m_BannerView;
     // private string m_BannerId = "ca-app-pub-3940256099942544/6300978111";
+    public int m_FreeplayRate;
+    public int m_ChallengeRate;
+
     public bool m_BannerLoaded;
 
     // private InterstitialAd interstitial;
@@ -56,6 +62,9 @@ public class AdsManager : Singleton<AdsManager>
     {
         // AudienceNetworkAds.Initialize();
         // FB.Init();
+
+        m_FreeplayRate = 0;
+        m_ChallengeRate = 0;
 
         if (!PlayerPrefs.HasKey(m_Ads))
         {
@@ -103,11 +112,11 @@ public class AdsManager : Singleton<AdsManager>
 
         MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
             {
-                // AppLovin SDK is initialized, configure and start loading ads.
-                Debug.Log("MAX SDK Initialized");
-                // MaxSdk.ShowMediationDebugger();
+                    // AppLovin SDK is initialized, configure and start loading ads.
+                    Debug.Log("MAX SDK Initialized");
+                    // MaxSdk.ShowMediationDebugger();
 
-                InitializeInterstitialAds();
+                    InitializeInterstitialAds();
                 InitializeRewardedAds();
                 InitializeBannerAds();
             };
@@ -896,4 +905,5 @@ public enum RewardType
 //     END_STORY,
 //     STORY,
 //     FREE
+// }
 // }
